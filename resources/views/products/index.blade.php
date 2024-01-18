@@ -23,7 +23,7 @@
                                 <!--begin::Content-->
                                 <div class="me-5 px-10 w-500px text-start">
                                     <!--begin::Title-->
-                                    <a href="{{ route('laptops.configure', $laptop->id) }}" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
+                                    <a href="javascript:void()" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
                                     <!--end::Title-->
                                     <!--begin::Desc-->
                                     <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">{{ $laptop->code }}</span>
