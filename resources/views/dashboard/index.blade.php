@@ -113,9 +113,9 @@
             <div class="d-flex flex-stack flex-grow-1">
                 <!--begin::Content-->
                 <div class="fw-semibold">
-                    <h4 class="text-gray-900 fw-bold">We need your attention!</h4>
-                    <div class="fs-6 text-gray-700">You haven't connected your Facebook ad account - 
-                    <a href="{{ route('billing') }}" class="fw-bold">Connect your Ad Account</a>.</div>
+                    <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
+                    <div class="fs-6 text-gray-700">Poveži tvoj nalog sa Facebook, Shopify i SlanjePaketa platformama - 
+                    <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
                 </div>
                 <!--end::Content-->
             </div>
