@@ -37,7 +37,7 @@
                     <!--begin::Content-->
                     <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
                         <!--begin::Image-->
-                        <img class="theme-light-show mx-auto mw-100 w-150px w-lg-200px mb-3" src="{{ asset('/media/logos/logo.png?v=1') }}" alt="{{ config('app.name') }}" />
+                        <img class="theme-light-show mx-auto mw-100 w-150px w-lg-200px mb-3" src="{{ asset('/media/logos/logo.webp?v=1') }}" alt="{{ config('app.name') }}" />
                         <!--end::Image-->
                         <!--begin::Title-->
                         <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-3">Fast, Efficient and Productive</h1>
