@@ -52,12 +52,6 @@ class RegisteredUserController extends Controller
             'admin' => true
         ]);
 
-        $company->createAsStripeCustomer([
-            'email' => $user->email,
-            'name' => $user->name,
-            'description' => $company->name
-        ]);
-
         event(new Registered($user));
 
         Auth::login($user);
