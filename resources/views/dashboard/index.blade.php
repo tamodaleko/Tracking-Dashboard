@@ -193,7 +193,7 @@
                             <div class="d-flex flex-stack flex-grow-1">
                                 <!--begin::Content-->
                                 <div class="fw-semibold">
-                                    <h4 class="text-gray-900 m-0">You don't have any orders yet.</h4>
+                                    <h4 class="text-gray-900 m-0">Trenutno nemaš aktivnih kampanja.</h4>
                                 </div>
                                 <!--end::Content-->
                             </div>
