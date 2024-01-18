@@ -38,7 +38,7 @@
                                         <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
                                             U pripremi: {{ $product->qty_sending }}
                                         </span>
-                                        <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">Cena: <span class="fs-2 px-2 fw-bold">RSD {{ number_format($product->price, 2) }}</span></span>
+                                        <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">Cena: <span class="fs-3 px-2 fw-bold">RSD {{ number_format($product->price, 2) }}</span></span>
                                     </div>
                                     <!--end::Content-->
                                 </div>
