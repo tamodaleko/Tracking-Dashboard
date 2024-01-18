@@ -228,6 +228,1175 @@
     </div>
     <!--end::Row-->
     <!--begin::Row-->
+    <div class="row gy-5 g-xl-10">
+        <!--begin::Col-->
+        <div class="col-xl-6 mb-xl-10">
+            <!--begin::List widget 17-->
+            <div class="card card-flush h-xl-100">
+                <!--begin::Header-->
+                <div class="card-header pt-7">
+                    <!--begin::Title-->
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold text-gray-800">Popular Products</span>
+                        <span class="text-gray-500 mt-1 fw-semibold fs-6">8k social visitors</span>
+                    </h3>
+                    <!--end::Title-->
+                    <!--begin::Toolbar-->
+                    <div class="card-toolbar">
+                        <a href="apps/ecommerce/catalog/add-product.html" class="btn btn-sm btn-light">Add Product</a>
+                    </div>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Body-->
+                <div class="card-body pt-0">
+                    <!--begin::Content-->
+                    <div class="d-flex flex-stack my-5">
+                        <span class="text-gray-500 fs-7 fw-bold">ITEM</span>
+                        <span class="text-gray-500 fw-bold fs-7">ITEM PRICE</span>
+                    </div>
+                    <!--end::Content-->
+                    <!--begin::Item-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-center me-3">
+                            <!--begin::Icon-->
+                            <img src="assets/media/stock/ecommerce/14.png" class="me-4 w-50px" alt="" />
+                            <!--end::Icon-->
+                            <!--begin::Section-->
+                            <div class="flex-grow-1">
+                                <a href="apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fs-5 fw-bold lh-0">Fjallraven</a>
+                                <span class="text-gray-500 fw-semibold d-block fs-7">Item: #XDG-6437</span>
+                            </div>
+                            <!--end::Section-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Value-->
+                        <span class="text-gray-800 fw-bold fs-6">$ 72.00</span>
+                        <!--end::Value-->
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Separator-->
+                    <div class="separator separator-dashed my-4"></div>
+                    <!--end::Separator-->
+                    <!--begin::Item-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-center me-3">
+                            <!--begin::Icon-->
+                            <img src="assets/media/stock/ecommerce/13.png" class="me-4 w-50px" alt="" />
+                            <!--end::Icon-->
+                            <!--begin::Section-->
+                            <div class="flex-grow-1">
+                                <a href="apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fs-5 fw-bold lh-0">Nike AirMax</a>
+                                <span class="text-gray-500 fw-semibold d-block fs-7">Item: #XDG-1836</span>
+                            </div>
+                            <!--end::Section-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Value-->
+                        <span class="text-gray-800 fw-bold fs-6">$ 45.00</span>
+                        <!--end::Value-->
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Separator-->
+                    <div class="separator separator-dashed my-4"></div>
+                    <!--end::Separator-->
+                    <!--begin::Item-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-center me-3">
+                            <!--begin::Icon-->
+                            <img src="assets/media/stock/ecommerce/41.png" class="me-4 w-50px" alt="" />
+                            <!--end::Icon-->
+                            <!--begin::Section-->
+                            <div class="flex-grow-1">
+                                <a href="apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fs-5 fw-bold lh-0">Bose QC 35</a>
+                                <span class="text-gray-500 fw-semibold d-block fs-7">Item: #XDG-6254</span>
+                            </div>
+                            <!--end::Section-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Value-->
+                        <span class="text-gray-800 fw-bold fs-6">$ 168.00</span>
+                        <!--end::Value-->
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Separator-->
+                    <div class="separator separator-dashed my-4"></div>
+                    <!--end::Separator-->
+                    <!--begin::Item-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-center me-3">
+                            <!--begin::Icon-->
+                            <img src="assets/media/stock/ecommerce/53.png" class="me-4 w-50px" alt="" />
+                            <!--end::Icon-->
+                            <!--begin::Section-->
+                            <div class="flex-grow-1">
+                                <a href="apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fs-5 fw-bold lh-0">Greeny</a>
+                                <span class="text-gray-500 fw-semibold d-block fs-7">Item: #XDG-1746</span>
+                            </div>
+                            <!--end::Section-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Value-->
+                        <span class="text-gray-800 fw-bold fs-6">$ 14.50</span>
+                        <!--end::Value-->
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Separator-->
+                    <div class="separator separator-dashed my-4"></div>
+                    <!--end::Separator-->
+                    <!--begin::Item-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-center me-3">
+                            <!--begin::Icon-->
+                            <img src="assets/media/stock/ecommerce/71.png" class="me-4 w-50px" alt="" />
+                            <!--end::Icon-->
+                            <!--begin::Section-->
+                            <div class="flex-grow-1">
+                                <a href="apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fs-5 fw-bold lh-0">Apple Watches</a>
+                                <span class="text-gray-500 fw-semibold d-block fs-7">Item: #XDG-6245</span>
+                            </div>
+                            <!--end::Section-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Value-->
+                        <span class="text-gray-800 fw-bold fs-6">$ 362.00</span>
+                        <!--end::Value-->
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Separator-->
+                    <div class="separator separator-dashed my-4"></div>
+                    <!--end::Separator-->
+                    <!--begin::Item-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-center me-3">
+                            <!--begin::Icon-->
+                            <img src="assets/media/stock/ecommerce/194.png" class="me-4 w-50px" alt="" />
+                            <!--end::Icon-->
+                            <!--begin::Section-->
+                            <div class="flex-grow-1">
+                                <a href="apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fs-5 fw-bold lh-0">Friendly Robot</a>
+                                <span class="text-gray-500 fw-semibold d-block fs-7">Item: #XDG-2347</span>
+                            </div>
+                            <!--end::Section-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Value-->
+                        <span class="text-gray-800 fw-bold fs-6">$ 48.00</span>
+                        <!--end::Value-->
+                    </div>
+                    <!--end::Item-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::List widget 17-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-xl-6 mb-xl-10">
+            <!--begin::List widget 16-->
+            <div class="card card-flush h-xl-100">
+                <!--begin::Header-->
+                <div class="card-header pt-7">
+                    <!--begin::Title-->
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold text-gray-800">Delivery Tracking</span>
+                        <span class="text-gray-500 mt-1 fw-semibold fs-6">56 deliveries in progress</span>
+                    </h3>
+                    <!--end::Title-->
+                    <!--begin::Toolbar-->
+                    <div class="card-toolbar">
+                        <a href="#" class="btn btn-sm btn-light" data-bs-toggle='tooltip' data-bs-dismiss='click' data-bs-custom-class="tooltip-inverse" title="Delivery App is coming soon">View All</a>
+                    </div>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Body-->
+                <div class="card-body pt-4 px-0">
+                    <!--begin::Nav-->
+                    <ul class="nav nav-pills nav-pills-custom item position-relative mx-9 mb-9">
+                        <!--begin::Item-->
+                        <li class="nav-item col-4 mx-0 p-0">
+                            <!--begin::Link-->
+                            <a class="nav-link active d-flex justify-content-center w-100 border-0 h-100" data-bs-toggle="pill" href="#kt_list_widget_16_tab_1">
+                                <!--begin::Subtitle-->
+                                <span class="nav-text text-gray-800 fw-bold fs-6 mb-3">New</span>
+                                <!--end::Subtitle-->
+                                <!--begin::Bullet-->
+                                <span class="bullet-custom position-absolute z-index-2 bottom-0 w-100 h-4px bg-primary rounded"></span>
+                                <!--end::Bullet-->
+                            </a>
+                            <!--end::Link-->
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="nav-item col-4 mx-0 px-0">
+                            <!--begin::Link-->
+                            <a class="nav-link d-flex justify-content-center w-100 border-0 h-100" data-bs-toggle="pill" href="#kt_list_widget_16_tab_2">
+                                <!--begin::Subtitle-->
+                                <span class="nav-text text-gray-800 fw-bold fs-6 mb-3">Preparing</span>
+                                <!--end::Subtitle-->
+                                <!--begin::Bullet-->
+                                <span class="bullet-custom position-absolute z-index-2 bottom-0 w-100 h-4px bg-primary rounded"></span>
+                                <!--end::Bullet-->
+                            </a>
+                            <!--end::Link-->
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="nav-item col-4 mx-0 px-0">
+                            <!--begin::Link-->
+                            <a class="nav-link d-flex justify-content-center w-100 border-0 h-100" data-bs-toggle="pill" href="#kt_list_widget_16_tab_3">
+                                <!--begin::Subtitle-->
+                                <span class="nav-text text-gray-800 fw-bold fs-6 mb-3">Shipping</span>
+                                <!--end::Subtitle-->
+                                <!--begin::Bullet-->
+                                <span class="bullet-custom position-absolute z-index-2 bottom-0 w-100 h-4px bg-primary rounded"></span>
+                                <!--end::Bullet-->
+                            </a>
+                            <!--end::Link-->
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Bullet-->
+                        <span class="position-absolute z-index-1 bottom-0 w-100 h-4px bg-light rounded"></span>
+                        <!--end::Bullet-->
+                    </ul>
+                    <!--end::Nav-->
+                    <!--begin::Tab Content-->
+                    <div class="tab-content px-9 hover-scroll-overlay-y pe-7 me-3 mb-2" style="height: 454px">
+                        <!--begin::Tap pane-->
+                        <div class="tab-pane fade show active" id="kt_list_widget_16_tab_1">
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Brooklyn Simmons</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">6391 Elgin St. Celina, Delaware 10299</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Ralph Edwards</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">2464 Royal Ln. Mesa, New Jersey 45463</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Cameron Williamson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3891 Ranchview Dr. Richardson, California 62639</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Kristin Watson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">8502 Preston Rd. Inglewood, Maine 98380</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Albert Flores</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3517 W. Gray St. Utica, Pennsylvania 57867</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Jessie Clarcson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">Total 2,356 Items in the Stock</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Cameron Williamson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3891 Ranchview Dr. Richardson, California 62639</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Kristin Watson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">8502 Preston Rd. Inglewood, Maine 98380</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Brooklyn Simmons</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">6391 Elgin St. Celina, Delaware 10299</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Ralph Edwards</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">2464 Royal Ln. Mesa, New Jersey 45463</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                        </div>
+                        <!--end::Tap pane-->
+                        <!--begin::Tap pane-->
+                        <div class="tab-pane fade" id="kt_list_widget_16_tab_2">
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Cameron Williamson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3891 Ranchview Dr. Richardson, California 62639</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Kristin Watson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">8502 Preston Rd. Inglewood, Maine 98380</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Brooklyn Simmons</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">6391 Elgin St. Celina, Delaware 10299</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Ralph Edwards</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">2464 Royal Ln. Mesa, New Jersey 45463</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Cameron Williamson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3891 Ranchview Dr. Richardson, California 62639</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Kristin Watson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">8502 Preston Rd. Inglewood, Maine 98380</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Albert Flores</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3517 W. Gray St. Utica, Pennsylvania 57867</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Jessie Clarcson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">Total 2,356 Items in the Stock</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Albert Flores</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3517 W. Gray St. Utica, Pennsylvania 57867</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Jessie Clarcson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">Total 2,356 Items in the Stock</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                        </div>
+                        <!--end::Tap pane-->
+                        <!--begin::Tap pane-->
+                        <div class="tab-pane fade" id="kt_list_widget_16_tab_3">
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Albert Flores</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3517 W. Gray St. Utica, Pennsylvania 57867</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Jessie Clarcson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">Total 2,356 Items in the Stock</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Brooklyn Simmons</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">6391 Elgin St. Celina, Delaware 10299</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Ralph Edwards</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">2464 Royal Ln. Mesa, New Jersey 45463</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Brooklyn Simmons</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">6391 Elgin St. Celina, Delaware 10299</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Ralph Edwards</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">2464 Royal Ln. Mesa, New Jersey 45463</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Cameron Williamson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3891 Ranchview Dr. Richardson, California 62639</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Kristin Watson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">8502 Preston Rd. Inglewood, Maine 98380</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Separator-->
+                            <div class="separator separator-dashed mt-5 mb-4"></div>
+                            <!--end::Separator-->
+                            <!--begin::Item-->
+                            <div class="m-0">
+                                <!--begin::Timeline-->
+                                <div class="timeline timeline-border-dashed">
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item pb-5">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-cd fs-2 text-success"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-success text-uppercase">Sender</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Cameron Williamson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">3891 Ranchview Dr. Richardson, California 62639</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                    <!--begin::Timeline item-->
+                                    <div class="timeline-item">
+                                        <!--begin::Timeline line-->
+                                        <div class="timeline-line"></div>
+                                        <!--end::Timeline line-->
+                                        <!--begin::Timeline icon-->
+                                        <div class="timeline-icon">
+                                            <i class="ki-outline ki-geolocation fs-2 text-info"></i>
+                                        </div>
+                                        <!--end::Timeline icon-->
+                                        <!--begin::Timeline content-->
+                                        <div class="timeline-content m-0">
+                                            <!--begin::Label-->
+                                            <span class="fs-8 fw-bolder text-info text-uppercase">Receiver</span>
+                                            <!--begin::Label-->
+                                            <!--begin::Title-->
+                                            <a href="#" class="fs-6 text-gray-800 fw-bold d-block text-hover-primary">Kristin Watson</a>
+                                            <!--end::Title-->
+                                            <!--begin::Title-->
+                                            <span class="fw-semibold text-gray-500">8502 Preston Rd. Inglewood, Maine 98380</span>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Timeline content-->
+                                    </div>
+                                    <!--end::Timeline item-->
+                                </div>
+                                <!--end::Timeline-->
+                            </div>
+                            <!--end::Item-->
+                        </div>
+                        <!--end::Tap pane-->
+                    </div>
+                    <!--end::Tab Content-->
+                </div>
+                <!--end: Card Body-->
+            </div>
+            <!--end::List widget 16-->
+        </div>
+        <!--end::Col-->
+    </div>
+    <!--begin::Row-->
     <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
         <!--begin::Col-->
         <div class="col-xl-12">
