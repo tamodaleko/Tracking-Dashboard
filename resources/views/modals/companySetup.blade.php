@@ -8,7 +8,7 @@
             <div class="modal-header align-self-center">
                 <!--begin::Modal title-->
                 <h2 class="text-center m-0 d-flex align-items-center">
-                    <span class="px-2">Poveži nalog</span>
+                    <span>Poveži nalog</span>
                 </h2>
                 <!--end::Modal title-->
             </div>
