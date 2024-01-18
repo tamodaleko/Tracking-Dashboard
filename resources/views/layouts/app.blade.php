@@ -186,7 +186,7 @@
                                                 <a href="{{ route('products.index') }}" class="@if (Route::currentRouteName() === 'products.index') btn-light-primary @endif btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
                                                     <!--begin::Icon-->
                                                     <span class="mb-2">
-                                                        <i class="ki-outline ki-laptop fs-1"></i>
+                                                        <i class="ki-outline ki-barcode fs-1"></i>
                                                     </span>
                                                     <!--end::Icon-->
                                                     <!--begin::Label-->
