@@ -145,21 +145,6 @@
                         <span class="text-gray-500 mt-1 fw-semibold fs-6">Users from all channels</span>
                     </h3>
                     <!--end::Title-->
-                    <!--begin::Toolbar-->
-                    <div class="card-toolbar">
-                        <ul class="nav" id="kt_chart_widget_11_tabs">
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light fw-bold px-4 me-1" data-bs-toggle="tab" id="kt_charts_widget_11_tab_1" href="#kt_chart_widget_11_tab_content_1">2020</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light fw-bold px-4 me-1" data-bs-toggle="tab" id="kt_charts_widget_11_tab_2" href="#kt_chart_widget_11_tab_content_2">2021</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light fw-bold px-4 me-1 active" data-bs-toggle="tab" id="kt_charts_widget_11_tab_3" href="#kt_chart_widget_11_tab_content_3">Month</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--end::Toolbar-->
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
