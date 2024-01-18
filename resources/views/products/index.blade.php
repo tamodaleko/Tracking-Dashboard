@@ -8,7 +8,7 @@
     </div>
     <!--begin::Row-->
     <div class="row mb-6 mb-xl-9">
-        @if (count($users))
+        @if (count($products))
             @foreach ($products as $product)
                 <!--begin::Col-->
                 <div class="col-md-12 mb-5">
