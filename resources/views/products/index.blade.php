@@ -3,7 +3,7 @@
 
     <div class="d-flex flex-wrap flex-stack mb-6">
         <!--begin::Title-->
-        <h3 class="fw-bold my-2">Available Products</h3>
+        <h3 class="fw-bold my-2">Dostupni proizvodi</h3>
         <!--end::Title-->
     </div>
     <!--begin::Row-->
