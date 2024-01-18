@@ -12,10 +12,10 @@ class DashboardController extends Controller
         $company = $request->user()->company;
         
         return view('dashboard.index', [
-            'orders' => $company->orders()->count(),
-            'spent' => $company->orders()->sum('total'),
+            'orders' => 0,
+            'spent' => 0,
             'licenses' => 0,
-            'latestOrders' => $company->orders()->latest()->limit(5)->get()
+            'latestOrders' => []
         ]);
     }
 }
