@@ -1,1 +1,1 @@
-Workspace Console
+Tracking Dashboard
