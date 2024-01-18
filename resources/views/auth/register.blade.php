@@ -109,15 +109,6 @@
                     <!--end::Repeat Password-->
                 </div>
                 <!--end::Input group=-->
-                <!--begin::Accept-->
-                <div class="fv-row mb-8">
-                    <label class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="toc" value="1" />
-                        <span class="form-check-label fw-semibold text-gray-700 fs-base ms-1">I Accept the 
-                        <a href="#" class="ms-1 link-primary">Terms & Conditions</a></span>
-                    </label>
-                </div>
-                <!--end::Accept-->
                 <!--begin::Submit button-->
                 <div class="d-grid mb-5">
                     <button type="submit" class="btn btn-primary">
