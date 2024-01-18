@@ -21,8 +21,8 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    dd((new \App\Services\SPService)->getProducts());
-    $api = \FacebookAds\Api::init('1409959359610602', '7709b913e276c61a737f7fe081890061', 'EAAUCWb7GZCuoBOZCyp9Ds3MaBTpgUVSzzvKfhZBM8wUlu9nmR35GdOkkfJU8zYcTDEHUWZA505dMglryQRxEHcCo1DhxBJt6eLcVRHQ7DsZAKz8GuQtZBUDtYzRr2P5QH8FYlB4K33d7lfmKZBCchqnIHohZBsX9ikdOOVbr1HIgbZAjhhjRX1S0fdwnejvqDxA8ZCRdxnQj38');
+    // dd((new \App\Services\SPService)->getProducts());
+    $api = \FacebookAds\Api::init('1409959359610602', '7709b913e276c61a737f7fe081890061', 'EAAUCWb7GZCuoBOZC5otBpMce7zvE5TUKFjHy7dKQn3D8xzpCjuSTa2CXMaLDvFyFlODV5SaZBKTE4di0duXLFdPgZAFQX05Q9x6EGzE698pWICFrZA4k9OtxNrGQ7CGO1KzwK6fanUoHm1QlBlcZAViWduTXWOQhhpri2ZBwwbopWUZBnoqpuNSSIOuCaGPe4PGP');
 
     // The Api object is now available through singleton
     $api->setLogger(new \FacebookAds\Logger\CurlLogger());
@@ -30,41 +30,29 @@ Route::get('/test', function () {
     $fields = [
       'reach',
       'impressions',
-      'results',
-      'delivery',
+      'objective',
       'spend',
-      'actions:omni_purchase',
-      'actions:app_custom_event.fb_mobile_purchase',
-      'actions:offsite_conversion.fb_pixel_purchase',
-      'actions:offline_conversion.purchase',
-      'actions:onsite_conversion.purchase',
-      'unique_actions:omni_purchase',
-      'unique_actions:app_custom_event.fb_mobile_purchase',
-      'action_values:omni_purchase',
-      'action_values:app_custom_event.fb_mobile_purchase',
-      'action_values:offsite_conversion.fb_pixel_purchase',
-      'action_values:offline_conversion.purchase',
-      'action_values:onsite_conversion.purchase',
-      'cost_per_unique_action_type:omni_purchase',
-      'cost_per_action_type:omni_purchase',
-      'campaign_group_id',
-      'campaign_group_name',
-      'account_id',
-      'account_name'
+      'cpc',
+      'clicks',
+      'campaign_name',
+      'conversions'
     ];
     
     $params = [
-      'time_range' => ['since' => '2023-12-19','until' => '2024-01-18'],
-      'filtering' => [],
-      'level' => 'campaign',
-      'breakdowns' => []
+      'time_range' => ['since' => '2024-01-10','until' => '2024-01-19']
     ];
 
-    $acc = new \FacebookAds\Object\AdAccount('act_406249175264796');
+    $acc = new \FacebookAds\Object\AdAccount('act_622598460014195');
 
-    $campaign = new \FacebookAds\Object\Campaign('120330000218110110');
+    $campaigns = $acc->getCampaigns()->getResponse()->getContent();
 
-    dd($campaign->getInsights()->getResponse()->getContent());
+    foreach ($campaigns['data'] as $campaign) {
+      $campaign = new \FacebookAds\Object\Campaign($campaign['id']);
+
+      dd($campaign->getInsights($fields, $params)->getResponse()->getContent());
+    }
+
+    dd($acc->getInsights($fields, $params)->getResponse()->getContent());
 
     // $campaign = $acc->createCampaign(
     //     [],
