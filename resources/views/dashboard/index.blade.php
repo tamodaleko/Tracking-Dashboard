@@ -20,6 +20,25 @@
         </div>
     @endif
 
+    @if (true)
+        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
+            <!--begin::Icon-->
+            <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
+            <!--end::Icon-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-stack flex-grow-1">
+                <!--begin::Content-->
+                <div class="fw-semibold">
+                    <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
+                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i Slanje Paketa platformama - 
+                    <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
+                </div>
+                <!--end::Content-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+    @endif
+
     <!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
     <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today" class="btn btn-sm bg-light-primary border border-primary d-flex align-items-center justify-content-center px-4 w-250px mb-10">
         <!--begin::Display range-->

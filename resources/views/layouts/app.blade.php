@@ -167,7 +167,7 @@
                                             <span class="fs-7 text-gray-500 fw-bold">Firma</span>
                                             <!--end::Date-->
                                             <!--begin::Label-->
-                                            <div class="fs-3 fw-bold text-info">{{ auth()->user()->company->name }}</div>
+                                            <div class="fs-3 fw-bolder text-dark">{{ auth()->user()->company->name }}</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -257,7 +257,7 @@
                                 <!--end::Toolbar-->
                                 @if (session()->has('success'))
                                     <!--begin::Alert-->
-                                    <div class="alert alert-dismissible bg-light-success d-flex flex-column flex-sm-row p-5 mb-10 align-items-center">
+                                    <div class="alert alert-dismissible bg-light-success d-flex flex-column flex-sm-row p-5 mb-10 align-items-center border border-success border-dashed">
                                         <!--begin::Icon-->
                                         <i class="ki-duotone ki-shield-tick fs-2tx text-success me-4 mb-5 mb-sm-0">
                                             <span class="path1"></span>
@@ -286,7 +286,7 @@
 
                                 @if (session()->has('error'))
                                     <!--begin::Alert-->
-                                    <div class="alert alert-dismissible bg-light-danger d-flex flex-column flex-sm-row p-5 mb-10 align-items-center">
+                                    <div class="alert alert-dismissible bg-light-danger d-flex flex-column flex-sm-row p-5 mb-10 align-items-center border border-danger border-dashed">
                                         <!--begin::Icon-->
                                         <i class="ki-duotone ki-shield-cross fs-2tx text-danger me-4 mb-5 mb-sm-0">
                                             <span class="path1"></span>
@@ -324,7 +324,7 @@
                                 <!--begin::Copyright-->
                                 <div class="text-gray-900 order-2 order-md-1">
                                     <span class="text-muted fw-semibold me-1">{{ date('Y') }}&copy;</span>
-                                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">Spherical | Workspace Console</a>
+                                    <a href="{{ route('dashboard.index') }}" class="text-gray-800 text-hover-primary">{{ config('app.name') }}</a>
                                 </div>
                                 <!--end::Copyright-->
                             </div>

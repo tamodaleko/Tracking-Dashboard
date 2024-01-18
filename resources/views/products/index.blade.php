@@ -35,10 +35,26 @@
                                         <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">
                                             Dostupno: {{ $product->qty_warehouse }}
                                         </span>
-                                        <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
                                             U pripremi: {{ $product->qty_sending }}
                                         </span>
-                                        <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">Cena: <span class="fs-3 px-2 fw-bold">RSD {{ number_format($product->price, 2) }}</span></span>
+                                        <div>
+                                            <span class="badge badge-light-info text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
+                                                <span>Kupovna cena:</span> 
+                                                @if ($product->buying_price)
+                                                    <span class="fs-5 px-2 fw-bold">
+                                                        RSD {{ number_format($product->buying_price, 2) }}
+                                                    </span>
+                                                @endif
+                                                
+                                                <button class="btn btn-sm btn-dark d-flex flex-center fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateProductPriceModal" data-action="{{ route('products.update.price', $product->id) }}" data-name="{{ $product->name }}">
+                                                    <span>Izmeni cenu</span>
+                                                </button>
+                                            </span>
+                                            <span class="badge badge-light-primary text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
+                                                Prodajna cena: <span class="fs-5 px-2 fw-bold">RSD {{ number_format($product->selling_price, 2) }}</span>
+                                            </span>
+                                        </div>
                                     </div>
                                     <!--end::Content-->
                                 </div>
@@ -68,4 +84,20 @@
         @endif
     </div>
     <!--end:Row-->
+
+    @push('modals')
+        @include('modals.updateProductPrice')
+    @endpush
+
+    @push('scripts')
+        <script type="text/javascript">
+            $('#updateProductPriceModal').on('shown.bs.modal', function (event) {
+                var action = $(event.relatedTarget).attr('data-action');
+                var name = $(event.relatedTarget).attr('data-name');
+                
+                $(this).find('form').attr('action', action);
+                $(this).find('#product-name').text(name);
+            });
+        </script>
+    @endpush
 </x-app-layout>

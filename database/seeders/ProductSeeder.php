@@ -35,7 +35,7 @@ class ProductSeeder extends Seeder
                 'name' => $product['name'],
                 'url' => $product['url'],
                 'image' => $product['image'],
-                'price' => $product['selling_price'],
+                'selling_price' => $product['selling_price'],
                 'qty_warehouse' => $product['temporary_quantity']['warehouse'],
                 'qty_sending' => $product['temporary_quantity']['for_sending']
             ]);

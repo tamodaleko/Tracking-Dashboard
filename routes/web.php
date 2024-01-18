@@ -141,6 +141,7 @@ Route::middleware('auth')->group(function () {
 
     // Products
     Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+    Route::patch('/products/{product}/price', [ProductsController::class, 'updatePrice'])->name('products.update.price');
 
     // Licenses
     Route::get('/licenses', [LicensesController::class, 'index'])->name('licenses.index');
