@@ -26,7 +26,7 @@
                                     <a href="javascript:void()" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
                                     <!--end::Title-->
                                     <!--begin::Desc-->
-                                    <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">{{ $laptop->code }}</span>
+                                    <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">{{ $product->code }}</span>
                                     <!--end::Desc-->
 
                                     <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">{{ 12 }} in stock</span>
