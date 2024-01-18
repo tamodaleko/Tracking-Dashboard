@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
-        <link rel="shortcut icon" href="{{ asset('/media/logos/favicon.png') }}" />
+        <link rel="shortcut icon" href="{{ asset('/media/logos/favicon.png?v=1') }}" />
         <!--begin::Fonts(mandatory for all pages)-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
         <!--end::Fonts-->
@@ -37,7 +37,7 @@
                     <!--begin::Content-->
                     <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
                         <!--begin::Image-->
-                        <img class="theme-light-show mx-auto mw-100 w-150px w-lg-250px" src="{{ asset('/media/logos/logo.png') }}" alt="Spherical" />
+                        <img class="theme-light-show mx-auto mw-100 w-150px w-lg-200px mb-3" src="{{ asset('/media/logos/logo.png?v=1') }}" alt="{{ config('app.name') }}" />
                         <!--end::Image-->
                         <!--begin::Title-->
                         <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-3">Fast, Efficient and Productive</h1>
