@@ -48,7 +48,7 @@
                                 <!--end::Logo wrapper-->
                                 <!--begin::Logo image-->
                                 <a href="/">
-                                    <img alt="{{ config('app.name') }}" src="{{ asset('/media/logos/logo.webp?v=1') }}" class="h-50px h-lg-70px theme-light-show" />
+                                    <img alt="{{ config('app.name') }}" src="{{ asset('/media/logos/logo.webp?v=1') }}" class="h-20px h-lg-30px theme-light-show" />
                                 </a>
                                 <!--end::Logo image-->
                             </div>
