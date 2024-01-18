@@ -124,7 +124,7 @@
                                                     "
                                                     class="menu-link px-5"
                                                 >
-                                                    Sign Out
+                                                    Odjavi se
                                                 </a>
                                             </form>
                                         </div>
