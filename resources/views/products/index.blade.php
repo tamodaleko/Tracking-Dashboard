@@ -21,7 +21,7 @@
                             <!--begin::Section-->
                             <div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
                                 <!--begin::Content-->
-                                <div class="me-5 px-10 w-600px text-start">
+                                <div class="me-5 px-10 w-700px text-start">
                                     <!--begin::Title-->
                                     <a href="javascript:void()" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
                                     <!--end::Title-->
