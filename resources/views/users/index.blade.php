@@ -10,14 +10,14 @@
                 <div class="card-header pt-7">
                     <!--begin::Title-->
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-800">Your Users</span>
-                        <span class="text-gray-500 mt-1 fw-semibold fs-6">The users who have access to your company's account.</span>
+                        <span class="card-label fw-bold text-gray-800">Korisnici</span>
+                        <span class="text-gray-500 mt-1 fw-semibold fs-6">Tvoji korisnici koji imaju pristup nalogu firme.</span>
                     </h3>
                     <!--end::Title-->
                     <div class="card-toolbar">
                         <button class="btn btn-sm btn-dark d-flex flex-center ms-3 px-4 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#createUserModal">
                             <i class="ki-outline ki-plus-square fs-2"></i>
-                            <span>New User</span>
+                            <span>Novi Korisnik</span>
                         </button>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                             <div class="d-flex flex-stack flex-grow-1">
                                 <!--begin::Content-->
                                 <div class="fw-semibold">
-                                    <h4 class="text-gray-900 m-0">You haven't added any users yet.</h4>
+                                    <h4 class="text-gray-900 m-0">Trenutno nemaš aktivnih korisnika.</h4>
                                 </div>
                                 <!--end::Content-->
                             </div>
