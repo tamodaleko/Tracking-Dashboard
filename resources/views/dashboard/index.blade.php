@@ -1,6 +1,25 @@
 <x-app-layout>
     @section('title') {{ __('Dashboard') }} @endsection
 
+    @if (true)
+        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
+            <!--begin::Icon-->
+            <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
+            <!--end::Icon-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-stack flex-grow-1">
+                <!--begin::Content-->
+                <div class="fw-semibold">
+                    <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
+                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i SlanjePaketa platformama - 
+                    <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
+                </div>
+                <!--end::Content-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+    @endif
+
     <!--begin::Row-->
     <div class="row g-5 g-xl-10 mb-5 mb-xl-0">
         <!--begin::Col-->
@@ -104,24 +123,6 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
-    @if (true)
-        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
-            <!--begin::Icon-->
-            <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
-            <!--end::Icon-->
-            <!--begin::Wrapper-->
-            <div class="d-flex flex-stack flex-grow-1">
-                <!--begin::Content-->
-                <div class="fw-semibold">
-                    <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
-                    <div class="fs-6 text-gray-700">Poveži tvoj nalog sa Facebook, Shopify i SlanjePaketa platformama - 
-                    <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
-                </div>
-                <!--end::Content-->
-            </div>
-            <!--end::Wrapper-->
-        </div>
-    @endif
     <!--begin::Row-->
     <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
         <!--begin::Col-->
