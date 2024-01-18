@@ -11,7 +11,7 @@
                 <!--begin::Content-->
                 <div class="fw-semibold">
                     <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
-                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i SlanjePaketa platformama - 
+                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i Slanje Paketa platformama - 
                     <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
                 </div>
                 <!--end::Content-->
