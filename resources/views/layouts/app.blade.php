@@ -238,7 +238,7 @@
                                                 <!--begin::Title-->
                                                 <h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-lg-2x gap-2">
                                                     <span>
-                                                    <span class="fw-light">Dobordošao nazad</span>, {{ auth()->user()->first_name }}!</span>
+                                                    <span class="fw-light">Dobrodošao nazad</span>, {{ auth()->user()->first_name }}!</span>
                                                     <!--begin::Description-->
                                                     <span class="page-desc text-gray-600 fs-base fw-semibold">Prijavljen si kao član firme: {{ auth()->user()->company->name }}.</span>
                                                     <!--end::Description-->
