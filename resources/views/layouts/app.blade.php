@@ -63,17 +63,7 @@
                                         <div class="menu-item @if (Route::currentRouteName() === 'dashboard.index') here @endif me-0 me-lg-2">
                                             <!--begin:Menu link-->
                                             <a href="{{ route('dashboard.index') }}" class="menu-link">
-                                                <span class="menu-title">Dashboard</span>
-                                                <span class="menu-arrow d-lg-none"></span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-                                        <div class="menu-item @if (Route::currentRouteName() === 'products.index') here @endif me-0 me-lg-2">
-                                            <!--begin:Menu link-->
-                                            <a href="{{ route('products.index') }}" class="menu-link">
-                                                <span class="menu-title">Products</span>
+                                                <span class="menu-title">Početna</span>
                                                 <span class="menu-arrow d-lg-none"></span>
                                             </a>
                                             <!--end:Menu link-->
@@ -84,23 +74,13 @@
                                             <div class="menu-item @if (Route::currentRouteName() === 'users.index') here @endif me-0 me-lg-2">
                                                 <!--begin:Menu link-->
                                                 <a href="{{ route('users.index') }}" class="menu-link">
-                                                    <span class="menu-title">Users</span>
+                                                    <span class="menu-title">Korisnici</span>
                                                     <span class="menu-arrow d-lg-none"></span>
                                                 </a>
                                                 <!--end:Menu link-->
                                             </div>
                                             <!--end:Menu item-->
                                         @endif
-                                        <!--begin:Menu item-->
-                                        <div class="menu-item @if (Route::currentRouteName() === 'orders.index') here @endif me-0 me-lg-2">
-                                            <!--begin:Menu link-->
-                                            <a href="{{ route('orders.index') }}" class="menu-link">
-                                                <span class="menu-title">Orders</span>
-                                                <span class="menu-arrow d-lg-none"></span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
-                                        <!--end:Menu item-->
                                     </div>
                                     <!--end::Menu-->
                                 </div>
