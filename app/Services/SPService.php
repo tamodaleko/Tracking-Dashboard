@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Order\Order;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 
@@ -11,10 +10,10 @@ class SPService
     private string $baseUrl;
     private string $apiKey;
 
-    public function __construct()
+    public function __construct(string $apiKey)
     {
         $this->baseUrl = 'https://softver.slanjepaketa.rs/api/v1';
-        $this->apiKey = config('services.sp.api_key');
+        $this->apiKey = $apiKey;
     }
 
     public function getProducts(): array

@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('title') {{ __('Dashboard') }} @endsection
 
-    @if (true)
+    @if (!auth()->user()->company->sp_api_key)
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
@@ -12,15 +12,13 @@
                 <div class="fw-semibold">
                     <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
                     <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i Slanje Paketa platformama - 
-                    <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
+                    <a href="javascript:void()" class="fw-bold" data-bs-toggle="modal" data-bs-target="#companySetupModal">Poveži nalog</a>.</div>
                 </div>
                 <!--end::Content-->
             </div>
             <!--end::Wrapper-->
         </div>
-    @endif
-
-    @if (true)
+    @elseif (auth()->user()->company->products()->where('buying_price', 0)->count())
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
@@ -29,9 +27,9 @@
             <div class="d-flex flex-stack flex-grow-1">
                 <!--begin::Content-->
                 <div class="fw-semibold">
-                    <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
-                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i Slanje Paketa platformama - 
-                    <a href="{{ route('billing') }}" class="fw-bold">Poveži nalog</a>.</div>
+                    <h4 class="text-gray-900 fw-bold">Kupovne cene nedostaju!</h4>
+                    <div class="fs-6 text-gray-700">Neki proizvodi nemaju kupovne cene. Dodaj cene da bi praćenje bilo tačno - 
+                    <a href="{{ route('products.index') }}" class="fw-bold">Izmeni cene</a>.</div>
                 </div>
                 <!--end::Content-->
             </div>
@@ -1501,4 +1499,8 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
+
+    @push('modals')
+        @include('modals.companySetup')
+    @endpush
 </x-app-layout>

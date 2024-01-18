@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaptopsController;
 use App\Http\Controllers\LicensesController;
@@ -139,6 +140,9 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+    // Companies
+    Route::patch('/companies/keys', [CompaniesController::class, 'updateKeys'])->name('companies.update.keys');
+    
     // Products
     Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
     Route::patch('/products/{product}/price', [ProductsController::class, 'updatePrice'])->name('products.update.price');

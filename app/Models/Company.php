@@ -16,10 +16,7 @@ class Company extends Model
      */
     protected $fillable = [
         'name',
-        'stripe_id',
-        'pm_type',
-        'pm_last_four',
-        'trial_ends_at',
+        'sp_api_key',
     ];
 
     public function users(): HasMany
