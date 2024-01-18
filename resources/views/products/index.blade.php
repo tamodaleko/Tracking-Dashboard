@@ -16,7 +16,7 @@
                     <div class="card-body text-center">
                         <div class="d-flex flex-stack">
                             <!--begin::Food img-->
-                            <img src="{{ $product->image }}" class="w-80px w-xxl-150px rounded rounded-xl" alt="{{ $product->name }}">
+                            <img src="{{ $product->image }}" class="w-50px w-xxl-120px rounded rounded-xl" alt="{{ $product->name }}">
                             <!--end::Food img-->
                             <!--begin::Section-->
                             <div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -27,7 +27,7 @@
                                     <!--end::Title-->
                                     <!--begin::Desc-->
                                     <span class="text-gray-500 fw-semibold fs-6 d-block text-start ps-0">
-                                        Code: {{ $product->code }}
+                                        Šifra: {{ $product->code }}
                                     </span>
                                     <!--end::Desc-->
 
