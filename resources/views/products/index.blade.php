@@ -10,13 +10,13 @@
     <div class="row mb-6 mb-xl-9">
         @foreach ($products as $product)
             <!--begin::Col-->
-            <div class="col-md-12">
+            <div class="col-md-12 mb-5">
                 <div class="card card-flush flex-row-fluid p-6 pb-5 mw-100">
                     <!--begin::Body-->
                     <div class="card-body text-center">
                         <div class="d-flex flex-stack">
                             <!--begin::Food img-->
-                            <img src="{{ $product->image }}" class="w-80px w-xxl-150px rounded rounded-xl mb-5" alt="{{ $product->name }}">
+                            <img src="{{ $product->image }}" class="w-80px w-xxl-150px rounded rounded-xl" alt="{{ $product->name }}">
                             <!--end::Food img-->
                             <!--begin::Section-->
                             <div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
