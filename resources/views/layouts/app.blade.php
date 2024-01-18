@@ -69,6 +69,16 @@
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item @if (Route::currentRouteName() === 'products.index') here @endif me-0 me-lg-2">
+                                            <!--begin:Menu link-->
+                                            <a href="{{ route('products.index') }}" class="menu-link">
+                                                <span class="menu-title">Products</span>
+                                                <span class="menu-arrow d-lg-none"></span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
                                         @if (auth()->user()->admin)
                                             <!--begin:Menu item-->
                                             <div class="menu-item @if (Route::currentRouteName() === 'users.index') here @endif me-0 me-lg-2">
@@ -86,16 +96,6 @@
                                             <!--begin:Menu link-->
                                             <a href="{{ route('orders.index') }}" class="menu-link">
                                                 <span class="menu-title">Orders</span>
-                                                <span class="menu-arrow d-lg-none"></span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-                                        <div class="menu-item me-0 me-lg-2">
-                                            <!--begin:Menu link-->
-                                            <a href="{{ route('billing') }}" class="menu-link">
-                                                <span class="menu-title">Billing</span>
                                                 <span class="menu-arrow d-lg-none"></span>
                                             </a>
                                             <!--end:Menu link-->

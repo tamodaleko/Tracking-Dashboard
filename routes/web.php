@@ -4,7 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaptopsController;
 use App\Http\Controllers\LicensesController;
 use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
@@ -139,10 +139,8 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-    // Laptops
-    Route::get('/laptops', [LaptopsController::class, 'index'])->name('laptops.index');
-    Route::get('/laptops/{laptop}/configure', [LaptopsController::class, 'configure'])->name('laptops.configure');
-    Route::post('/laptops/{laptop}/order', [LaptopsController::class, 'order'])->name('laptops.order');
+    // Products
+    Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 
     // Licenses
     Route::get('/licenses', [LicensesController::class, 'index'])->name('licenses.index');
