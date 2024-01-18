@@ -176,7 +176,7 @@
                                     <!--begin::Links-->
                                     <div class="mb-0">
                                         <!--begin::Title-->
-                                        <h3 class="text-gray-800 fw-bold mb-5">Find Products</h3>
+                                        <h3 class="text-gray-800 fw-bold mb-5">Navigacija</h3>
                                         <!--end::Title-->
                                         <!--begin::Row-->
                                         <div class="row g-5" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button]">
@@ -190,7 +190,7 @@
                                                     </span>
                                                     <!--end::Icon-->
                                                     <!--begin::Label-->
-                                                    <span class="fs-7 fw-bold">Products</span>
+                                                    <span class="fs-7 fw-bold">Proizvodi</span>
                                                     <!--end::Label-->
                                                 </a>
                                                 <!--end::Link-->
@@ -206,7 +206,7 @@
                                                     </span>
                                                     <!--end::Icon-->
                                                     <!--begin::Label-->
-                                                    <span class="fs-7 fw-bold">Licenses</span>
+                                                    <span class="fs-7 fw-bold">Porudžbine</span>
                                                     <!--end::Label-->
                                                 </a>
                                                 <!--end::Link-->
