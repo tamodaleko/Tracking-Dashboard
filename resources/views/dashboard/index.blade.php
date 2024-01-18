@@ -21,7 +21,7 @@
     @endif
 
     <!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
-    <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today" class="btn btn-sm bg-light-primary border border-dashed border-primary d-flex align-items-center justify-content-center px-4 w-250px mb-10">
+    <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today" class="btn btn-sm bg-light-primary border border-primary d-flex align-items-center justify-content-center px-4 w-250px mb-10">
         <!--begin::Display range-->
         <div class="text-dark fw-bold">Učitavanje datuma...</div>
         <!--end::Display range-->
