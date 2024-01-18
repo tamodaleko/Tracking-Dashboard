@@ -164,7 +164,7 @@
                                         <!--begin::Stat-->
                                         <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 text-center">
                                             <!--begin::Date-->
-                                            <span class="fs-7 text-gray-500 fw-bold">Company</span>
+                                            <span class="fs-7 text-gray-500 fw-bold">Firma</span>
                                             <!--end::Date-->
                                             <!--begin::Label-->
                                             <div class="fs-3 fw-bold text-info">{{ auth()->user()->company->name }}</div>
