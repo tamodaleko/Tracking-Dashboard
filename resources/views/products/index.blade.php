@@ -16,7 +16,7 @@
                     <div class="card-body text-center">
                         <div class="d-flex flex-stack">
                             <!--begin::Food img-->
-                            <img src="{{ $product->image }}" class="w-80px w-xxl-150px" alt="{{ $product->name }}">
+                            <img src="{{ $product->image }}" class="w-80px w-xxl-150px rounded rounded-xl mb-5" alt="{{ $product->name }}">
                             <!--end::Food img-->
                             <!--begin::Section-->
                             <div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -26,12 +26,18 @@
                                     <a href="javascript:void()" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
                                     <!--end::Title-->
                                     <!--begin::Desc-->
-                                    <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">{{ $product->code }}</span>
+                                    <span class="text-gray-500 fw-semibold fs-6 d-block text-start ps-0">
+                                        Code: {{ $product->code }}
+                                    </span>
                                     <!--end::Desc-->
 
-                                    <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">{{ 12 }} in stock</span>
-                                    <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">special price ends 12/31</span>
-                                    <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">Price <span class="fs-2 px-2 fw-bold">${{ $product->price }}</span></span>
+                                    <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                        Dostupno: {{ $product->qty_warehouse - $product->qty_sending }}
+                                    </span>
+                                    <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                        U pripremi: {{ $product->qty_sending }}
+                                    </span>
+                                    <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">Cena: <span class="fs-2 px-2 fw-bold">RSD {{ number_format($product->price, 2) }}</span></span>
                                 </div>
                                 <!--end::Content-->
                             </div>
