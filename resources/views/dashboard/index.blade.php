@@ -55,7 +55,7 @@
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
                         <span class="fw-bolder fs-2x text-gray-900">{{ $orders }}</span>
-                        <span class="fw-bold fs-7 text-gray-500">Total orders</span>
+                        <span class="fw-bold fs-7 text-gray-500">Broj porudžbina</span>
                     </div>
                     <!--end::Wrapper-->
                 </div>
@@ -88,7 +88,7 @@
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
                         <span class="fw-bolder fs-2x text-gray-900">${{ number_format($spent, 2) }}</span>
-                        <span class="fw-bold fs-7 text-gray-500">Total spent</span>
+                        <span class="fw-bold fs-7 text-gray-500">Trošak</span>
                     </div>
                     <!--end::Wrapper-->
                 </div>
@@ -120,8 +120,8 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-gray-900">{{ $licenses }}</span>
-                        <span class="fw-bold fs-7 text-gray-500">Active licenses</span>
+                        <span class="fw-bolder fs-2x text-gray-900">${{ number_format($spent, 2) }}</span>
+                        <span class="fw-bold fs-7 text-gray-500">Profit</span>
                     </div>
                     <!--end::Wrapper-->
                 </div>
