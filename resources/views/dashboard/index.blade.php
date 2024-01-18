@@ -20,6 +20,15 @@
         </div>
     @endif
 
+    <!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
+                                                        <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today" class="btn btn-sm btn-light d-flex align-items-center px-4">
+                                                            <!--begin::Display range-->
+                                                            <div class="text-gray-600 fw-bold">Loading date range...</div>
+                                                            <!--end::Display range-->
+                                                            <i class="ki-outline ki-calendar-8 fs-1 ms-2 me-0"></i>
+                                                        </div>
+                                                        <!--end::Daterangepicker-->
+
     <!--begin::Row-->
     <div class="row g-5 g-xl-10 mb-5 mb-xl-0">
         <!--begin::Col-->
