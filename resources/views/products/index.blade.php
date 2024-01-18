@@ -26,7 +26,7 @@
                                     <a href="javascript:void()" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
                                     <!--end::Title-->
                                     <!--begin::Desc-->
-                                    <span class="text-gray-500 fw-semibold fs-6 d-block text-start ps-0">
+                                    <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
                                         Šifra: {{ $product->code }}
                                     </span>
                                     <!--end::Desc-->
