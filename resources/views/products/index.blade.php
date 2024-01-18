@@ -23,7 +23,7 @@
                                 <!--begin::Content-->
                                 <div class="me-5 px-10 w-700px text-start">
                                     <!--begin::Title-->
-                                    <a href="javascript:void()" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
+                                    <a href="{{ $product->link }}" target="_blank" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $product->name }}</a>
                                     <!--end::Title-->
                                     <!--begin::Desc-->
                                     <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
