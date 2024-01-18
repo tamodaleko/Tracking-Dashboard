@@ -32,7 +32,7 @@
                                     <!--end::Desc-->
 
                                     <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                        Dostupno: {{ $product->qty_warehouse - $product->qty_sending }}
+                                        Dostupno: {{ $product->qty_warehouse }}
                                     </span>
                                     <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
                                         U pripremi: {{ $product->qty_sending }}
