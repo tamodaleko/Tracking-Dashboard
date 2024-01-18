@@ -104,7 +104,7 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
-    @if (!auth()->user()->company->hasCreditCard())
+    @if (true)
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
@@ -114,8 +114,8 @@
                 <!--begin::Content-->
                 <div class="fw-semibold">
                     <h4 class="text-gray-900 fw-bold">We need your attention!</h4>
-                    <div class="fs-6 text-gray-700">You don't have a payment method on file. To start using our tools, please 
-                    <a href="{{ route('billing') }}" class="fw-bold">Add Payment Method</a>.</div>
+                    <div class="fs-6 text-gray-700">You haven't connected your Facebook ad account - 
+                    <a href="{{ route('billing') }}" class="fw-bold">Connect your Ad Account</a>.</div>
                 </div>
                 <!--end::Content-->
             </div>
