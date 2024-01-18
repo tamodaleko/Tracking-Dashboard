@@ -23,7 +23,7 @@
     <!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
     <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today" class="btn btn-sm bg-white border border-dashed border-dark d-flex align-items-center justify-content-center px-4 w-250px mb-10">
         <!--begin::Display range-->
-        <div class="text-dark fw-bold">Loading date range...</div>
+        <div class="text-dark fw-bold">Učitavanje datuma...</div>
         <!--end::Display range-->
         <i class="ki-outline ki-calendar-8 fs-1 ms-2 me-0 text-dark"></i>
     </div>
