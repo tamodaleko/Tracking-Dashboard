@@ -24,7 +24,12 @@ class UpdateCompanyKeysRequest extends FormRequest
     public function rules()
     {
         return [
-            'sp_api_key' => ['required', 'string']
+            'provider' => ['required', 'string'],
+            'sp_api_key' => ['nullable', 'string'],
+            'fb_app_id' => ['nullable', 'string'],
+            'fb_app_secret' => ['nullable', 'string'],
+            'fb_access_token' => ['nullable', 'string'],
+            'fb_ad_account_id' => ['nullable', 'string']
         ];
     }
 }

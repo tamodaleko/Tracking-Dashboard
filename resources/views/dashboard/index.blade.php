@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('title') {{ __('Dashboard') }} @endsection
 
-    @if (!auth()->user()->company->sp_api_key)
+    @if (!$company->isSetUp())
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
@@ -11,14 +11,63 @@
                 <!--begin::Content-->
                 <div class="fw-semibold">
                     <h4 class="text-gray-900 fw-bold">Tvoj nalog nije povezan!</h4>
-                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Facebook, Shopify i Slanje Paketa platformama - 
-                    <a href="javascript:void()" class="fw-bold" data-bs-toggle="modal" data-bs-target="#companySetupModal">Poveži nalog</a>.</div>
+                    <div class="fs-6 text-gray-700">Poveži svoj nalog sa Slanje Paketa, Facebook i Shopify platformama, kako bi praćenje statistike bilo tačno.</div>
                 </div>
                 <!--end::Content-->
             </div>
             <!--end::Wrapper-->
         </div>
-    @elseif (auth()->user()->company->products()->where('buying_price', 0)->count())
+
+        <!--begin::Row-->
+        <div class="row g-5 g-xl-10 mb-5 mb-xl-0">
+            <!--begin::Col-->
+            <div class="col-md-4 mb-xl-10">
+                <a href="javascript:void()" @if (!$company->isSetUp('slanje_paketa')) data-bs-toggle="modal" data-bs-target="#connectSlanjePaketaModal" @endif class="card @if (!$company->isSetUp('slanje_paketa')) hover-elevate-up parent-hover @else opacity-50 @endif shadow-sm">
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <span class="svg-icon fs-1">
+                            <img src="https://softver.slanjepaketa.rs/assets/img/slanje-paketa-logo.png" class="h-40px mx-1">
+                        </span>
+
+                        <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold d-flex align-items-center">
+                            Poveži Slanje Paketa
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-md-4 mb-xl-10">
+                <a href="javascript:void()" @if (!$company->isSetUp('facebook')) data-bs-toggle="modal" data-bs-target="#connectFacebookModal" @endif class="card @if (!$company->isSetUp('facebook')) hover-elevate-up parent-hover @else opacity-50 @endif shadow-sm">
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <span class="svg-icon fs-1">
+                            <img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-transparent-png.png" class="h-40px mx-1">
+                        </span>
+
+                        <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold d-flex align-items-center">
+                            Poveži Facebook
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-md-4 mb-xl-10">
+                <a href="javascript:void()" @if (!$company->isSetUp('shopify')) data-bs-toggle="modal" data-bs-target="#connectShopifyModal" @endif class="card @if (!$company->isSetUp('shopify')) hover-elevate-up parent-hover @else opacity-50 @endif shadow-sm">
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <span class="svg-icon fs-1">
+                            <img src="https://assets.stickpng.com/images/58482ec0cef1014c0b5e4a70.png" class="h-40px mx-1">
+                        </span>
+
+                        <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold d-flex align-items-center">
+                            Poveži Shopify
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Row-->
+    @elseif ($company->products()->where('buying_price', 0)->count())
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
@@ -1434,44 +1483,59 @@
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-5">
-                    @if (count($latestOrders))
+                    @if (count($company->campaigns))
                         <div class="separator separator-dashed"></div>
                         <!--begin::Items-->
-                        <div class="">
-                            @foreach ($latestOrders as $order)
-                                <!--begin::Item-->
-                                <div class="d-flex flex-stack">
-                                    <!--begin::Section-->
-                                    <div class="d-flex align-items-center me-5">
-                                        <!--begin::Flag-->
-                                        <img src="{{ asset('/media/laptop.jpg') }}" class="me-4 w-50px mr-5" alt="Laptop" />
-                                        <!--end::Flag-->
-                                        @foreach ($order->items as $item)
-                                            <!--begin::Content-->
-                                            <div class="me-5 px-3">
-                                                <!--begin::Title-->
-                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ $item->variant->name }}</a>
-                                                <!--end::Title-->
-                                                <!--begin::Desc-->
-                                                <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">Size: {{ $item->variant->screen }} inches / Color: {{ $item->variant->color }}</span>
-                                                <!--end::Desc-->
+                        <div>
+                            @foreach ($company->campaigns as $campaign)
+                                <?php $stats = $campaign->getStats(); ?>
+                                <!--begin::Col-->
+                                <div class="col-md-12 mb-5">
+                                    <div class="card card-flush flex-row-fluid p-6 pb-5 mw-100">
+                                        <!--begin::Body-->
+                                        <div class="card-body text-center py-3">
+                                            <div class="d-flex flex-stack">
+                                                <!--begin::Food img-->
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" class="w-30px w-xxl-50px rounded rounded-xl" alt="{{ $campaign->name }}">
+                                                <!--end::Food img-->
+                                                <!--begin::Section-->
+                                                <div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+                                                    <!--begin::Content-->
+                                                    <div class="me-5 px-10 w-700px text-start">
+                                                        <!--begin::Title-->
+                                                        <a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act={{ $company->fb_ad_account_id }}&selected_campaign_ids={{ $campaign->facebook_id }}" target="_blank" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $campaign->name }}</a>
+                                                        <!--end::Title-->
+                                                        <!--begin::Desc-->
+                                                        <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
+                                                            Facebook ID: {{ $campaign->facebook_id }}
+                                                        </span>
+                                                        <!--end::Desc-->
+
+                                                        <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Pregleda: {{ number_format($stats->reach ?? 0) }}
+                                                        </span>
+                                                        <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Impresija: {{ number_format($stats->impressions ?? 0) }}
+                                                        </span>
+                                                        <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Klikova: {{ number_format($stats->clicks ?? 0) }}
+                                                        </span>
+                                                        <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Konverzija: {{ number_format($stats->conversions ?? 0) }}
+                                                        </span>
+                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Potrošeno: {{ number_format($stats->spend_rsd ?? 0, 2) }} din
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Content-->
+                                                </div>
+                                                <!--end::Section-->
                                             </div>
-                                            <!--end::Content-->
-                                        @endforeach
+                                        </div>
+                                        <!--end::Body-->
                                     </div>
-                                    <!--end::Section-->
-                                    <!--begin::Wrapper-->
-                                    <div class="d-flex align-items-center">
-                                        <!--begin::Number-->
-                                        <span class="badge badge-light-success text-gray-800 fw-bold fs-4 me-3 px-3">${{ number_format($order->total, 2) }}</span>
-                                        <!--end::Number-->
-                                    </div>
-                                    <!--end::Wrapper-->
                                 </div>
-                                <!--end::Item-->
-                                <!--begin::Separator-->
-                                <div class="separator separator-dashed my-3"></div>
-                                <!--end::Separator-->
+                                <!--end::Col-->
                             @endforeach
                         </div>
                         <!--end::Items-->
@@ -1501,6 +1565,8 @@
     <!--end::Row-->
 
     @push('modals')
-        @include('modals.companySetup')
+        @include('modals.connectSlanjePaketa')
+        @include('modals.connectFacebook')
+        @include('modals.connectShopify')
     @endpush
 </x-app-layout>

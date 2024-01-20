@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Campaign\Campaign;
 use App\Models\Order\Order;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,11 +18,20 @@ class Company extends Model
     protected $fillable = [
         'name',
         'sp_api_key',
+        'fb_app_id',
+        'fb_app_secret',
+        'fb_access_token',
+        'fb_ad_account_id'
     ];
 
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
+    }
+
+    public function campaigns(): HasMany
+    {
+        return $this->hasMany(Campaign::class);
     }
 
     public function products(): HasMany
@@ -37,5 +47,19 @@ class Company extends Model
     public function getAdmin(): User
     {
         return $this->users()->where('admin', true)->first();
+    }
+
+    public function isSetUp(?string $integration = null): bool
+    {
+        switch ($integration) {
+            case 'slanje_paketa':
+                return (bool) $this->sp_api_key;
+            case 'facebook':
+                return (bool) $this->fb_app_id && $this->fb_app_secret && $this->fb_access_token && $this->fb_ad_account_id;
+            case 'shopify':
+                return false;
+            default:
+                return $this->sp_api_key && $this->fb_app_id && $this->fb_app_secret && $this->fb_access_token && $this->fb_ad_account_id;
+        }
     }
 }

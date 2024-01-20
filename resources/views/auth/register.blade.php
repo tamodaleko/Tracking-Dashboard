@@ -1,5 +1,5 @@
 <x-auth-layout>
-    @section('title') {{ __('Register') }} @endsection
+    @section('title') {{ __('Registruj se') }} @endsection
     
     <!--begin::Content-->
     <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-100 w-md-400px">
@@ -12,7 +12,7 @@
                 <!--begin::Heading-->
                 <div class="text-center mb-7">
                     <!--begin::Title-->
-                    <h1 class="text-gray-900 fw-bolder">Sign Up</h1>
+                    <h1 class="text-gray-900 fw-bolder">Registruj se</h1>
                     <!--end::Title-->
                 </div>
                 <!--begin::Heading-->
@@ -26,7 +26,7 @@
                 <!--begin::Input group=-->
                 <div class="fv-row mb-8">
                     <!--begin::Email-->
-                    <input type="text" placeholder="Company" name="company" autocomplete="off" class="form-control bg-transparent @error('company') is-invalid @enderror" value="{{ old('company') }}" />
+                    <input type="text" placeholder="Unesi ime firme" name="company" autocomplete="off" class="form-control bg-transparent @error('company') is-invalid @enderror" value="{{ old('company') }}" />
                     <!--end::Email-->
 
                     @error('company')
@@ -38,7 +38,7 @@
                 <!--begin::Input group=-->
                 <div class="fv-row mb-8">
                     <!--begin::Email-->
-                    <input type="text" placeholder="First Name" name="first_name" autocomplete="off" class="form-control bg-transparent @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" />
+                    <input type="text" placeholder="Unesi ime" name="first_name" autocomplete="off" class="form-control bg-transparent @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" />
                     <!--end::Email-->
 
                     @error('first_name')
@@ -50,7 +50,7 @@
                 <!--begin::Input group=-->
                 <div class="fv-row mb-8">
                     <!--begin::Email-->
-                    <input type="text" placeholder="Last Name" name="last_name" autocomplete="off" class="form-control bg-transparent @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" />
+                    <input type="text" placeholder="Unesi prezime" name="last_name" autocomplete="off" class="form-control bg-transparent @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" />
                     <!--end::Email-->
 
                     @error('last_name')
@@ -62,7 +62,7 @@
                 <!--begin::Input group=-->
                 <div class="fv-row mb-8">
                     <!--begin::Email-->
-                    <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent @error('email') is-invalid @enderror" value="{{ old('email') }}" />
+                    <input type="text" placeholder="Unesi email" name="email" autocomplete="off" class="form-control bg-transparent @error('email') is-invalid @enderror" value="{{ old('email') }}" />
                     <!--end::Email-->
 
                     @error('email')
@@ -75,7 +75,7 @@
                     <div class="mb-1">
                         <!--begin::Input wrapper-->
                         <div class="position-relative mb-3">
-                            <input class="form-control bg-transparent @error('password') is-invalid @enderror" type="password" placeholder="Password" name="password" autocomplete="off" />
+                            <input class="form-control bg-transparent @error('password') is-invalid @enderror" type="password" placeholder="Unesi šifru" name="password" autocomplete="off" />
                             
                             @error('password')
                                 <div class="error invalid-feedback">{{ $message }}</div>
@@ -98,14 +98,14 @@
                     </div>
                     <!--end::Wrapper-->
                     <!--begin::Hint-->
-                    <div class="text-muted">Use 8 or more characters with a mix of letters, numbers & symbols.</div>
+                    <div class="text-muted">Unesi 8 ili više karaktera sa miksom slova, brojeva i simbola.</div>
                     <!--end::Hint-->
                 </div>
                 <!--end::Input group=-->
                 <!--end::Input group=-->
                 <div class="fv-row mb-8">
                     <!--begin::Repeat Password-->
-                    <input placeholder="Confirm Password" name="password_confirmation" type="password" autocomplete="off" class="form-control bg-transparent" />
+                    <input placeholder="Ponovo unesi šifru" name="password_confirmation" type="password" autocomplete="off" class="form-control bg-transparent" />
                     <!--end::Repeat Password-->
                 </div>
                 <!--end::Input group=-->
@@ -113,14 +113,14 @@
                 <div class="d-grid mb-5">
                     <button type="submit" class="btn btn-primary">
                         <!--begin::Indicator label-->
-                        <span class="indicator-label">Sign up</span>
+                        <span class="indicator-label">Registruj se</span>
                         <!--end::Indicator label-->
                     </button>
                 </div>
                 <!--end::Submit button-->
                 <!--begin::Sign up-->
-                <div class="text-gray-500 text-center fw-semibold fs-6">Already have an account? 
-                <a href="{{ route('login') }}" class="link-primary fw-semibold">Sign in</a></div>
+                <div class="text-gray-500 text-center fw-semibold fs-6">Već imaš nalog? 
+                <a href="{{ route('login') }}" class="link-primary fw-semibold">Uloguj se</a></div>
                 <!--end::Sign up-->
             </form>
             <!--end::Form-->

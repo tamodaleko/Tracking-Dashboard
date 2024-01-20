@@ -1,5 +1,5 @@
-<!--begin::Modal - Create User-->
-<div class="modal fade" id="companySetupModal" tabindex="-1" aria-hidden="true">
+<!--begin::Modal - Connect Shopify-->
+<div class="modal fade" id="connectShopifyModal" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-600px">
         <!--begin::Modal content-->
@@ -8,7 +8,7 @@
             <div class="modal-header align-self-center">
                 <!--begin::Modal title-->
                 <h2 class="text-center m-0 d-flex align-items-center">
-                    <span>Poveži nalog</span>
+                    <span>Poveži nalog (Shopify)</span>
                 </h2>
                 <!--end::Modal title-->
             </div>
@@ -24,8 +24,8 @@
                         <div>
                             <!--begin::Input group-->
                             <div class="fv-row">
-                                <label class="form-label fw-bolder text-dark fs-6 required">Slanje Paketa API Key</label>
-                                <input type="text" placeholder="Ukucajte API key" name="sp_api_key" autocomplete="off" class="form-control bg-transparent @error('sp_api_key') is-invalid @enderror" value="{{ old('sp_api_key') }}" />
+                                <label class="form-label fw-bolder text-dark fs-6 required">API Key</label>
+                                <input type="text" placeholder="Unesi API key" name="sp_api_key" autocomplete="off" class="form-control bg-transparent @error('sp_api_key') is-invalid @enderror" value="{{ old('sp_api_key') }}" />
 
                                 @error('sp_api_key')
                                     <div class="error invalid-feedback">{{ $message }}</div>
@@ -52,4 +52,4 @@
     </div>
     <!--end::Modal dialog-->
 </div>
-<!--end::Modal - Create User-->
+<!--end::Modal - Connect Shopify-->

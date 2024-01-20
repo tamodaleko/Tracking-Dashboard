@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('company_id');
+            $table->unsignedInteger('product_id')->nullable();
+            $table->string('facebook_id');
             $table->string('name');
-            $table->string('sp_api_key')->nullable();
-            $table->string('fb_app_id')->nullable();
-            $table->string('fb_app_secret')->nullable();
-            $table->string('fb_access_token')->nullable();
-            $table->string('fb_ad_account_id')->nullable();
+            $table->string('currency', 3);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('campaigns');
     }
 };
