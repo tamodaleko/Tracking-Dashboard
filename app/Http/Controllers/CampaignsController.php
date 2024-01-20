@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 
 class CampaignsController extends Controller
 {
-    public function updateProduct(Campaign $product, UpdateCampaignProductRequest $request): RedirectResponse
+    public function updateProduct(Campaign $campaign, UpdateCampaignProductRequest $request): RedirectResponse
     {
         $campaign->update(['product_id' => $request->product_id]);
 
