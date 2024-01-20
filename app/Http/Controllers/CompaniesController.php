@@ -146,7 +146,6 @@ class CompaniesController extends Controller
                 'spend_rsd' => (new ExchangeRateService)->convertToRSD($campaign['account_currency'], $campaign['spend'] ?? 0),
                 'cpc' => $campaign['cpc'] ?? 0,
                 'clicks' => $campaign['clicks'] ?? 0,
-                'spend' => $campaign['spend'] ?? 0,
                 'conversions' => $conversions ?? 0,
                 'date' => $campaign['date_start']
             ]);
