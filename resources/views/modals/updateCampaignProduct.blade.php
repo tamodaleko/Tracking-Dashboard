@@ -28,10 +28,16 @@
                         <div>
                             <!--begin::Input group-->
                             <div class="fv-row">
-                                <label class="form-label fw-bolder text-dark fs-6 required">Kupovna cena</label>
-                                <input type="number" placeholder="Ukucaj cenu" name="buying_price" autocomplete="off" class="form-control bg-transparent @error('buying_price') is-invalid @enderror" value="{{ old('buying_price') }}" />
+                                <label class="form-label fw-bolder text-dark fs-6 required">Proizvod</label>
+                                
+                                <select class="form-select mb-2" name="product_id" data-control="select2" data-hide-search="true" data-placeholder="Izaberi proizvod">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
 
-                                @error('buying_price')
+                                @error('product_id')
                                     <div class="error invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
