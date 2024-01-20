@@ -11,7 +11,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\CampaignFields;
 
@@ -136,6 +135,12 @@ Route::get('/test', function () {
 
     dd($acc->getInsights()->getResponse([], $params)->getContent());
     echo json_encode($acc->getInsights($fields, $params)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+});
+
+Route::get('/shopify', function (Request $request) {
+    $data = $request->json()->all();
+
+    \Illuminate\Support\Facades\Log::emergency($data);
 });
 
 Route::get('/', function () {
