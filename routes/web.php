@@ -145,6 +145,14 @@ Route::post('/shopify', function (Request $request) {
     return true;
 });
 
+Route::put('/slanje-paketa', function (Request $request) {
+    $data = $request->json()->all();
+
+    \Illuminate\Support\Facades\Log::emergency($data);
+
+    return true;
+});
+
 Route::get('/', function () {
     return redirect()->route('dashboard.index');
 });
