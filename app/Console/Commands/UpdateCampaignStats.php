@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Campaign\Campaign;
-use App\Models\Campaign\CampaignStats;
+use App\Models\Campaign\CampaignStat;
 use App\Models\Company;
 use App\Services\ExchangeRateService;
 use Exception;
