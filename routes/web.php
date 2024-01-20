@@ -137,7 +137,7 @@ Route::get('/test', function () {
     echo json_encode($acc->getInsights($fields, $params)->getResponse()->getContent(), JSON_PRETTY_PRINT);
 });
 
-Route::get('/shopify', function (Request $request) {
+Route::post('/shopify', function (Request $request) {
     $data = $request->json()->all();
 
     \Illuminate\Support\Facades\Log::emergency($data);
