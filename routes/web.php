@@ -137,10 +137,8 @@ Route::get('/test', function () {
     echo json_encode($acc->getInsights($fields, $params)->getResponse()->getContent(), JSON_PRETTY_PRINT);
 });
 
-Route::post('/shopify', function (Request $request) {
-    $data = $request->json()->all();
-
-    \Illuminate\Support\Facades\Log::emergency($data);
+Route::any('/shopify', function (Request $request) {
+  \Illuminate\Support\Facades\Log::emergency('here');
 });
 
 Route::get('/', function () {
