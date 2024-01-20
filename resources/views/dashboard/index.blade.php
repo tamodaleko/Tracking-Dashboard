@@ -25,7 +25,7 @@
                 <a href="javascript:void()" @if (!$company->isSetUp('slanje_paketa')) data-bs-toggle="modal" data-bs-target="#connectSlanjePaketaModal" @endif class="card @if (!$company->isSetUp('slanje_paketa')) hover-elevate-up parent-hover @else opacity-50 @endif shadow-sm">
                     <div class="card-body d-flex align-items-center justify-content-center">
                         <span class="svg-icon fs-1">
-                            <img src="https://softver.slanjepaketa.rs/assets/img/slanje-paketa-logo.png" class="h-40px mx-1">
+                            <img src="{{ asset('/media/slanje-paketa.png') }}" class="h-40px mx-1">
                         </span>
 
                         <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold d-flex align-items-center">
@@ -40,7 +40,7 @@
                 <a href="javascript:void()" @if (!$company->isSetUp('facebook')) data-bs-toggle="modal" data-bs-target="#connectFacebookModal" @endif class="card @if (!$company->isSetUp('facebook')) hover-elevate-up parent-hover @else opacity-50 @endif shadow-sm">
                     <div class="card-body d-flex align-items-center justify-content-center">
                         <span class="svg-icon fs-1">
-                            <img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-transparent-png.png" class="h-40px mx-1">
+                            <img src="{{ asset('/media/facebook.png') }}" class="h-40px mx-1">
                         </span>
 
                         <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold d-flex align-items-center">
@@ -55,7 +55,7 @@
                 <a href="javascript:void()" @if (!$company->isSetUp('shopify')) data-bs-toggle="modal" data-bs-target="#connectShopifyModal" @endif class="card @if (!$company->isSetUp('shopify')) hover-elevate-up parent-hover @else opacity-50 @endif shadow-sm">
                     <div class="card-body d-flex align-items-center justify-content-center">
                         <span class="svg-icon fs-1">
-                            <img src="https://assets.stickpng.com/images/58482ec0cef1014c0b5e4a70.png" class="h-40px mx-1">
+                            <img src="{{ asset('/media/shopify.png') }}" class="h-40px mx-1">
                         </span>
 
                         <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold d-flex align-items-center">
@@ -249,7 +249,7 @@
                                         <div class="card-body text-center py-3">
                                             <div class="d-flex flex-stack">
                                                 <!--begin::Food img-->
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" class="w-30px w-xxl-50px rounded rounded-xl" alt="{{ $campaign->name }}">
+                                                <img src="{{ asset('/media/facebook.png') }}" class="w-30px w-xxl-50px rounded rounded-xl" alt="{{ $campaign->name }}">
                                                 <!--end::Food img-->
                                                 <!--begin::Section-->
                                                 <div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
