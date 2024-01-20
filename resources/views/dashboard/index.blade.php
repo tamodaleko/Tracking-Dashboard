@@ -243,9 +243,18 @@
                                                         <a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act={{ $company->fb_ad_account_id }}&selected_campaign_ids={{ $campaign->facebook_id }}" target="_blank" class="text-gray-800 fw-bold text-hover-primary fs-2">{{ $campaign->name }}</a>
                                                         <!--end::Title-->
                                                         <!--begin::Desc-->
-                                                        <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
-                                                            Facebook ID: {{ $campaign->facebook_id }}
-                                                        </span>
+                                                        <div>
+                                                            <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
+                                                                Facebook ID: {{ $campaign->facebook_id }}
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
+                                                                Proizvod: <span class="text-danger">Proizvod nije dodat!</span> <button class="btn btn-sm btn-dark d-flex flex-center fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateProductPriceModal">
+                                                                    <span>Dodaj proizvod</span>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                         <!--end::Desc-->
 
                                                         <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
