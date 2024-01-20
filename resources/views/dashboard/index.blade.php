@@ -1512,52 +1512,23 @@
                                                         <!--end::Desc-->
 
                                                         <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Pregleda: {{ number_format($stats->reach ?? 0) }}
+                                                            Porudžbine: {{ 12 }}
                                                         </span>
-                                                        <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Impresija: {{ number_format($stats->impressions ?? 0) }}
-                                                        </span>
-                                                        <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Klikova: {{ number_format($stats->clicks ?? 0) }}
-                                                        </span>
-                                                        <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Konverzija: {{ number_format($stats->conversions ?? 0) }}
+                                                        <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Zarada: 12,000.00 din
                                                         </span>
                                                         <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Potrošeno: {{ number_format($stats->spend_rsd ?? 0, 2) }} din
+                                                            Proizvodi: -1,000 din
                                                         </span>
-                                                        <div class="mt-5">
-                                                            <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Porudžbine:</span> 
-                                                                <span class="fs-5 px-2 fw-bold">
-                                                                    12
-                                                                </span>
-                                                            </span>
-                                                            <span class="badge badge-light-primary text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Zarada:</span> 
-                                                                <span class="fs-5 px-2 fw-bold">
-                                                                    12,000.00 din
-                                                                </span>
-                                                            </span>
-                                                            <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Proizvodi:</span> 
-                                                                <span class="fs-5 px-2 fw-bold">
-                                                                    -1,000 din
-                                                                </span>
-                                                            </span>
-                                                            <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Slanje:</span> 
-                                                                <span class="fs-5 px-2 fw-bold">
-                                                                    -1,000 din
-                                                                </span>
-                                                            </span>
-                                                            <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Dostava:</span> 
-                                                                <span class="fs-5 px-2 fw-bold">
-                                                                    -1,000 din
-                                                                </span>
-                                                            </span>
-                                                        </div>
+                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Reklame: -1,000 din
+                                                        </span>
+                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Slanje: -1,000 din
+                                                        </span>
+                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                            Dostava: -1,000 din
+                                                        </span>
                                                         <div class="mt-5">
                                                             <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
                                                                 <span>Trošak:</span> 
