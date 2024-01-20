@@ -24,7 +24,7 @@ class UpdateCampaignProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_id' => ['required', 'integer', 'exists:products']
+            'product_id' => ['required', 'integer', 'exists:products,id']
         ];
     }
 }
