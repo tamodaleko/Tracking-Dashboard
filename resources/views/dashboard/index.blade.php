@@ -356,7 +356,7 @@
 
     @push('scripts')
         <script type="text/javascript">
-            $('#updateCampaignProduct').on('shown.bs.modal', function (event) {
+            $('#updateCampaignProductModal').on('shown.bs.modal', function (event) {
                 var action = $(event.relatedTarget).attr('data-action');
                 var name = $(event.relatedTarget).attr('data-name');
                 
