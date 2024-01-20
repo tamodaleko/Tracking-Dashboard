@@ -1517,7 +1517,7 @@
                                                         <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
                                                             Zarada: 12,000.00 din
                                                         </span>
-                                                        <div class="mt-5">
+                                                        <div>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
                                                                 Proizvodi: -1,000 din
                                                             </span>
