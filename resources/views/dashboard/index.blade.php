@@ -1522,7 +1522,7 @@
                                                                 Proizvodi: -1,000 din
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Reklame: -1,000 din
+                                                                Reklame: -{{ number_format($stats->spend_rsd ?? 0, 2) }} din
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
                                                                 Slanje: -1,000 din
