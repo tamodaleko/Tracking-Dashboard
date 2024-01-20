@@ -17,17 +17,27 @@
             <form class="form" action="{{ route('companies.update.keys') }}" method="POST">
                 @csrf
                 @method('PATCH')
+
+                <input type="hidden" name="provider" value="shopify">
+                
                 <!--begin::Modal body-->
                 <div class="modal-body py-5 px-lg-17">
                     <!--begin::Scroll-->
                     <div class="scroll-y me-n7 pe-7">
                         <div>
-                            <!--begin::Input group-->
-                            <div class="fv-row">
-                                <label class="form-label fw-bolder text-dark fs-6 required">API Key</label>
-                                <input type="text" placeholder="Unesi API key" name="sp_api_key" autocomplete="off" class="form-control bg-transparent @error('sp_api_key') is-invalid @enderror" value="{{ old('sp_api_key') }}" />
+                            <div class="fv-row mb-5">
+                                <label class="form-label fw-bolder text-dark fs-6 required">Access Token</label>
+                                <input type="text" placeholder="Unesi Access Token" name="sf_access_token" autocomplete="off" class="form-control bg-transparent @error('sf_access_token') is-invalid @enderror" value="{{ old('sf_access_token') }}" />
 
-                                @error('sp_api_key')
+                                @error('sf_access_token')
+                                    <div class="error invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="fv-row">
+                                <label class="form-label fw-bolder text-dark fs-6 required">Store ID</label>
+                                <input type="text" placeholder="Unesi Store ID" name="sf_store_id" autocomplete="off" class="form-control bg-transparent @error('sf_store_id') is-invalid @enderror" value="{{ old('sf_store_id') }}" />
+
+                                @error('sf_store_id')
                                     <div class="error invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

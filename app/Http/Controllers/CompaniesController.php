@@ -26,7 +26,7 @@ class CompaniesController extends Controller
                 return $this->updateFacebook($request->fb_app_id, $request->fb_app_secret, $request->fb_access_token, $request->fb_ad_account_id);
                 break;
             case 'shopify':
-                return $this->updateShopify();
+                return $this->updateShopify($request->sf_access_token, $request->sf_store_id);
                 break;
         }
 
@@ -153,5 +153,34 @@ class CompaniesController extends Controller
 
         return redirect()->route('dashboard.index')
                 ->withSuccess('Facebook je uspešno povezan!');
+    }
+
+    private function updateShopify(?string $sf_access_token, ?string $sf_store_id): RedirectResponse
+    {
+        if (!$sf_access_token || !$sf_store_id) {
+            return redirect()->route('dashboard.index')
+                ->withError('Integracija nije sačuvana. Molimo proveri informacije i pokušaj opet.');
+        }
+
+        try {
+            $acc = new AdAccount('act_' . $fb_ad_account_id);
+            $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
+        } catch (Exception $e) {
+            return redirect()->route('dashboard.index')
+                ->withError('Shopify nije moguće povezati. Proveri da li su informacije tačne.');
+        }
+
+        if (!isset($campaigns['data']) || !$campaigns['data']) {
+            return redirect()->route('dashboard.index')
+                ->withError('Shopify nije moguće povezati. Kampanje nisu pronadjene.');
+        }
+
+        auth()->user()->company->update([
+            'sf_access_token' => trim($sf_access_token),
+            'sf_store_id' => trim($sf_store_id)
+        ]);
+
+        return redirect()->route('dashboard.index')
+                ->withSuccess('Shopify je uspešno povezan!');
     }
 }
