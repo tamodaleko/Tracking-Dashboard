@@ -29,7 +29,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row">
                                 <label class="form-label fw-bolder text-dark fs-6 required">Kupovna cena</label>
-                                <input type="number" placeholder="Ukucaj cenu" name="buying_price" autocomplete="off" class="form-control bg-transparent @error('buying_price') is-invalid @enderror" value="{{ old('buying_price') }}" />
+                                <input type="number" placeholder="Unesi cenu" name="buying_price" autocomplete="off" class="form-control bg-transparent @error('buying_price') is-invalid @enderror" value="{{ old('buying_price') }}" />
 
                                 @error('buying_price')
                                     <div class="error invalid-feedback">{{ $message }}</div>
