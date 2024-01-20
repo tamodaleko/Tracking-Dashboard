@@ -1527,34 +1527,34 @@
                                                             Potrošeno: {{ number_format($stats->spend_rsd ?? 0, 2) }} din
                                                         </span>
                                                         <div class="mt-5">
-                                                            <span class="badge badge-light-primary text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Prodato proizvoda:</span> 
+                                                            <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
+                                                                <span>Porudžbine:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
                                                                     12
                                                                 </span>
                                                             </span>
-                                                            <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
+                                                            <span class="badge badge-light-primary text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
                                                                 <span>Zarada:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
                                                                     12,000.00 din
                                                                 </span>
                                                             </span>
                                                             <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Trošak proizvodi:</span> 
+                                                                <span>Proizvodi:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    1,000 din
+                                                                    -1,000 din
                                                                 </span>
                                                             </span>
                                                             <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Trošak slanje:</span> 
+                                                                <span>Slanje:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    1,000 din
+                                                                    -1,000 din
                                                                 </span>
                                                             </span>
                                                             <span class="badge badge-light-dark text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
-                                                                <span>Trošak dostava:</span> 
+                                                                <span>Dostava:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    1,000 din
+                                                                    -1,000 din
                                                                 </span>
                                                             </span>
                                                         </div>
