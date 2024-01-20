@@ -249,8 +249,8 @@
                                                             </span>
                                                         </div>
                                                         <div>
-                                                            <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
-                                                                Proizvod: <span class="text-danger">Proizvod nije dodat!</span> <button class="btn btn-sm btn-dark d-flex flex-center fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateProductPriceModal">
+                                                            <span class="text-gray-500 fw-semibold fs-5 d-flex flex-center text-start ps-0">
+                                                                <span class="text-danger fw-bold">Proizvod nije dodat!</span> <button class="btn btn-sm btn-dark fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateProductPriceModal">
                                                                     <span>Dodaj proizvod</span>
                                                                 </button>
                                                             </span>
