@@ -268,7 +268,7 @@
                                                         </div>
                                                         <div class="mb-2">
                                                             <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
-                                                                <span class="text-danger fw-bold">Proizvod nije dodat!</span> <button class="btn btn-sm btn-dark fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateProductPriceModal">
+                                                                <span class="text-danger fw-bold">Proizvod nije dodat!</span> <button class="btn btn-sm btn-dark fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateCampaignProductModal" data-action="{{ route('campaigns.update.product', $campaign->id) }}" data-name="{{ $campaign->name }}">
                                                                     <span>Dodaj proizvod</span>
                                                                 </button>
                                                             </span>
@@ -351,5 +351,18 @@
         @include('modals.connectSlanjePaketa')
         @include('modals.connectFacebook')
         @include('modals.connectShopify')
+        @include('modals.updateCampaignProduct')
+    @endpush
+
+    @push('scripts')
+        <script type="text/javascript">
+            $('#updateCampaignProduct').on('shown.bs.modal', function (event) {
+                var action = $(event.relatedTarget).attr('data-action');
+                var name = $(event.relatedTarget).attr('data-name');
+                
+                $(this).find('form').attr('action', action);
+                $(this).find('#campaign-name').text(name);
+            });
+        </script>
     @endpush
 </x-app-layout>

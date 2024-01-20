@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaptopsController;
@@ -152,10 +153,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
     Route::patch('/products/{product}/price', [ProductsController::class, 'updatePrice'])->name('products.update.price');
 
-    // Licenses
-    Route::get('/licenses', [LicensesController::class, 'index'])->name('licenses.index');
-    Route::get('/licenses/{license}/order', [LicensesController::class, 'order'])->name('licenses.order');
-    Route::post('/licenses/{license}/order', [LicensesController::class, 'process'])->name('licenses.process');
+    // Campaigns
+    Route::patch('/campaigns/{campaign}/product', [CampaignsController::class, 'updateProduct'])->name('campaigns.update.product');
 
     // Users
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');
