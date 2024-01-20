@@ -202,7 +202,7 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-gray-900">500.00 din</span>
+                        <span class="fw-bolder fs-2x text-success">500.00 din</span>
                         <span class="fw-bold fs-7 text-gray-500">Profit</span>
                     </div>
                     <!--end::Wrapper-->
