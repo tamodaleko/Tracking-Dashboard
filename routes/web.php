@@ -141,6 +141,8 @@ Route::post('/shopify', function (Request $request) {
     $data = $request->json()->all();
 
     \Illuminate\Support\Facades\Log::emergency($data);
+
+    return true;
 });
 
 Route::get('/', function () {
