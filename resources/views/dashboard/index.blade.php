@@ -268,9 +268,13 @@
                                                         </div>
                                                         <div class="mb-2">
                                                             <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
-                                                                <span class="text-danger fw-bold">Proizvod nije dodat!</span> <button class="btn btn-sm btn-dark fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateCampaignProductModal" data-action="{{ route('campaigns.update.product', $campaign->id) }}" data-name="{{ $campaign->name }}">
-                                                                    <span>Dodaj proizvod</span>
-                                                                </button>
+                                                                @if ($campaign->product)
+                                                                    Proizvod: {{ $campaign->product->name }}
+                                                                @else
+                                                                    <span class="text-danger fw-bold">Proizvod nije povezan!</span> <button class="btn btn-sm btn-dark fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateCampaignProductModal" data-action="{{ route('campaigns.update.product', $campaign->id) }}" data-name="{{ $campaign->name }}">
+                                                                        <span>Dodaj proizvod</span>
+                                                                    </button>
+                                                                @endif
                                                             </span>
                                                         </div>
                                                         <!--end::Desc-->

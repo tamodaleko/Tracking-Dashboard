@@ -2,7 +2,9 @@
 
 namespace App\Models\Campaign;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Campaign extends Model
@@ -26,6 +28,11 @@ class Campaign extends Model
         'company_id' => 'int',
         'product_id' => 'int',
     ];
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
 
     public function getStats(?string $date = null): ?CampaignStat
     {
