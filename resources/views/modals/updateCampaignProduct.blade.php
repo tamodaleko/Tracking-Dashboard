@@ -31,10 +31,9 @@
                                 <label class="form-label fw-bolder text-dark fs-6 required">Proizvod</label>
                                 
                                 <select class="form-select mb-2" name="product_id" data-control="select2" data-hide-search="true" data-placeholder="Izaberi proizvod">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    @foreach (auth()->user()->company->products as $product)
+                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                    @endforeach
                                 </select>
 
                                 @error('product_id')
