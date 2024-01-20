@@ -1530,13 +1530,13 @@
                                                             Dostava: -1,000 din
                                                         </span>
                                                         <div class="mt-5">
-                                                            <span class="badge badge-light-warning text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
+                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Trošak:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
                                                                     8,000.00 din
                                                                 </span>
                                                             </span>
-                                                            <span class="badge badge-light-success text-dark px-4 fw-semibold fs-7 text-center mt-3 py-2">
+                                                            <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Profit:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
                                                                     12,000.00 din
