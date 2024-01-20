@@ -84,9 +84,7 @@
             </div>
             <!--end::Wrapper-->
         </div>
-    @endif
-
-    @if (true)
+    @elseif ($company->campaigns()->whereNull('product_id')->count())
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
