@@ -190,7 +190,7 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-45px">
                             <span class="symbol-label bg-light-info">
-                                <i class="ki-outline ki-shield fs-2x text-gray-800"></i>
+                                <i class="ki-outline ki-check fs-2x text-gray-800"></i>
                             </span>
                         </div>
                         <!--end::Symbol-->
