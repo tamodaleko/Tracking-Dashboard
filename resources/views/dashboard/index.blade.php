@@ -1517,18 +1517,20 @@
                                                         <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
                                                             Zarada: 12,000.00 din
                                                         </span>
-                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Proizvodi: -1,000 din
-                                                        </span>
-                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Reklame: -1,000 din
-                                                        </span>
-                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Slanje: -1,000 din
-                                                        </span>
-                                                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Dostava: -1,000 din
-                                                        </span>
+                                                        <div class="mt-5">
+                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                                Proizvodi: -1,000 din
+                                                            </span>
+                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                                Reklame: -1,000 din
+                                                            </span>
+                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                                Slanje: -1,000 din
+                                                            </span>
+                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                                Dostava: -1,000 din
+                                                            </span>
+                                                        </div>
                                                         <div class="mt-5">
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Trošak:</span> 
