@@ -6,7 +6,6 @@ use App\Models\Campaign\Campaign;
 use App\Models\Campaign\CampaignStat;
 use App\Models\Company;
 use App\Services\ExchangeRateService;
-use Exception;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Object\AdAccount;
