@@ -24,6 +24,7 @@ class Order extends Model
         'zip',
         'phone',
         'total',
+        'cost',
         'quantity',
         'free_shipping',
         'status',
@@ -33,6 +34,7 @@ class Order extends Model
         'company_id' => 'int',
         'shopify_id' => 'int',
         'total' => 'float',
+        'cost' => 'float',
         'quantity' => 'int',
         'free_shipping' => 'bool',
     ];

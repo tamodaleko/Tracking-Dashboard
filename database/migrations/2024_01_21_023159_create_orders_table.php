@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('zip');
             $table->string('phone');
             $table->float('total');
+            $table->float('cost');
             $table->integer('quantity');
             $table->boolean('free_shipping');
             $table->string('status');

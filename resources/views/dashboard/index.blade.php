@@ -136,8 +136,8 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-gray-900">{{ $orders }}</span>
-                        <span class="fw-bold fs-7 text-gray-500">Broj porudžbina</span>
+                        <span class="fw-bolder fs-2x text-gray-900">{{ number_format($products) }}</span>
+                        <span class="fw-bold fs-7 text-gray-500">Prodato proizvoda</span>
                     </div>
                     <!--end::Wrapper-->
                 </div>
@@ -169,7 +169,7 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-gray-900">1,000.00 din</span>
+                        <span class="fw-bolder fs-2x text-gray-900">{{ number_format($total, 2, '.', '') }} din</span>
                         <span class="fw-bold fs-7 text-gray-500">Zarada</span>
                     </div>
                     <!--end::Wrapper-->
@@ -202,7 +202,7 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-success">500.00 din</span>
+                        <span class="fw-bolder fs-2x text-success">{{ number_format($total - $cost, 2, '.', '') }} din</span>
                         <span class="fw-bold fs-7 text-gray-500">Profit</span>
                     </div>
                     <!--end::Wrapper-->
