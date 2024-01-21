@@ -46,7 +46,8 @@ class DashboardController extends Controller
             'company' => $company,
             'products' => $products,
             'total' => $total,
-            'cost' => $cost
+            'cost' => $cost,
+            'data' => $data
         ]);
     }
 }
