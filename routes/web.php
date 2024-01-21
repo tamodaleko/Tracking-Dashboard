@@ -62,7 +62,7 @@ Route::get('/test', function () {
         ];
         
         $params = [
-            'date_preset' => 'today',
+            'date_preset' => 'yesterday',
             'level' => 'campaign'
         ];
 
