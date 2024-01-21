@@ -12,7 +12,6 @@ class DashboardController extends Controller
 {
     public function index(Request $request): View
     {
-        dd(\App\Models\Order\OrderItem::all());
         $company = $request->user()->company;
 
         $products = $company->orders()->where('created_at', '>=', Carbon::today())->sum('quantity');
