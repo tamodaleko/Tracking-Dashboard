@@ -10,7 +10,6 @@ class WebhooksController extends Controller
     public function shopify(Company $company, Request $request): bool
     {
         if (!$this->verifyShopifySecret($company, $request)) {
-            \Illuminate\Support\Facades\Log::emergency('mrs');
             return false;
         }
 
@@ -18,7 +17,11 @@ class WebhooksController extends Controller
 
         $data = json_decode($request->getContent(), true);
 
-        \Illuminate\Support\Facades\Log::emergency($data);
+        if ($topic === 'order/creation') {
+            \Illuminate\Support\Facades\Log::emergency('dada');
+        }
+
+        return true;
     }
 
     private function verifyShopifySecret(Company $company, Request $request): bool
