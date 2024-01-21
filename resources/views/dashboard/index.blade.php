@@ -203,7 +203,7 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x @if ($totalProfit < 0) text-danger @else text-success @endif">{{ number_format($totalProfit, 2, '.', '') }} din</span>
+                        <span class="fw-bolder fs-2x @if ($totalProfit > 0) text-danger @else text-success @endif">{{ number_format($totalProfit, 2, '.', '') }} din</span>
                         <span class="fw-bold fs-7 text-gray-500">Profit</span>
                     </div>
                     <!--end::Wrapper-->
