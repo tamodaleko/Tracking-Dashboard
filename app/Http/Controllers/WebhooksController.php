@@ -20,6 +20,8 @@ class WebhooksController extends Controller
 
         $data = json_decode($request->getContent(), true);
 
+        \Illuminate\Support\Facades\Log::emergency('Order ID: ' . $data['id']);
+
         if ($topic === 'orders/create') {
             $this->createShopifyOrder($company, $data);
         }
