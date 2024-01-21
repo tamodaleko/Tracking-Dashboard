@@ -199,10 +199,11 @@
                 </div>
                 <!--end::Card title-->
                 <!--begin::Card body-->
+                <?php $totalProfit = $total - $cost; ?>
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-success">{{ number_format($total - $cost, 2, '.', '') }} din</span>
+                        <span class="fw-bolder fs-2x @if ($totalProfit < 0) text-danger @else text-success @endif">{{ number_format($totalProfit, 2, '.', '') }} din</span>
                         <span class="fw-bold fs-7 text-gray-500">Profit</span>
                     </div>
                     <!--end::Wrapper-->
@@ -309,7 +310,7 @@
                                                         </div>
                                                         <?php $campaignProfit = $data[$campaign->id]['total'] - $data[$campaign->id]['totalCost']; ?>
                                                         <div class="mt-5">
-                                                            <span class="badge @if ($campaignProfit > 0) badge-light-danger @else badge-light-success @endif text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
+                                                            <span class="badge @if ($campaignProfit < 0) badge-light-danger @else badge-light-success @endif text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Profit:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
                                                                     {{ number_format($campaignProfit, 2, '.', '') }} din
