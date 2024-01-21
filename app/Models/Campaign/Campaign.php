@@ -42,8 +42,8 @@ class Campaign extends Model
         }
 
         return CampaignStat::where('campaign_id', $this->id)
-            ->where('date', '>=', $startDate)
-            ->where('date', '<=', $endDate)
+            ->whereDate('date', '>=', $startDate)
+            ->whereDate('date', '<=', $endDate)
             ->first();
     }
 }

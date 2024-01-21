@@ -19,35 +19,33 @@ class DashboardController extends Controller
         $endDate = $request->end_date ?: Carbon::now()->format('Y-m-d');
 
         $products = $company->orders()
-            ->where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
             ->sum('quantity');
-
-        dd($products, $startDate, $endDate);
         
         $total = $company->orders()
-            ->where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
             ->sum('total');
         
         $cost = $company->orders()
-            ->where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
             ->sum('cost');
 
         $orders = $company->orders()
-            ->where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
             ->count();
         
         $sendCost = $company->orders()
-            ->where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
             ->count() * 102;
         
         $shippingCost = $company->orders()
-            ->where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
             ->where('free_shipping', true)
             ->count() * 280;
 
@@ -63,14 +61,14 @@ class DashboardController extends Controller
             $orderQuery = Order::where('company_id', $company->id)
                 ->join('order_items', 'order_items.order_id', '=', 'orders.id')
                 ->where('product_id', $campaign->product_id)
-                ->where('orders.created_at', '>=', $startDate)
-                ->where('orders.created_at', '<=', $endDate);
+                ->whereDate('orders.created_at', '>=', $startDate)
+                ->whereDate('orders.created_at', '<=', $endDate);
 
             $orderItemQuery = OrderItem::where('company_id', $company->id)
                 ->join('orders', 'order_items.order_id', '=', 'orders.id')
                 ->where('product_id', $campaign->product_id)
-                ->where('orders.created_at', '>=', $startDate)
-                ->where('orders.created_at', '<=', $endDate);
+                ->whereDate('orders.created_at', '>=', $startDate)
+                ->whereDate('orders.created_at', '<=', $endDate);
 
             $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
             $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
