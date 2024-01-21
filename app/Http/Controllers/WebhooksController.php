@@ -38,9 +38,15 @@ class WebhooksController extends Controller
             return false;
         }
 
+        \Illuminate\Support\Facades\Log::emergency($secret);
+
         $signature = $request->header('X-Shopify-Hmac-Sha256');
 
+        \Illuminate\Support\Facades\Log::emergency($signature);
+
         $calculateSignature = base64_encode(hash_hmac('sha256', $request->getContent(), $secret, true));
+
+        \Illuminate\Support\Facades\Log::emergency($calculateSignature);
 
         return hash_equals($signature, $calculateSignature);
     }
