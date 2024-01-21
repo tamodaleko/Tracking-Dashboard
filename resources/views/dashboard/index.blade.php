@@ -430,6 +430,8 @@
 
             cb(start, end);
 
+            $('#daterangepicker [data-range-key="Custom Range"]').text('Translated text');
+
             daterangepicker.on('apply.daterangepicker', function(ev, picker) {
                 var startDate = picker.startDate.format('YYYY-MM-DD');
                 var endDate = picker.endDate.format('YYYY-MM-DD');
