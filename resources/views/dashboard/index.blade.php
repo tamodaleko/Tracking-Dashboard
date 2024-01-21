@@ -303,14 +303,11 @@
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
                                                                 Reklame: -{{ number_format($data[$campaign->id]['adCost'], 2, '.', '') }} din
                                                             </span>
+                                                            <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
+                                                                Trošak: -{{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
+                                                            </span>
                                                         </div>
                                                         <div class="mt-5">
-                                                            <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
-                                                                <span>Trošak:</span> 
-                                                                <span class="fs-5 px-2 fw-bold">
-                                                                    {{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
-                                                                </span>
-                                                            </span>
                                                             <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Profit:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
