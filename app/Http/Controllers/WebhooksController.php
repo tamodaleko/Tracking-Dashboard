@@ -66,7 +66,7 @@ class WebhooksController extends Controller
             $total += $item['price'] * $item['quantity'];
             $quantity += $item['quantity'];
 
-            $cost += $product ? $product->buying_price : 0;
+            $cost += ($product ? $product->buying_price : 0) * $item['quantity'];
         }
 
         $freeShipping = ($total > 2000) ? true : false;
