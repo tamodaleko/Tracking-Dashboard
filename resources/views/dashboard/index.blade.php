@@ -103,7 +103,7 @@
     @endif
 
     <!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
-    <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" data-kt-daterangepicker-range="today" class="btn btn-sm bg-light-info border border-info border-dotted d-flex align-items-center justify-content-center px-4 w-250px mb-10">
+    <div id="daterangepicker" data-kt-daterangepicker-range="today" class="btn btn-sm bg-light-info border border-info border-dotted d-flex align-items-center justify-content-center px-4 w-250px mb-10">
         <!--begin::Display range-->
         <div class="text-dark fw-bold">Učitavanje datuma...</div>
         <!--end::Display range-->
@@ -373,6 +373,68 @@
                 
                 $(this).find('form').attr('action', action);
                 $(this).find('#campaign-name').text(name);
+            });
+
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+                return false;
+            };
+
+            var startDate = getUrlParameter('start_date');
+            var endDate = getUrlParameter('end_date');
+
+            const daterangepicker = $('#daterangepicker');
+
+            var start = moment();
+            var end = moment();
+
+            if (startDate && endDate) {
+                start = moment(startDate);
+                end = moment(endDate);
+            }
+
+            var cb = function(start, end) {
+                var current = moment();
+
+                if (current.isSame(start, 'day') && current.isSame(end, 'day')) {
+                    $('#daterangepicker div').html(start.format('D MMM YYYY'));
+                } else {
+                    $('#daterangepicker div').html(start.format('D MMM YYYY') + ' - ' + end.format('D MMM YYYY'));
+                }
+            }
+
+            daterangepicker.daterangepicker({
+                startDate: start,
+                endDate: end,
+                opens: 'end',
+                ranges: {
+                    'Danas': [moment(), moment()],
+                    'Juče': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    '7 dana': [moment().subtract(6, 'days'), moment()],
+                    '30 dana': [moment().subtract(29, 'days'), moment()],
+                    'Ovaj mesec': [moment().startOf('month'), moment().endOf('month')],
+                    'Prošli mesec': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+            cb(start, end);
+
+            daterangepicker.on('apply.daterangepicker', function(ev, picker) {
+                var startDate = picker.startDate.format('YYYY-MM-DD');
+                var endDate = picker.endDate.format('YYYY-MM-DD');
+
+                location.href = '/dashboard?start_date=' + startDate + '&end_date=' + endDate;
             });
         </script>
     @endpush

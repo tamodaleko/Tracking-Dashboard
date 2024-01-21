@@ -1552,10 +1552,6 @@
         <!--begin::Custom Javascript(used for this page only)-->
         <script src="{{ asset('/js/widgets.bundle.js') }}"></script>
         <script src="{{ asset('/js/custom/widgets.js') }}"></script>
-        <script src="{{ asset('/js/custom/apps/chat/chat.js') }}"></script>
-        <script src="{{ asset('/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
-        <script src="{{ asset('/js/custom/utilities/modals/new-target.js') }}"></script>
-        <script src="{{ asset('/js/custom/utilities/modals/users-search.js') }}"></script>
         <!--end::Custom Javascript-->
         <!--end::Javascript-->
 
