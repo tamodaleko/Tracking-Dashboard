@@ -239,21 +239,21 @@
                     @if (count($company->campaigns))
                         <div class="separator separator-dashed"></div>
 
-                        <div>
-                            <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
+                        <div class="py-5">
+                            <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center">
                                 Broj porudžbina: {{ number_format($orders) }}
                             </span>
-                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center">
                                 Trošak slanja: -{{ number_format($sendCost, 2, '.', '') }} din
                             </span>
-                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center">
                                 Trošak dostave: -{{ number_format($shippingCost, 2, '.', '') }} din
                             </span>
                         </div>
 
                         <div class="separator separator-dashed"></div>
                         <!--begin::Items-->
-                        <div>
+                        <div class="mt-5">
                             @foreach ($company->campaigns as $campaign)
                                 <!--begin::Col-->
                                 <div class="col-md-12 mb-5">
