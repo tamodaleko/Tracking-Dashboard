@@ -45,6 +45,8 @@ class WebhooksController extends Controller
     private function createShopifyOrder(Company $company, array $data): bool
     {
         $total = 0;
+        $quantity = 0;
+        
         $items = [];
 
         foreach ($data['line_items'] as $item) {
@@ -56,6 +58,7 @@ class WebhooksController extends Controller
             ];
 
             $total += $item['price'] * $item['quantity'];
+            $quantity += $item['quantity'];
         }
         
         $order = Order::create([
@@ -69,6 +72,7 @@ class WebhooksController extends Controller
             'phone' => strtolower(trim($data['billing_address']['phone'])),
             'total' => $total,
             'free_shipping' => ($total > 2000) ? true : false,
+            'quantity' => 
             'status' => 'created'
         ]);
 
