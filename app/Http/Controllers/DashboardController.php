@@ -18,7 +18,13 @@ class DashboardController extends Controller
 
         $cost = $company->orders()->where('created_at', '>=', Carbon::today())->sum('cost');
 
-        // foreach ($company->campaigns )
+        foreach ($company->campaigns as $campaign) {
+            $stats = $campaign->getStats();
+
+            if ($stats) {
+                $cost += $stats->spend_rsd;
+            }
+        }
         
         return view('dashboard.index', [
             'company' => $company,
