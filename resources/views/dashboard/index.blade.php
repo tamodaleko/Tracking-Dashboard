@@ -238,6 +238,18 @@
                 <div class="card-body pt-5">
                     @if (count($company->campaigns))
                         <div class="separator separator-dashed"></div>
+
+                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                            Broj porudžbina: {{ number_format($orders) }}
+                        </span>
+                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                            Trošak slanja: -{{ number_format($sendCost, 2, '.', '') }} din
+                        </span>
+                        <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
+                            Trošak dostave: -{{ number_format($shippingCost, 2, '.', '') }} din
+                        </span>
+
+                        <div class="separator separator-dashed"></div>
                         <!--begin::Items-->
                         <div>
                             @foreach ($company->campaigns as $campaign)
@@ -288,12 +300,6 @@
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
                                                                 Reklame: -{{ number_format($data[$campaign->id]['adCost'], 2, '.', '') }} din
-                                                            </span>
-                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Slanje: -{{ number_format($data[$campaign->id]['sendCost'], 2, '.', '') }} din
-                                                            </span>
-                                                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Dostava: -{{ number_format($data[$campaign->id]['shippingCost'], 2, '.', '') }} din
                                                             </span>
                                                         </div>
                                                         <div class="mt-5">
