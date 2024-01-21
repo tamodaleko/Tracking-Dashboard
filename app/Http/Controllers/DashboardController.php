@@ -27,17 +27,18 @@ class DashboardController extends Controller
                 $cost += $stats->spend_rsd;
             }
 
-            $orderQuery = Order::where('company_id', $company->id)
+            $orderQuery = Order::select(['orders.id', 'orders.created_at', 'orders.total as orderTotal', 'order_items.quantity', 'order_items.total', 'order_items.product_id'])
+                ->where('company_id', $company->id)
                 ->join('order_items', 'order_items.order_id', '=', 'orders.id')
                 ->where('order_items.product_id', $campaign->product_id)
                 ->where('orders.created_at', '>=', Carbon::today());
 
             $data[$campaign->id]['products'] = $orderQuery->clone()->sum('orders_items.quantity');
-            $data[$campaign->id]['total'] = $orderQuery->clone()->sum('orders.total');
+            $data[$campaign->id]['total'] = $orderQuery->clone()->sum('orders_items.total');
             $data[$campaign->id]['productCost'] = $data[$campaign->id]['products'] * $campaign->product->buying_price;
             $data[$campaign->id]['adCost'] = $stats->spend_rsd;
             $data[$campaign->id]['sendCost'] = $orderQuery->clone()->count('orders.id') * 102;
-            $data[$campaign->id]['shippingCost'] = $orderQuery->clone()->where('orders.total', '>', 2000)->count('orders.id') * 280;
+            $data[$campaign->id]['shippingCost'] = $orderQuery->clone()->where('orderTotal', '>', 2000)->count('orders.id') * 280;
 
             $data[$campaign->id]['totalCost'] = $data[$campaign->id]['productCost'] + $data[$campaign->id]['adCost'] + $data[$campaign->id]['sendCost'] + $data[$campaign->id]['shippingCost'];
         }
