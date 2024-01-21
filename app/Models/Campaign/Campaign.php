@@ -3,6 +3,7 @@
 namespace App\Models\Campaign;
 
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -34,7 +35,7 @@ class Campaign extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function getStats(?string $startDate = null, ?string $endDate = null): array
+    public function getStats(?string $startDate = null, ?string $endDate = null): Collection
     {
         if (!$startDate || !$endDate) {
             $startDate = now()->format('Y-m-d');
