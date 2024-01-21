@@ -46,152 +46,40 @@ Route::get('/test', function () {
     //   'quantity' => 1
     // ]);
 
-    $companies = \App\Models\Company::all();
+    // $companies = \App\Models\Company::all();
 
-    $fields = [
-            'campaign_id',
-            'reach',
-            'impressions',
-            'spend',
-            'cpc',
-            'clicks',
-            'campaign_name',
-            'account_currency',
-            'conversions',
-            'actions'
-        ];
-        
-        $params = [
-            'date_preset' => 'yesterday',
-            'level' => 'campaign'
-        ];
+    // $fields = [
+    //   'campaign_id',
+    //   'reach',
+    //   'impressions',
+    //   'spend',
+    //   'cpc',
+    //   'clicks',
+    //   'campaign_name',
+    //   'account_currency',
+    //   'conversions',
+    //   'actions'
+    // ];
+    
+    // $params = [
+    //   'date_preset' => 'yesterday',
+    //   'level' => 'campaign'
+    // ];
 
-    foreach ($companies as $company) {
-      $api = \FacebookAds\Api::init($company->fb_app_id, $company->fb_app_secret, $company->fb_access_token);
+    // foreach ($companies as $company) {
+    //   $api = \FacebookAds\Api::init($company->fb_app_id, $company->fb_app_secret, $company->fb_access_token);
 
-      $api->setLogger(new \FacebookAds\Logger\CurlLogger);
+    //   $api->setLogger(new \FacebookAds\Logger\CurlLogger);
 
-      $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
-      $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
+    //   $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
+    //   $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
 
-      dd($campaigns);
-    }
+    //   dd($campaigns);
+    // }
     
     dd(\App\Models\Campaign\CampaignStat::all());
-    dd((new \App\Services\ExchangeRateService)->convertToRSD('EUR', 50));
-    // dd((new \App\Services\SPService)->getProducts());
-    $api = \FacebookAds\Api::init('1409959359610602', '7709b913e276c61a737f7fe081890061', 'EAAUCWb7GZCuoBOZC5otBpMce7zvE5TUKFjHy7dKQn3D8xzpCjuSTa2CXMaLDvFyFlODV5SaZBKTE4di0duXLFdPgZAFQX05Q9x6EGzE698pWICFrZA4k9OtxNrGQ7CGO1KzwK6fanUoHm1QlBlcZAViWduTXWOQhhpri2ZBwwbopWUZBnoqpuNSSIOuCaGPe4PGP');
-
-    // The Api object is now available through singleton
-    $api->setLogger(new \FacebookAds\Logger\CurlLogger());
-
-    $fields = [
-      'reach',
-      'impressions',
-      'objective',
-      'spend',
-      'cpc',
-      'clicks',
-      'campaign_name',
-      'account_currency',
-      'conversions',
-      'actions',
-      'converted_product_quantity',
-      'cost_per_conversion',
-      'campaign_id'
-    ];
     
-    $params = [
-      'date_preset' => 'today',
-      'level' => 'campaign',
-      'use_unified_attribution_setting' => true,
-      'fields' => ['conversions']
-    ];
-
-    $acc = new \FacebookAds\Object\AdAccount('act_622598460014195');
-
-    $campaigns = $acc->getCampaigns()->getResponse()->getContent();
-
-    foreach ($campaigns['data'] as $campaign) {
-      $cc = new \FacebookAds\Object\Campaign($campaign['id']);
-
-      dd($acc->getInsights($fields, $params)->getResponse()->getContent());
-
-      $adSets = $cc->getAdSets()->getResponse()->getContent();
-
-      foreach ($adSets['data'] as $adSet) {
-        $as = new \FacebookAds\Object\AdSet($adSet['id']);
-        
-        dd($as->getInsights($fields)->getResponse()->getContent());
-      }
-    }
-
-    dd($acc->getInsights()->getResponse()->getContent());
-
-    // $campaign = $acc->createCampaign(
-    //     [],
-    //     [
-    //       'objective' => 'OUTCOME_TRAFFIC',
-    //       'name' => 'My Test Campaign',
-    //       'status' => 'PAUSED',
-    //       'special_ad_categories' => []
-    //     ]
-    // );
-
-    // dd($campaign->id);
-
-    // 120330000218110110
-
-    $adset = $acc->createAdSet(
-        [],
-        [
-          AdSetFields::NAME => 'My Test AdSet 1',
-          AdSetFields::CAMPAIGN_ID => 120330000218109810,
-          AdSetFields::DAILY_BUDGET => 150,
-          AdSetFields::START_TIME => (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
-          AdSetFields::END_TIME => (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
-          AdSetFields::BILLING_EVENT => 'IMPRESSIONS',
-          AdSetFields::TARGETING => array('geo_locations' => array('countries' => array('US'))),
-          AdSetFields::BID_AMOUNT => '1000',
-        ]
-    );
-
-    // echo $adset->id;
-
-    $image = $acc->createAdImage(
-      array(),
-      array(
-        'filename' => asset('/laptop.jpg'),
-      )
-    );
-    echo 'Image Hash: '.$image->hash . "\n";
-
-    $creative = $acc->createAdCreative(
-      array(),
-      array(
-        \FacebookAds\Object\Fields\AdCreativeFields::NAME => 'Sample Creative',
-        \FacebookAds\Object\Fields\AdCreativeFields::TITLE => 'Welcome to the Jungle',
-        \FacebookAds\Object\Fields\AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
-        \FacebookAds\Object\Fields\AdCreativeFields::IMAGE_HASH => $image->hash,
-        \FacebookAds\Object\Fields\AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
-      )
-    );
-
-    $acc->createAd(
-      array(),
-      array(
-        \FacebookAds\Object\Fields\AdFields::CREATIVE => array('creative_id' => $creative->id),
-        \FacebookAds\Object\Fields\AdFields::NAME => 'My First Ad',
-        \FacebookAds\Object\Fields\AdFields::ADSET_ID => $adset->id,
-      )
-    );
-
-    echo 'Ad ID:' . $ad->id . "\n";
-
-    exit;
-
-    dd($acc->getInsights()->getResponse([], $params)->getContent());
-    echo json_encode($acc->getInsights($fields, $params)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+    $api = \FacebookAds\Api::init('1409959359610602', '7709b913e276c61a737f7fe081890061', 'EAAUCWb7GZCuoBOZC5otBpMce7zvE5TUKFjHy7dKQn3D8xzpCjuSTa2CXMaLDvFyFlODV5SaZBKTE4di0duXLFdPgZAFQX05Q9x6EGzE698pWICFrZA4k9OtxNrGQ7CGO1KzwK6fanUoHm1QlBlcZAViWduTXWOQhhpri2ZBwwbopWUZBnoqpuNSSIOuCaGPe4PGP');
 });
 
 Route::get('/', function () {
