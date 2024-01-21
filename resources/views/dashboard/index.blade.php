@@ -241,7 +241,6 @@
                         <!--begin::Items-->
                         <div>
                             @foreach ($company->campaigns as $campaign)
-                                <?php $stats = $campaign->getStats(); ?>
                                 <!--begin::Col-->
                                 <div class="col-md-12 mb-5">
                                     <div class="card card-flush flex-row-fluid p-6 pb-5 mw-100">
@@ -278,36 +277,36 @@
                                                         <!--end::Desc-->
 
                                                         <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Porudžbine: {{ 12 }}
+                                                            Prodato: {{ number_format($data[$campaign->id]['products']) }}
                                                         </span>
                                                         <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Zarada: 12,000.00 din
+                                                            Zarada: {{ number_format($data[$campaign->id]['total'], 2, '.', '') }} din
                                                         </span>
                                                         <div>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Proizvodi: -1,000 din
+                                                                Proizvodi: -{{ number_format($data[$campaign->id]['productCost'], 2, '.', '') }} din
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Reklame: -{{ number_format($stats->spend_rsd ?? 0, 2) }} din
+                                                                Reklame: -{{ number_format($data[$campaign->id]['adCost'], 2, '.', '') }} din
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Slanje: -1,000 din
+                                                                Slanje: -{{ number_format($data[$campaign->id]['sendCost'], 2, '.', '') }} din
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Dostava: -1,000 din
+                                                                Dostava: -{{ number_format($data[$campaign->id]['shippingCost'], 2, '.', '') }} din
                                                             </span>
                                                         </div>
                                                         <div class="mt-5">
                                                             <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Trošak:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    8,000.00 din
+                                                                    {{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
                                                                 </span>
                                                             </span>
                                                             <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Profit:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    12,000.00 din
+                                                                    {{ number_format($data[$campaign->id]['total'] - number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
                                                                 </span>
                                                             </span>
                                                         </div>
