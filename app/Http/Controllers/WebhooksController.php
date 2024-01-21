@@ -72,7 +72,7 @@ class WebhooksController extends Controller
             'phone' => strtolower(trim($data['billing_address']['phone'])),
             'total' => $total,
             'free_shipping' => ($total > 2000) ? true : false,
-            'quantity' => 
+            'quantity' => $quantity,
             'status' => 'created'
         ]);
 
