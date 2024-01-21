@@ -169,7 +169,7 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x text-gray-900">{{ number_format($total, 2, '.', '') }} din</span>
+                        <span class="fw-bolder fs-2x text-gray-900">{{ number_format($total, 2, '.', ',') }} din</span>
                         <span class="fw-bold fs-7 text-gray-500">Zarada</span>
                     </div>
                     <!--end::Wrapper-->
@@ -203,7 +203,7 @@
                 <div class="card-body d-flex text-center justify-content-center pt-5">
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
-                        <span class="fw-bolder fs-2x @if ($totalProfit < 0) text-danger @else text-success @endif">{{ number_format($totalProfit, 2, '.', '') }} din</span>
+                        <span class="fw-bolder fs-2x @if ($totalProfit < 0) text-danger @else text-success @endif">{{ number_format($totalProfit, 2, '.', ',') }} din</span>
                         <span class="fw-bold fs-7 text-gray-500">Profit</span>
                     </div>
                     <!--end::Wrapper-->
@@ -245,13 +245,13 @@
                                 Broj porudžbina: {{ number_format($orders) }}
                             </span>
                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
-                                Trošak slanja: -{{ number_format($sendCost, 2, '.', '') }} din
+                                Trošak slanja: -{{ number_format($sendCost, 2, '.', ',') }} din
                             </span>
                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
-                                Trošak dostave: -{{ number_format($shippingCost, 2, '.', '') }} din
+                                Trošak dostave: -{{ number_format($shippingCost, 2, '.', ',') }} din
                             </span>
                             <span class="badge badge-light-danger text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
-                                Ukupan trošak: {{ number_format($sendCost + $shippingCost, 2, '.', '') }} din
+                                Ukupan trošak: {{ number_format($sendCost + $shippingCost, 2, '.', ',') }} din
                             </span>
                         </div>
 
@@ -298,17 +298,17 @@
                                                             Prodato: {{ number_format($data[$campaign->id]['products']) }}
                                                         </span>
                                                         <span class="badge badge-light-primary text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                            Zarada: {{ number_format($data[$campaign->id]['total'], 2, '.', '') }} din
+                                                            Zarada: {{ number_format($data[$campaign->id]['total'], 2, '.', ',') }} din
                                                         </span>
                                                         <div>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Proizvodi: -{{ number_format($data[$campaign->id]['productCost'], 2, '.', '') }} din
+                                                                Proizvodi: -{{ number_format($data[$campaign->id]['productCost'], 2, '.', ',') }} din
                                                             </span>
                                                             <span class="badge badge-light-warning text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Reklame: -{{ number_format($data[$campaign->id]['adCost'], 2, '.', '') }} din
+                                                                Reklame: -{{ number_format($data[$campaign->id]['adCost'], 2, '.', ',') }} din
                                                             </span>
                                                             <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Trošak: {{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
+                                                                Trošak: {{ number_format($data[$campaign->id]['totalCost'], 2, '.', ',') }} din
                                                             </span>
                                                         </div>
                                                         <?php $campaignProfit = $data[$campaign->id]['total'] - $data[$campaign->id]['totalCost']; ?>
@@ -316,7 +316,7 @@
                                                             <span class="badge @if ($campaignProfit < 0) badge-light-danger @else badge-light-success @endif text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Profit:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    {{ number_format($campaignProfit, 2, '.', '') }} din
+                                                                    {{ number_format($campaignProfit, 2, '.', ',') }} din
                                                                 </span>
                                                             </span>
                                                         </div>
