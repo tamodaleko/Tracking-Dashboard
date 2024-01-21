@@ -39,7 +39,7 @@ class DashboardController extends Controller
                 ->where('orders.created_at', '>=', Carbon::today());
 
             $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
-            $data[$campaign->id]['total'] = $orderQuery->clone()->sum('orders.total');
+            $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
             $data[$campaign->id]['productCost'] = $data[$campaign->id]['products'] * $campaign->product->buying_price;
             $data[$campaign->id]['adCost'] = $stats->spend_rsd;
             $data[$campaign->id]['sendCost'] = $orderQuery->clone()->count('orders.id') * 102;
