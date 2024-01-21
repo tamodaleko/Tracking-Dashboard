@@ -17,7 +17,7 @@ class WebhooksController extends Controller
 
         $data = json_decode($request->getContent(), true);
 
-        if ($topic === 'order/creation') {
+        if ($topic === 'orders/create') {
             \Illuminate\Support\Facades\Log::emergency('dada');
         }
 
