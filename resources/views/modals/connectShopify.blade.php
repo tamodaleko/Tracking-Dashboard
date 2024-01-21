@@ -13,6 +13,12 @@
                 <!--end::Modal title-->
             </div>
             <!--end::Modal header-->
+            <div class="px-15">
+                <p class="text-center mt-5 fs-4"><span class="fw-bold">Webhook Link:</span> {{ route('webhooks.shopify', auth()->user()->company->id) }}</p>
+                <p class="text-center">1) Otvori svoj Shopify portal i pronadji: <i>Settings -> Notifications -> Webhooks</i></p>
+                <p class="text-center">2) Kopiraj webhook link i napravi 6 nova webhooka za sledeće evente: <i><b>"Order creation"</b></i>, <i><b>"Order cancellation"</b></i>, <i><b>"Order deletion"</b></i>, <i><b>"Order fulfillment"</b></i>, <i><b>"Order payment"</b></i>, <i><b>"Order update"</b></i></p>
+                <p class="text-center">3) Kopiraj webhook ključ sa Shopify portala i nalepi ga ispod zatim ga sačuvaj.</p>
+            </div>
             <!--begin::Form-->
             <form class="form" action="{{ route('companies.update.keys') }}" method="POST">
                 @csrf
@@ -25,19 +31,11 @@
                     <!--begin::Scroll-->
                     <div class="scroll-y me-n7 pe-7">
                         <div>
-                            <div class="fv-row mb-5">
-                                <label class="form-label fw-bolder text-dark fs-6 required">Access Token</label>
-                                <input type="text" placeholder="Unesi Access Token" name="sf_access_token" autocomplete="off" class="form-control bg-transparent @error('sf_access_token') is-invalid @enderror" value="{{ old('sf_access_token') }}" />
-
-                                @error('sf_access_token')
-                                    <div class="error invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="fv-row">
-                                <label class="form-label fw-bolder text-dark fs-6 required">Store ID</label>
-                                <input type="text" placeholder="Unesi Store ID" name="sf_store_id" autocomplete="off" class="form-control bg-transparent @error('sf_store_id') is-invalid @enderror" value="{{ old('sf_store_id') }}" />
+                                <label class="form-label fw-bolder text-dark fs-6 required">Webhook Secret</label>
+                                <input type="text" placeholder="Unesi Webhook Secret" name="sf_webhook_secret" autocomplete="off" class="form-control bg-transparent @error('sf_webhook_secret') is-invalid @enderror" value="{{ old('sf_webhook_secret') }}" />
 
-                                @error('sf_store_id')
+                                @error('sf_webhook_secret')
                                     <div class="error invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

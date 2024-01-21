@@ -22,8 +22,7 @@ class Company extends Model
         'fb_app_secret',
         'fb_access_token',
         'fb_ad_account_id',
-        'sf_access_token',
-        'sf_store_id'
+        'sf_webhook_secret'
     ];
 
     public function users(): HasMany
@@ -59,9 +58,9 @@ class Company extends Model
             case 'facebook':
                 return (bool) $this->fb_app_id && $this->fb_app_secret && $this->fb_access_token && $this->fb_ad_account_id;
             case 'shopify':
-                return (bool) $this->sf_access_token && $this->sf_store_id;
+                return (bool) $this->sf_webhook_secret;
             default:
-                return $this->sp_api_key && $this->fb_app_id && $this->fb_app_secret && $this->fb_access_token && $this->fb_ad_account_id && $this->sf_access_token && $this->sf_store_id;
+                return $this->sp_api_key && $this->fb_app_id && $this->fb_app_secret && $this->fb_access_token && $this->fb_ad_account_id && $this->sf_webhook_secret;
         }
     }
 }

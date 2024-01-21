@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('fb_app_secret')->nullable();
             $table->string('fb_access_token')->nullable();
             $table->string('fb_ad_account_id')->nullable();
-            $table->string('sf_access_token')->nullable();
-            $table->string('sf_store_id')->nullable();
+            $table->string('sf_webhook_secret')->nullable();
             $table->timestamps();
         });
     }

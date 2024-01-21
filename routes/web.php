@@ -9,6 +9,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WebhooksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use FacebookAds\Object\Fields\AdSetFields;
@@ -137,25 +138,12 @@ Route::get('/test', function () {
     echo json_encode($acc->getInsights($fields, $params)->getResponse()->getContent(), JSON_PRETTY_PRINT);
 });
 
-Route::post('/shopify', function (Request $request) {
-    $data = $request->json()->all();
-
-    \Illuminate\Support\Facades\Log::emergency($data);
-
-    return true;
-});
-
-Route::put('/slanje-paketa', function (Request $request) {
-    $data = $request->json()->all();
-
-    \Illuminate\Support\Facades\Log::emergency($data);
-
-    return true;
-});
-
 Route::get('/', function () {
     return redirect()->route('dashboard.index');
 });
+
+// Webhooks
+Route::post('/webhooks/{company}/shopify', [WebhooksController::class, 'shopify'])->name('webhooks.shopify');
 
 Route::middleware('auth')->group(function () {
     // Dashboard

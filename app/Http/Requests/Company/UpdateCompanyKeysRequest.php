@@ -30,8 +30,7 @@ class UpdateCompanyKeysRequest extends FormRequest
             'fb_app_secret' => ['nullable', 'string'],
             'fb_access_token' => ['nullable', 'string'],
             'fb_ad_account_id' => ['nullable', 'string'],
-            'sf_access_token' => ['nullable', 'string'],
-            'sf_store_id' => ['nullable', 'string']
+            'sf_webhook_secret' => ['nullable', 'string']
         ];
     }
 }
