@@ -45,6 +45,38 @@ Route::get('/test', function () {
     //   'total' => 990,
     //   'quantity' => 1
     // ]);
+
+    $companies = \App\Models\Company::all();
+
+    $fields = [
+            'campaign_id',
+            'reach',
+            'impressions',
+            'spend',
+            'cpc',
+            'clicks',
+            'campaign_name',
+            'account_currency',
+            'conversions',
+            'actions'
+        ];
+        
+        $params = [
+            'date_preset' => 'today',
+            'level' => 'campaign'
+        ];
+
+    foreach ($companies as $company) {
+      $api = \FacebookAds\Api::init($company->fb_app_id, $company->fb_app_secret, $company->fb_access_token);
+
+      $api->setLogger(new \FacebookAds\Logger\CurlLogger);
+
+      $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
+      $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
+
+      dd($campaigns);
+    }
+    
     dd(\App\Models\Campaign\CampaignStat::all());
     dd((new \App\Services\ExchangeRateService)->convertToRSD('EUR', 50));
     // dd((new \App\Services\SPService)->getProducts());
