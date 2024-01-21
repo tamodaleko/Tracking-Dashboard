@@ -52,7 +52,7 @@ class DashboardController extends Controller
         $data = [];
 
         foreach ($company->campaigns as $campaign) {
-            $stats = $campaign->getStats();
+            $stats = $campaign->getStats($startDate, $endDate);
 
             if ($stats) {
                 $cost += $stats->spend_rsd;
