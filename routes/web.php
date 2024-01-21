@@ -22,29 +22,29 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    $order = \App\Models\Order\Order::create([
-        'company_id' => 1,
-        'shopify_id' => 5697825734933,
-        'first_name' => 'Dragana',
-        'last_name' => 'Punos',
-        'address' => 'Andjelka Čobanovica 33',
-        'city' => 'Dobanovci',
-        'zip' => '11272',
-        'phone' => '+38169702484',
-        'total' => 990,
-        'cost' => 366,
-        'quantity' => 1,
-        'free_shipping' => false,
-        'status' => 'created'
-      ]);
+    // $order = \App\Models\Order\Order::create([
+    //   'company_id' => 1,
+    //   'shopify_id' => 5697825734933,
+    //   'first_name' => 'Dragana',
+    //   'last_name' => 'Punos',
+    //   'address' => 'Andjelka Čobanovica 33',
+    //   'city' => 'Dobanovci',
+    //   'zip' => '11272',
+    //   'phone' => '+38169702484',
+    //   'total' => 990,
+    //   'cost' => 366,
+    //   'quantity' => 1,
+    //   'free_shipping' => false,
+    //   'status' => 'created'
+    // ]);
 
-      \App\Models\Order\OrderItem::create([
-        'order_id' => $order->id,
-        'product_id' => 1,
-        'shopify_id' => 6817582792981,
-        'total' => 990,
-        'quantity' => 1
-      ]);
+    // \App\Models\Order\OrderItem::create([
+    //   'order_id' => $order->id,
+    //   'product_id' => 1,
+    //   'shopify_id' => 6817582792981,
+    //   'total' => 990,
+    //   'quantity' => 1
+    // ]);
     dd(\App\Models\Order\Order::all());
     dd((new \App\Services\ExchangeRateService)->convertToRSD('EUR', 50));
     // dd((new \App\Services\SPService)->getProducts());
