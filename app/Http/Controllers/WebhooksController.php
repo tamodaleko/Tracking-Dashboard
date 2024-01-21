@@ -13,6 +13,7 @@ class WebhooksController extends Controller
     public function shopify(Company $company, Request $request): bool
     {
         if (!$this->verifyShopifySecret($company, $request)) {
+            \Illuminate\Support\Facades\Log::emergency('Webhook not verified.');
             return false;
         }
 
