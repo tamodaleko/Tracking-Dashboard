@@ -124,7 +124,7 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-45px">
                             <span class="symbol-label bg-light-info">
-                                <i class="ki-outline ki-price-tag fs-2x text-gray-800"></i>
+                                <i class="ki-outline ki-handcart fs-2x text-gray-800"></i>
                             </span>
                         </div>
                         <!--end::Symbol-->
@@ -157,7 +157,7 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-45px">
                             <span class="symbol-label bg-light-info">
-                                <i class="ki-outline ki-handcart fs-2x text-gray-800"></i>
+                                <i class="ki-outline ki-price-tag fs-2x text-gray-800"></i>
                             </span>
                         </div>
                         <!--end::Symbol-->
