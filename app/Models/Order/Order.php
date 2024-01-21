@@ -16,22 +16,25 @@ class Order extends Model
      */
     protected $fillable = [
         'company_id',
-        'ingram_id',
-        'payment_method_id',
-        'total',
-        'address1',
-        'address2',
+        'shopify_id',
+        'first_name',
+        'last_name',
+        'address',
         'city',
-        'state',
         'zip',
-        'country',
+        'phone',
+        'total',
+        'quantity',
+        'free_shipping',
         'status',
     ];
 
     protected $casts = [
         'company_id' => 'int',
+        'shopify_id' => 'int',
         'total' => 'float',
-        'zip' => 'int',
+        'quantity' => 'int',
+        'free_shipping' => 'bool',
     ];
 
     public function company(): BelongsTo
