@@ -73,7 +73,7 @@ class DashboardController extends Controller
             $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
             $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
             $data[$campaign->id]['productCost'] = $data[$campaign->id]['products'] * ($campaign->product ? $campaign->product->buying_price : 0);
-            $data[$campaign->id]['adCost'] = $stats->spend_rsd;
+            $data[$campaign->id]['adCost'] = $stats ? $stats->spend_rsd : 0;
 
             $data[$campaign->id]['totalCost'] = $data[$campaign->id]['productCost'] + $data[$campaign->id]['adCost'];
         }
