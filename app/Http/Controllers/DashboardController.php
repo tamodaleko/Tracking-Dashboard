@@ -23,7 +23,7 @@ class DashboardController extends Controller
             ->where('created_at', '<=', $endDate)
             ->sum('quantity');
 
-        dd($products);
+        dd($products, $startDate, $endDate);
         
         $total = $company->orders()
             ->where('created_at', '>=', $startDate)
