@@ -240,17 +240,17 @@
                     @if (count($company->campaigns))
                         <div class="separator separator-dashed"></div>
 
-                        <div class="py-5">
-                            <span class="badge badge-light-primary text-dark px-4 fw-bold fs-6 text-center">
+                        <div class="py-4">
+                            <span class="badge badge-light-primary text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
                                 Broj porudžbina: {{ number_format($orders) }}
                             </span>
-                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-6 text-center">
+                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
                                 Trošak slanja: -{{ number_format($sendCost, 2, '.', '') }} din
                             </span>
-                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-6 text-center">
+                            <span class="badge badge-light-warning text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
                                 Trošak dostave: -{{ number_format($shippingCost, 2, '.', '') }} din
                             </span>
-                            <span class="badge badge-light-danger text-dark px-4 fw-bold fs-6 text-center">
+                            <span class="badge badge-light-danger text-dark px-4 fw-bold fs-6 text-center mt-1 mb-1">
                                 Ukupan trošak: {{ number_format($sendCost + $shippingCost, 2, '.', '') }} din
                             </span>
                         </div>
