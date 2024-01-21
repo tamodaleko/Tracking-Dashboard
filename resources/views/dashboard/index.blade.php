@@ -430,7 +430,7 @@
 
             cb(start, end);
 
-            $('[data-range-key="Custom Range"]').text('Translated text');
+            $('[data-range-key="Custom Range"]').text('Drugi datumi');
 
             daterangepicker.on('apply.daterangepicker', function(ev, picker) {
                 var startDate = picker.startDate.format('YYYY-MM-DD');
