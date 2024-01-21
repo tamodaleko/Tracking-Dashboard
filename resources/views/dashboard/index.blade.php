@@ -304,7 +304,7 @@
                                                                 Reklame: -{{ number_format($data[$campaign->id]['adCost'], 2, '.', '') }} din
                                                             </span>
                                                             <span class="badge badge-light-danger text-dark px-4 fw-bold fs-7 text-center mt-3">
-                                                                Trošak: -{{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
+                                                                Trošak: {{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
                                                             </span>
                                                         </div>
                                                         <div class="mt-5">
