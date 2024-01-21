@@ -22,7 +22,32 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-  dd(\App\Models\Order\OrderItem::all());
+    $order = \App\Models\Order\Order::create([
+      'company_id' => 1,
+      'shopify_id' => 5697582792981,
+      'first_name' => 'Goran',
+      'last_name' => 'Lekic',
+      'address' => 'Sveti Joakim i Ana 13a',
+      'city' => 'Medjuluzje',
+      'zip' => '11400',
+      'phone' => '+381611172235',
+      'total' => 1150,
+      'cost' => 408,
+      'quantity' => 1,
+      'free_shipping' => false,
+      'status' => 'created'
+    ]);
+
+    \App\Models\Order\OrderItem::create([
+      'order_id' => $order->id,
+      'product_id' => 2,
+      'shopify_id' => 6717582792981,
+      'total' => 1150,
+      'quantity' => 1
+    ]);
+
+
+    dd(\App\Models\Order\OrderItem::all());
     dd((new \App\Services\ExchangeRateService)->convertToRSD('EUR', 50));
     // dd((new \App\Services\SPService)->getProducts());
     $api = \FacebookAds\Api::init('1409959359610602', '7709b913e276c61a737f7fe081890061', 'EAAUCWb7GZCuoBOZC5otBpMce7zvE5TUKFjHy7dKQn3D8xzpCjuSTa2CXMaLDvFyFlODV5SaZBKTE4di0duXLFdPgZAFQX05Q9x6EGzE698pWICFrZA4k9OtxNrGQ7CGO1KzwK6fanUoHm1QlBlcZAViWduTXWOQhhpri2ZBwwbopWUZBnoqpuNSSIOuCaGPe4PGP');
