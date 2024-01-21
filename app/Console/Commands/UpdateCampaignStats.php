@@ -86,6 +86,8 @@ class UpdateCampaignStats extends Command
                     }
                 }
 
+                \Illuminate\Support\Facades\Log::emergency($campaign['date_start']);
+
                 $stats = CampaignStat::where('campaign_id', $cc->id)
                     ->where('date', $campaign['date_start'])
                     ->first();
