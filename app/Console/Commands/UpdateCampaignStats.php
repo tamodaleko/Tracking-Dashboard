@@ -34,6 +34,8 @@ class UpdateCampaignStats extends Command
     {
         $companies = Company::all();
 
+        \Illuminate\Support\Facades\Log::emergency('Exec.');
+
         $fields = [
             'campaign_id',
             'reach',
