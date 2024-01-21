@@ -307,11 +307,12 @@
                                                                 Trošak: {{ number_format($data[$campaign->id]['totalCost'], 2, '.', '') }} din
                                                             </span>
                                                         </div>
+                                                        <?php $campaignProfit = $data[$campaign->id]['total'] - $data[$campaign->id]['totalCost']; ?>
                                                         <div class="mt-5">
                                                             <span class="badge badge-light-success text-dark px-4 fw-bold fs-7 text-center mt-3 py-2">
                                                                 <span>Profit:</span> 
                                                                 <span class="fs-5 px-2 fw-bold">
-                                                                    {{ number_format($data[$campaign->id]['total'] - $data[$campaign->id]['totalCost'], 2, '.', '') }} din
+                                                                    {{ number_format($campaignProfit, 2, '.', '') }} din
                                                                 </span>
                                                             </span>
                                                         </div>
