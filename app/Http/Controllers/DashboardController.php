@@ -55,6 +55,9 @@ class DashboardController extends Controller
             'products' => $products,
             'total' => $total,
             'cost' => $cost,
+            'orders' => $orders,
+            'sendCost' => $sendCost,
+            'shippingCost' => $shippingCost,
             'data' => $data
         ]);
     }
