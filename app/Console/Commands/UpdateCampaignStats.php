@@ -56,6 +56,7 @@ class UpdateCampaignStats extends Command
 
         foreach ($companies as $company) {
             if (!$company->isSetUp('facebook')) {
+                \Illuminate\Support\Facades\Log::emergency('ovde');
                 continue;
             }
 
@@ -67,6 +68,7 @@ class UpdateCampaignStats extends Command
             $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
 
             foreach ($campaigns['data'] as $campaign) {
+                \Illuminate\Support\Facades\Log::emergency('ahaaa');
                 $cc = Campaign::where('company_id', $company->id)
                     ->where('facebook_id', $campaign['campaign_id'])
                     ->first();
@@ -86,6 +88,7 @@ class UpdateCampaignStats extends Command
                     }
                 }
 
+                \Illuminate\Support\Facades\Log::emergency('murs');
                 \Illuminate\Support\Facades\Log::emergency($campaign['date_start']);
 
                 $stats = CampaignStat::where('campaign_id', $cc->id)
