@@ -34,7 +34,7 @@ class Campaign extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function getStats(?string $startDate = null, ?string $endDate = null): ?CampaignStat
+    public function getStats(?string $startDate = null, ?string $endDate = null): array
     {
         if (!$startDate || !$endDate) {
             $startDate = now()->format('Y-m-d');
@@ -44,6 +44,6 @@ class Campaign extends Model
         return CampaignStat::where('campaign_id', $this->id)
             ->whereDate('date', '>=', $startDate)
             ->whereDate('date', '<=', $endDate)
-            ->first();
+            ->get();
     }
 }

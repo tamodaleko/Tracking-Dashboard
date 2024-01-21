@@ -54,9 +54,13 @@ class DashboardController extends Controller
         foreach ($company->campaigns as $campaign) {
             $stats = $campaign->getStats($startDate, $endDate);
 
-            if ($stats) {
-                $cost += $stats->spend_rsd;
+            $adSpend = 0;
+
+            foreach ($stats as $stat) {
+                $adSpend += $stat->spend_rsd;
             }
+
+            $cost += $adSpend;
 
             $orderQuery = Order::where('company_id', $company->id)
                 ->join('order_items', 'order_items.order_id', '=', 'orders.id')
@@ -73,7 +77,7 @@ class DashboardController extends Controller
             $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
             $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
             $data[$campaign->id]['productCost'] = $data[$campaign->id]['products'] * ($campaign->product ? $campaign->product->buying_price : 0);
-            $data[$campaign->id]['adCost'] = $stats ? $stats->spend_rsd : 0;
+            $data[$campaign->id]['adCost'] = $adSpend;
 
             $data[$campaign->id]['totalCost'] = $data[$campaign->id]['productCost'] + $data[$campaign->id]['adCost'];
         }
