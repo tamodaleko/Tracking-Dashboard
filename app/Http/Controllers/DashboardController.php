@@ -15,13 +15,39 @@ class DashboardController extends Controller
     {
         $company = $request->user()->company;
 
-        $products = $company->orders()->where('created_at', '>=', Carbon::today())->sum('quantity');
-        $total = $company->orders()->where('created_at', '>=', Carbon::today())->sum('total');
-        $cost = $company->orders()->where('created_at', '>=', Carbon::today())->sum('cost');
+        $startDate = $request->start_date ?: Carbon::now()->format('Y-m-d');
+        $endDate = $request->end_date ?: Carbon::now()->format('Y-m-d');
 
-        $orders = $company->orders()->where('created_at', '>=', Carbon::today())->count();
-        $sendCost = $company->orders()->where('created_at', '>=', Carbon::today())->count() * 102;
-        $shippingCost = $company->orders()->where('created_at', '>=', Carbon::today())->where('free_shipping', true)->count() * 280;
+        $products = $company->orders()
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->sum('quantity');
+        
+        $total = $company->orders()
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->sum('total');
+        
+        $cost = $company->orders()
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->sum('cost');
+
+        $orders = $company->orders()
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->count();
+        
+        $sendCost = $company->orders()
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->count() * 102;
+        
+        $shippingCost = $company->orders()
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->where('free_shipping', true)
+            ->count() * 280;
 
         $data = [];
 
@@ -35,12 +61,14 @@ class DashboardController extends Controller
             $orderQuery = Order::where('company_id', $company->id)
                 ->join('order_items', 'order_items.order_id', '=', 'orders.id')
                 ->where('product_id', $campaign->product_id)
-                ->where('orders.created_at', '>=', Carbon::today());
+                ->where('orders.created_at', '>=', $startDate)
+                ->where('orders.created_at', '<=', $endDate);
 
             $orderItemQuery = OrderItem::where('company_id', $company->id)
                 ->join('orders', 'order_items.order_id', '=', 'orders.id')
                 ->where('product_id', $campaign->product_id)
-                ->where('orders.created_at', '>=', Carbon::today());
+                ->where('orders.created_at', '>=', $startDate)
+                ->where('orders.created_at', '<=', $endDate);
 
             $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
             $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
