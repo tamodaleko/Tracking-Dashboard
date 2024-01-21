@@ -22,6 +22,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+  \App\Models\Order\OrderItem::where('order_id', 2)->delete()
     dd(\App\Models\Order\Order::where('id', 2)->delete());
     dd((new \App\Services\ExchangeRateService)->convertToRSD('EUR', 50));
     // dd((new \App\Services\SPService)->getProducts());
