@@ -430,7 +430,7 @@
 
             cb(start, end);
 
-            $('#daterangepicker ul li[data-range-key="Custom Range"]').text('Translated text');
+            $('#daterangepicker ul li [data-range-key="Custom Range"]').text('Translated text');
 
             daterangepicker.on('apply.daterangepicker', function(ev, picker) {
                 var startDate = picker.startDate.format('YYYY-MM-DD');
