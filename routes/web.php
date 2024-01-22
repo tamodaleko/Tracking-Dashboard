@@ -88,6 +88,7 @@ Route::get('/', function () {
 
 // Webhooks
 Route::post('/webhooks/{company}/shopify', [WebhooksController::class, 'shopify'])->name('webhooks.shopify');
+Route::put('/webhooks/{company}/slanje-paketa', [WebhooksController::class, 'slanjePaketa'])->name('webhooks.slanjePaketa');
 
 Route::middleware('auth')->group(function () {
     // Dashboard

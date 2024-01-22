@@ -28,6 +28,15 @@ class WebhooksController extends Controller
         return true;
     }
 
+    public function slanjePaketa(Company $company, Request $request): bool
+    {
+        $data = json_decode($request->getContent(), true);
+
+        \Illuminate\Support\Facades\Log::emergency($data);
+
+        return true;
+    }
+
     private function verifyShopifySecret(Company $company, Request $request): bool
     {
         $secret = $company->sf_webhook_secret;
