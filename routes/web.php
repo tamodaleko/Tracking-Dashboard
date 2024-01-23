@@ -77,15 +77,7 @@ Route::get('/test', function () {
     //   dd($campaigns);
     // }
     
-    
-    $items = \App\Models\Order\OrderItem::where('product_id', 4)->get();
-    $orders = [];
-
-    foreach ($items as $item) {
-        $orders[] = $item->order;
-    }
-
-    dd($orders);
+    dd(\App\Models\Order\Order::all());
     
     $api = \FacebookAds\Api::init('1409959359610602', '7709b913e276c61a737f7fe081890061', 'EAAUCWb7GZCuoBOZC5otBpMce7zvE5TUKFjHy7dKQn3D8xzpCjuSTa2CXMaLDvFyFlODV5SaZBKTE4di0duXLFdPgZAFQX05Q9x6EGzE698pWICFrZA4k9OtxNrGQ7CGO1KzwK6fanUoHm1QlBlcZAViWduTXWOQhhpri2ZBwwbopWUZBnoqpuNSSIOuCaGPe4PGP');
 });
