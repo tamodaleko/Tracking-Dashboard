@@ -78,7 +78,7 @@ Route::get('/test', function () {
     // }
     
     
-    $items = \App\Models\Order\OrderItem::whereNull('product_id')->get());
+    $items = \App\Models\Order\OrderItem::whereNull('product_id')->get();
 
     dd($items);
     
