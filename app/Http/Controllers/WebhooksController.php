@@ -25,14 +25,16 @@ class WebhooksController extends Controller
             $this->createShopifyOrder($company, $data);
         }
 
+        if ($topic === 'orders/cancelled') {
+            \Illuminate\Support\Facades\Log::emergency($data);
+        }
+
         return true;
     }
 
     public function slanjePaketa(Company $company, Request $request): bool
     {
         $data = json_decode($request->getContent(), true);
-
-        \Illuminate\Support\Facades\Log::emergency($data);
 
         return true;
     }
