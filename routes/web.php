@@ -81,7 +81,11 @@ Route::get('/test', function () {
     $items = \App\Models\Order\OrderItem::where('product_id', 4)->get();
 
     foreach ($items as $item) {
-        dd($item->order);
+        $cost = $item->product->buying_price * $item['quantity'];
+        
+        $item->order->update([
+            'cost' => $item->order->cost + $cost
+        ]);
     }
 
     dd($items);
