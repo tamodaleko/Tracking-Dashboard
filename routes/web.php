@@ -22,7 +22,6 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    dd(\App\Models\Product::all());
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
     //   'shopify_id' => 5697825734933,
