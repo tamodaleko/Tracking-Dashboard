@@ -26,7 +26,7 @@ class WebhooksController extends Controller
         }
 
         if ($topic === 'orders/cancelled') {
-            \Illuminate\Support\Facades\Log::emergency($data);
+            $this->cancelShopifyOrder($company, $data);
         }
 
         return true;
@@ -111,6 +111,21 @@ class WebhooksController extends Controller
                 'quantity' => $item['quantity']
             ]);
         }
+
+        return true;
+    }
+
+    private function cancelShopifyOrder(Company $company, array $data): bool
+    {
+        $order = Order::where('company_id', $company->id)
+            ->where('shopify_id', $data['id'])
+            ->first();
+
+        if (!$order) {
+            return false;
+        }
+        
+        $order->update(['status' => 'cancelled']);
 
         return true;
     }

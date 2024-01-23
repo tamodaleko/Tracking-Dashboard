@@ -21,32 +21,38 @@ class DashboardController extends Controller
         $products = $company->orders()
             ->whereDate('created_at', '>=', $startDate)
             ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
             ->sum('quantity');
         
         $total = $company->orders()
             ->whereDate('created_at', '>=', $startDate)
             ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
             ->sum('total');
         
         $cost = $company->orders()
             ->whereDate('created_at', '>=', $startDate)
             ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
             ->sum('cost');
 
         $orders = $company->orders()
             ->whereDate('created_at', '>=', $startDate)
             ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
             ->count();
         
         $sendCost = $company->orders()
             ->whereDate('created_at', '>=', $startDate)
             ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
             ->count() * 102;
         
         $shippingCost = $company->orders()
             ->whereDate('created_at', '>=', $startDate)
             ->whereDate('created_at', '<=', $endDate)
             ->where('free_shipping', true)
+            ->where('status', 'created')
             ->count() * 280;
 
         $data = [];
@@ -66,13 +72,15 @@ class DashboardController extends Controller
                 ->join('order_items', 'order_items.order_id', '=', 'orders.id')
                 ->where('product_id', $campaign->product_id)
                 ->whereDate('orders.created_at', '>=', $startDate)
-                ->whereDate('orders.created_at', '<=', $endDate);
+                ->whereDate('orders.created_at', '<=', $endDate)
+                ->where('status', 'created');
 
             $orderItemQuery = OrderItem::where('company_id', $company->id)
                 ->join('orders', 'order_items.order_id', '=', 'orders.id')
                 ->where('product_id', $campaign->product_id)
                 ->whereDate('orders.created_at', '>=', $startDate)
-                ->whereDate('orders.created_at', '<=', $endDate);
+                ->whereDate('orders.created_at', '<=', $endDate)
+                ->where('status', 'created');
 
             $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
             $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
