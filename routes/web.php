@@ -22,11 +22,6 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    $company = \App\Models\Company::first();
-
-    $products = (new \App\Services\SPService(trim($company->sp_api_key)))->getProducts();
-
-    dd($products);
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
     //   'shopify_id' => 5697825734933,
