@@ -21,6 +21,64 @@ use FacebookAds\Object\Fields\CampaignFields;
 |--------------------------------------------------------------------------
 */
 
+Route::get('/csv', function (Request $request) {
+    $filename = public_path('smacx.csv');
+
+    $file = fopen($filename, 'r');
+
+    $data = fgetcsv($file);
+
+    $i = 0;
+
+    $rows = [];
+
+    while ($data = fgetcsv($file)) {
+        if (!$i) {
+            $i++;
+            continue;
+        }
+
+        if (!$data['6'] || !$data['7'] || !$data['8'] || !$data['9'] || !$data['10'] || !$data['11']) {
+            $i++;
+            continue;
+        }
+        
+        if ($i === 3) {
+            $rows[] = [
+                $data['0'],
+                $data['1'],
+                $data['3'],
+                $data['4'],
+                $data['5'],
+                $data['6'],
+                $data['7'],
+                $data['8'],
+                $data['9'],
+                $data['10'],
+                $data['11'],
+                '127.0.0.1',
+                'test'
+            ];
+        }
+    }
+
+    fclose($file);
+    
+    header('Content-Type: application/csv');
+    header('Content-Disposition: attachment; filename="hl-purchasers.csv";');
+
+    $f = fopen('php://output', 'w');
+
+    fputcsv($f, ['Call Date', 'Caller ID', 'End Call Source', 'Time To Connect', 'Duration', 'First Name', 'Last Name', 'Address', 'City', 'State', 'Zip', 'IP', 'Cert ID']);
+
+    foreach ($rows as $row) {
+        fputcsv($f, $row);
+    }
+
+    fclose($f);
+    exit;
+});
+
 Route::get('/test', function () {
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
