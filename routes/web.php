@@ -60,8 +60,6 @@ Route::get('/csv', function (Request $request) {
             $city = ucwords(strtolower(trim($data['9'])));
             $phone = substr($data['1'], 1);
 
-            dd($firstName, $lastName, $phone, $city, $data['10'], $data['11']);
-
             $response = \Illuminate\Support\Facades\Http::retry(3, 100)
                 ->withHeaders([
                     'Content-Type' => 'application/json',
@@ -74,7 +72,7 @@ Route::get('/csv', function (Request $request) {
                     'city' => $city,
                     'state' => $data['10'],
                     'zip' => $data['11'],
-                    'values' => base64_encode('recording_id=' . $session_id . '&date=' . $date)
+                    'values' => base64_encode('recording_id=' . $session_id . '&date=' . $date . '&ip=127.0.0.1')
                 ]);
             
             $rows[] = [
@@ -85,7 +83,7 @@ Route::get('/csv', function (Request $request) {
                 $data['5'],
                 $firstName,
                 $lastName,
-                $data['9'],
+                $city,
                 $data['10'],
                 $data['11'],
                 $date,
