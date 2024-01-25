@@ -44,6 +44,17 @@ Route::get('/csv', function (Request $request) {
         }
         
         if ($i === 3) {
+            $response = \Illuminate\Support\Facades\Http::retry(3, 100)
+                ->withHeaders([
+                    'auth-token' => 'd5226723-fdf6-4a6f-a8b3-000eaa9ec077'
+                ])
+                ->get('https://app.compliant.ly/api/certificates/blank/generate');
+
+            $data = $response->json();
+            $session_id = $data['data']['sessionId'];
+
+            $date = \Carbon\Carbon::parse($data['0'])->subDays(rand(3, 7))->format('m-d-y') . ' ' . sprintf("%02d", rand(7, 12)) . ':' . sprintf("%02d", rand(1, 59)) . ':' . sprintf("%02d", rand(1, 59));
+            
             $rows[] = [
                 $data['0'],
                 $data['1'],
@@ -56,8 +67,8 @@ Route::get('/csv', function (Request $request) {
                 $data['9'],
                 $data['10'],
                 $data['11'],
-                '127.0.0.1',
-                'test'
+                $date,
+                $session_id
             ];
         }
     }
