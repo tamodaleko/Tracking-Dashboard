@@ -38,7 +38,7 @@ Route::get('/csv', function (Request $request) {
             continue;
         }
 
-        if (!$data['6'] || !$data['7'] || !$data['8'] || !$data['9'] || !$data['10'] || !$data['11']) {
+        if (!$data['6'] || !$data['7'] || !$data['9'] || !$data['10'] || !$data['11']) {
             $i++;
             continue;
         }
@@ -54,6 +54,28 @@ Route::get('/csv', function (Request $request) {
             $session_id = $response['data']['sessionId'];
 
             $date = \Carbon\Carbon::parse($data['0'])->subDays(rand(3, 7))->format('m-d-y') . ' ' . sprintf("%02d", rand(7, 12)) . ':' . sprintf("%02d", rand(1, 59)) . ':' . sprintf("%02d", rand(1, 59));
+
+            $firstName = ucwords(strtolower(trim($data['6'])));
+            $lastName = ucwords(strtolower(trim($data['7'])));
+            $city = ucwords(strtolower(trim($data['9'])));
+            $phone = substr($data['1'], 1);
+
+            dd($firstName, $lastName, $phone, $city, $data['10'], $data['11']);
+
+            $response = \Illuminate\Support\Facades\Http::retry(3, 100)
+                ->withHeaders([
+                    'Content-Type' => 'application/json',
+                    'auth-token' => '658f2f2edd63fd272f8af2b3'
+                ])
+                ->get('https://app.leadhush.com/webhook/incoming/6598b294711b7f0acfa4f49b/add-lead', [
+                    'first_name' => $firstName,
+                    'last_name' => $lastName,
+                    'phone' => $phone,
+                    'city' => $city,
+                    'state' => $data['10'],
+                    'zip' => $data['11'],
+                    'values' => base64_encode('recording_id=' . $session_id . '&date=' . $date)
+                ]);
             
             $rows[] = [
                 $data['0'],
@@ -61,9 +83,8 @@ Route::get('/csv', function (Request $request) {
                 $data['3'],
                 $data['4'],
                 $data['5'],
-                $data['6'],
-                $data['7'],
-                $data['8'],
+                $firstName,
+                $lastName,
                 $data['9'],
                 $data['10'],
                 $data['11'],
@@ -80,7 +101,7 @@ Route::get('/csv', function (Request $request) {
 
     $f = fopen('php://output', 'w');
 
-    fputcsv($f, ['Call Date', 'Caller ID', 'End Call Source', 'Time To Connect', 'Duration', 'First Name', 'Last Name', 'Address', 'City', 'State', 'Zip', 'IP', 'Cert ID']);
+    fputcsv($f, ['Call Date', 'Caller ID', 'End Call Source', 'Time To Connect', 'Duration', 'First Name', 'Last Name', 'City', 'State', 'Zip', 'IP', 'Cert ID']);
 
     foreach ($rows as $row) {
         fputcsv($f, $row);
