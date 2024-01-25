@@ -50,8 +50,8 @@ Route::get('/csv', function (Request $request) {
                 ])
                 ->get('https://app.compliant.ly/api/certificates/blank/generate');
 
-            $data = $response->json();
-            $session_id = $data['data']['sessionId'];
+            $response = $response->json();
+            $session_id = $response['data']['sessionId'];
 
             $date = \Carbon\Carbon::parse($data['0'])->subDays(rand(3, 7))->format('m-d-y') . ' ' . sprintf("%02d", rand(7, 12)) . ':' . sprintf("%02d", rand(1, 59)) . ':' . sprintf("%02d", rand(1, 59));
             
