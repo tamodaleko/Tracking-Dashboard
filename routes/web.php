@@ -24,7 +24,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 Route::get('/test', function () {
     $product = \App\Models\Product::find(5);
 
-    $orders = \App\Models\Order\Order::where('created_at', '=>', '2024-01-27 00:00:00')->get();
+    $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
 
     dd($orders);
 
