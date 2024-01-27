@@ -24,9 +24,15 @@ use FacebookAds\Object\Fields\CampaignFields;
 Route::get('/test', function () {
     $product = \App\Models\Product::find(5);
 
-    $orders = \App\Models\Order\Order::join('order_items', 'order_items.order_id', '=', 'orders.id')
-                ->where('product_id', $product->id)
-                ->get();
+    $order = \App\Models\Order\Order::find($request->id);
+
+    dd($order->update(['cost' => ($order->cost + ($order->quantity * 300))]));
+
+    foreach ($orders as $order) {
+        $order->update([
+            'cost' => $order->cost + ($order->quantity * 300)
+        ]);
+    }
 
     dd($orders);
     // $campaignStats = \App\Models\Campaign\CampaignStat::where
