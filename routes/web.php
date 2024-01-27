@@ -21,14 +21,14 @@ use FacebookAds\Object\Fields\CampaignFields;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/test', function (Request $request) {
+Route::get('/test', function () {
     $product = \App\Models\Product::find(5);
 
-    $order = \App\Models\Order\Order::find($request->id);
+    $orders = \App\Models\Order\Order::where('created_at', '=>', '2024-01-27 00:00:00')->get();
 
-    dd($order);
+    dd($orders);
 
-    dd($order->update(['cost' => ($order->cost + ($order->quantity * 300))]));
+    dd($order->update(['cost']))
 
     foreach ($orders as $order) {
         $order->update([
