@@ -26,6 +26,8 @@ Route::get('/test', function () {
 
     $order = \App\Models\Order\Order::find($request->id);
 
+    dd($order);
+
     dd($order->update(['cost' => ($order->cost + ($order->quantity * 300))]));
 
     foreach ($orders as $order) {
