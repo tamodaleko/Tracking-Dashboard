@@ -28,12 +28,8 @@ Route::get('/test', function () {
 
     dd($orders);
 
-    dd($order->update(['cost']))
-
     foreach ($orders as $order) {
-        $order->update([
-            'cost' => $order->cost + ($order->quantity * 300)
-        ]);
+        // 
     }
 
     dd($orders);
