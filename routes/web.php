@@ -21,7 +21,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/test', function () {
+Route::get('/test', function (Request $request) {
     $product = \App\Models\Product::find(5);
 
     $order = \App\Models\Order\Order::find($request->id);
