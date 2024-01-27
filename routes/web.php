@@ -26,9 +26,8 @@ Route::get('/test', function () {
 
     $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
 
-    dd($orders);
-
     foreach ($orders as $order) {
+        dd($order->items);
         $cost = 0;
         $total = 0;
         
