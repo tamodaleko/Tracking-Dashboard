@@ -21,95 +21,11 @@ use FacebookAds\Object\Fields\CampaignFields;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/csv', function (Request $request) {
-    $filename = public_path('smacx.csv');
-
-    $file = fopen($filename, 'r');
-
-    $data = fgetcsv($file);
-
-    $i = 0;
-
-    $rows = [];
-
-    while ($data = fgetcsv($file)) {
-        if (!$i) {
-            $i++;
-            continue;
-        }
-
-        if (!$data['6'] || !$data['7'] || !$data['9'] || !$data['10'] || !$data['11']) {
-            $i++;
-            continue;
-        }
-        
-        if ($i === 3) {
-            $response = \Illuminate\Support\Facades\Http::retry(3, 100)
-                ->withHeaders([
-                    'auth-token' => 'd5226723-fdf6-4a6f-a8b3-000eaa9ec077'
-                ])
-                ->get('https://app.compliant.ly/api/certificates/blank/generate');
-
-            $response = $response->json();
-            $session_id = $response['data']['sessionId'];
-
-            $date = \Carbon\Carbon::parse($data['0'])->subDays(rand(3, 7))->format('m-d-y') . ' ' . sprintf("%02d", rand(7, 12)) . ':' . sprintf("%02d", rand(1, 59)) . ':' . sprintf("%02d", rand(1, 59));
-
-            $firstName = ucwords(strtolower(trim($data['6'])));
-            $lastName = ucwords(strtolower(trim($data['7'])));
-            $city = ucwords(strtolower(trim($data['9'])));
-            $phone = substr($data['1'], 1);
-
-            $response = \Illuminate\Support\Facades\Http::retry(3, 100)
-                ->withHeaders([
-                    'Content-Type' => 'application/json',
-                    'auth-token' => '658f2f2edd63fd272f8af2b3'
-                ])
-                ->get('https://app.leadhush.com/webhook/incoming/6598b294711b7f0acfa4f49b/add-lead', [
-                    'first_name' => $firstName,
-                    'last_name' => $lastName,
-                    'phone' => $phone,
-                    'city' => $city,
-                    'state' => $data['10'],
-                    'zip' => $data['11'],
-                    'values' => base64_encode('recording_id=' . $session_id . '&date=' . $date . '&ip=127.0.0.1')
-                ]);
-            
-            $rows[] = [
-                $data['0'],
-                $data['1'],
-                $data['3'],
-                $data['4'],
-                $data['5'],
-                $firstName,
-                $lastName,
-                $city,
-                $data['10'],
-                $data['11'],
-                $date,
-                $session_id
-            ];
-        }
-    }
-
-    fclose($file);
-    
-    header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="hl-purchasers.csv";');
-
-    $f = fopen('php://output', 'w');
-
-    fputcsv($f, ['Call Date', 'Caller ID', 'End Call Source', 'Time To Connect', 'Duration', 'First Name', 'Last Name', 'City', 'State', 'Zip', 'IP', 'Cert ID']);
-
-    foreach ($rows as $row) {
-        fputcsv($f, $row);
-    }
-
-    fclose($f);
-    exit;
-});
-
 Route::get('/test', function () {
+    $campaign = \App\Models\Campaign\Campaign::where('facebook_id', 120204830946710697)->first();
+
+    dd($campaign);
+    // $campaignStats = \App\Models\Campaign\CampaignStat::where
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
     //   'shopify_id' => 5697825734933,
