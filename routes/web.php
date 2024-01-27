@@ -24,6 +24,10 @@ use FacebookAds\Object\Fields\CampaignFields;
 Route::get('/test', function () {
     $campaign = \App\Models\Campaign\Campaign::where('facebook_id', 120204830946710697)->first();
 
+    \App\Models\Campaign\CampaignStat::where('campaign_id', $campaign->id)->delete();
+
+    $campaign->delete();
+
     dd($campaign);
     // $campaignStats = \App\Models\Campaign\CampaignStat::where
     // $order = \App\Models\Order\Order::create([
