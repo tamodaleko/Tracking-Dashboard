@@ -26,10 +26,26 @@ Route::get('/test', function () {
 
     $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
 
-    dd($orders);
-
     foreach ($orders as $order) {
-        // 
+        $cost = 0;
+        $total = 0;
+        
+        foreach ($order->items as $item) {
+            $product = $item->product;
+
+            $item->update(['total' => $item->quantity * $product->price]);
+
+            $cost += $product->buying_price * $item->quantity;
+            $total += $product->price * $item->quantity;
+        }
+
+        $freeShipping = ($total > 2000) ? true : false;
+
+        if ($freeShipping) {
+            $cost += 280;
+        }
+
+        $order->update(['cost' => $cost + 102]);
     }
 
     dd($orders);
