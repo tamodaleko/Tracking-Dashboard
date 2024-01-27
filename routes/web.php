@@ -29,8 +29,6 @@ Route::get('/test', function () {
                 ->get();
 
     dd($orders);
-    
-    \App\Models\Order\OrderItem::whereNull('product_id')->update(['product_id' => $product->id]));
     // $campaignStats = \App\Models\Campaign\CampaignStat::where
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
