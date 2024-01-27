@@ -22,6 +22,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+    dd(\App\Models\Order\OrderItem::whereNull('product_id')->count());
     // $campaignStats = \App\Models\Campaign\CampaignStat::where
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
