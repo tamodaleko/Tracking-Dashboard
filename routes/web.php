@@ -28,6 +28,12 @@ Route::get('/test', function () {
                 ->where('product_id', $product->id)
                 ->get();
 
+    foreach ($orders as $order) {
+        $order->update([
+            'cost' => $order->cost + ($order->quantity * 300)
+        ]);
+    }
+
     dd($orders);
     // $campaignStats = \App\Models\Campaign\CampaignStat::where
     // $order = \App\Models\Order\Order::create([
