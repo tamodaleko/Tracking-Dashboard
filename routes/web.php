@@ -22,8 +22,15 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    $product = \App\Models\Product::latest()->first();
-    dd(\App\Models\Order\OrderItem::whereNull('product_id')->update(['product_id' => $product->id]));
+    $product = \App\Models\Product::find(5);
+
+    $orders = \App\Models\Order\Order::join('order_items', 'order_items.order_id', '=', 'orders.id')
+                ->where('product_id', $product->id)
+                ->get();
+
+    dd($orders);
+    
+    \App\Models\Order\OrderItem::whereNull('product_id')->update(['product_id' => $product->id]));
     // $campaignStats = \App\Models\Campaign\CampaignStat::where
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
