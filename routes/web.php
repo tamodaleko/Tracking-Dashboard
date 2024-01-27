@@ -27,17 +27,16 @@ Route::get('/test', function () {
     $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
 
     foreach ($orders as $order) {
-        dd($order->items);
         $cost = 0;
         $total = 0;
         
         foreach ($order->items as $item) {
             $product = $item->product;
 
-            $item->update(['total' => $item->quantity * $product->price]);
+            $item->update(['total' => $item->quantity * $product->selling_price]);
 
             $cost += $product->buying_price * $item->quantity;
-            $total += $product->price * $item->quantity;
+            $total += $product->selling_price * $item->quantity;
         }
 
         $freeShipping = ($total > 2000) ? true : false;
