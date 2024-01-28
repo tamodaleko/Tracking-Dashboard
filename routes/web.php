@@ -22,35 +22,40 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    exit;
-    $product = \App\Models\Product::find(5);
+    // exit;
+    // $product = \App\Models\Product::find(5);
 
-    $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
+    // $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
 
-    foreach ($orders as $order) {
-        $cost = 0;
-        $total = 0;
+    // foreach ($orders as $order) {
+    //     $cost = 0;
+    //     $total = 0;
         
-        foreach ($order->items as $item) {
-            $product = $item->product;
+    //     foreach ($order->items as $item) {
+    //         $product = $item->product;
 
-            $item->update(['total' => $item->quantity * $product->selling_price]);
+    //         $item->update(['total' => $item->quantity * $product->selling_price]);
 
-            $cost += $product->buying_price * $item->quantity;
-            $total += $product->selling_price * $item->quantity;
-        }
+    //         $cost += $product->buying_price * $item->quantity;
+    //         $total += $product->selling_price * $item->quantity;
+    //     }
 
-        $freeShipping = ($total > 2000) ? true : false;
+    //     $freeShipping = ($total > 2000) ? true : false;
 
-        if ($freeShipping) {
-            $cost += 280;
-        }
+    //     if ($freeShipping) {
+    //         $cost += 280;
+    //     }
 
-        $order->update(['cost' => $cost + 102]);
-    }
+    //     $order->update(['cost' => $cost + 102]);
+    // }
 
-    dd($orders);
-    // $campaignStats = \App\Models\Campaign\CampaignStat::where
+    // dd($orders);
+    $campaign = \App\Models\Campaign\Campaign::where('facebook_id', 120204968510920697)->first();
+    \App\Models\Campaign\CampaignStat::where('campaign_id', $campaign->id)->delete();
+
+    $campaign->delete();
+
+    exit;
     // $order = \App\Models\Order\Order::create([
     //   'company_id' => 1,
     //   'shopify_id' => 5697825734933,
