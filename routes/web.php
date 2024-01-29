@@ -22,6 +22,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+    dd(\App\Models\Customer::count());
     exit;
     // $product = \App\Models\Product::find(5);
 
