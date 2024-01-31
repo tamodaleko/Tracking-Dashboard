@@ -27,6 +27,8 @@ Route::get('/test', function () {
 
     array_shift($parts);
 
+    $domain = implode('.', $parts);
+
     dd($parts);
     exit;
     $companies = \App\Models\Company::all();
