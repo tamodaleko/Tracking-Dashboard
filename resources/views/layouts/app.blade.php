@@ -5,6 +5,7 @@
     array_shift($parts);
 
     $domain = implode('.', $parts);
+    $domain = 'trendomania.rs';
 ?>
 <!DOCTYPE html>
 <html lang="en">
