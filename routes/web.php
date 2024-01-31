@@ -54,6 +54,16 @@ Route::get('/test', function () {
         $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
         $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
 
+        $cc = \App\Models\Campaign\Campaign::where('company_id', $company->id)
+                    ->where('facebook_id', $campaigns['data'][3]['campaign_id'])
+                    ->first();
+
+        $stats = \App\Models\Campaign\CampaignStat::where('campaign_id', $cc->id)
+                    ->where('date', $campaigns['data'][3]['date_start'])
+                    ->first();
+
+        dd($stats);
+
         dd($campaigns['data'][3]['date_start']);
 
         $spend_rsd = (new \App\Services\ExchangeRateService)->convertToRSD($campaigns['data'][3]['account_currency'], $campaigns['data'][3]['spend'] ?? 0);
