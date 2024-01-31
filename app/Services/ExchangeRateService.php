@@ -15,6 +15,10 @@ class ExchangeRateService
 
     public function convertToRSD(string $currency, float $amount): float
     {
+        if (!$amount) {
+            return 0;
+        }
+        
         $url = $this->baseUrl . '/' . $currency . '/conversions/' . $amount . '/today';
         
         $response = Http::withHeaders([
