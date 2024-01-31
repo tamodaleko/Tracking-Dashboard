@@ -1,4 +1,11 @@
+<?php
+    $host = request()->getHost();
+    $parts = explode('.', $host);
 
+    array_shift($parts);
+
+    $domain = implode('.', $parts);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <!--begin::Head-->
@@ -9,7 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
-        <link rel="shortcut icon" href="{{ asset('/media/logos/favicon.png?v=1') }}" />
+        <link rel="shortcut icon" href="{{ asset('/media/logos/favicon-' . $domain . '.png') }}" />
         <!--begin::Fonts(mandatory for all pages)-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
         <!--end::Fonts-->
@@ -48,7 +55,7 @@
                                 <!--end::Logo wrapper-->
                                 <!--begin::Logo image-->
                                 <a href="/">
-                                    <img alt="{{ config('app.name') }}" src="{{ asset('/media/logos/logo.png?v=1') }}" class="h-20px h-lg-30px theme-light-show" />
+                                    <img alt="{{ config('app.name') }}" src="{{ asset('/media/logos/logo-' . $domain . '.png') }}" class="h-20px h-lg-30px theme-light-show" />
                                 </a>
                                 <!--end::Logo image-->
                             </div>
