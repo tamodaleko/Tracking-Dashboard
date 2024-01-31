@@ -54,6 +54,8 @@ Route::get('/test', function () {
         $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
         $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
 
+        dd($campaigns['data'][3]['date_start']);
+
         $spend_rsd = (new \App\Services\ExchangeRateService)->convertToRSD($campaigns['data'][3]['account_currency'], $campaigns['data'][3]['spend'] ?? 0);
 
         dd($spend_rsd);
