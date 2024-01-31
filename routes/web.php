@@ -22,7 +22,41 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    dd(\App\Models\Order\Order::count());
+    $companies = \App\Models\Company::all();
+
+    $fields = [
+        'campaign_id',
+        'reach',
+        'impressions',
+        'spend',
+        'cpc',
+        'clicks',
+        'campaign_name',
+        'account_currency',
+        'conversions',
+        'actions'
+    ];
+    
+    $params = [
+        'date_preset' => 'today',
+        'level' => 'campaign'
+    ];
+
+    foreach ($companies as $company) {
+        if (!$company->isSetUp('facebook')) {
+            continue;
+        }
+
+        $api = \FacebookAds\Api::init($company->fb_app_id, $company->fb_app_secret, $company->fb_access_token);
+
+        $api->setLogger(new \FacebookAds\Logger\CurlLogger);
+
+        $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
+        $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
+
+        dd($campaigns);
+    }
+
     exit;
     // $product = \App\Models\Product::find(5);
 
