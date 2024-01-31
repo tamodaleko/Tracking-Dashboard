@@ -22,6 +22,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+    dd(Request::root());
     exit;
     $companies = \App\Models\Company::all();
 
