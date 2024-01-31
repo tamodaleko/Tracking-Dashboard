@@ -29,7 +29,7 @@ Route::get('/test', function () {
 
     $domain = implode('.', $parts);
 
-    dd($parts);
+    dd($domain);
     exit;
     $companies = \App\Models\Company::all();
 
