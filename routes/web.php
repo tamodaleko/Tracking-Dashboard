@@ -54,21 +54,62 @@ Route::get('/test', function () {
         $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
         $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
 
-        $cc = \App\Models\Campaign\Campaign::where('company_id', $company->id)
-                    ->where('facebook_id', $campaigns['data'][3]['campaign_id'])
-                    ->first();
+        foreach ($campaigns['data'] as $campaign) {
+            $cc = \App\Models\Campaign\Campaign::where('company_id', $company->id)
+                ->where('facebook_id', $campaign['campaign_id'])
+                ->first();
 
-        $stats = \App\Models\Campaign\CampaignStat::where('campaign_id', $cc->id)
-                    ->where('date', $campaigns['data'][3]['date_start'])
-                    ->first();
+            if (!$cc) {
+                $cc = \App\Models\Campaign\Campaign::create([
+                    'company_id' => $company->id,
+                    'facebook_id' => $campaign['campaign_id'],
+                    'name' => $campaign['campaign_name'],
+                    'currency' => $campaign['account_currency']
+                ]);
+            }
 
-        dd($stats);
+            foreach ($campaign['actions'] as $action) {
+                if ($action['action_type'] === 'purchase') {
+                    $conversions = $action['value'];
+                }
+            }
 
-        dd($campaigns['data'][3]['date_start']);
+            $stats = \App\Models\Campaign\CampaignStat::where('campaign_id', $cc->id)
+                ->where('date', $campaign['date_start'])
+                ->first();
 
-        $spend_rsd = (new \App\Services\ExchangeRateService)->convertToRSD($campaigns['data'][3]['account_currency'], $campaigns['data'][3]['spend'] ?? 0);
+            $reach = $campaign['reach'] ?? 0;
+            $impressions = $campaign['impressions'] ?? 0;
+            $spend = $campaign['spend'] ?? 0;
+            $spend_rsd = (new \App\Services\ExchangeRateService)->convertToRSD($campaign['account_currency'], $campaign['spend'] ?? 0);
+            $cpc = $campaign['cpc'] ?? 0;
+            $clicks = $campaign['clicks'] ?? 0;
+            $conversions = $conversions ?? 0;
 
-        dd($spend_rsd);
+            if ($stats) {
+                $stats->update([
+                    'reach' => $reach,
+                    'impressions' => $impressions,
+                    'spend' => $spend,
+                    'spend_rsd' => $spend_rsd,
+                    'cpc' => $cpc,
+                    'clicks' => $clicks,
+                    'conversions' => $conversions
+                ]);
+            } else {
+                \App\Models\Campaign\CampaignStat::create([
+                    'campaign_id' => $cc->id,
+                    'reach' => $reach,
+                    'impressions' => $impressions,
+                    'spend' => $spend,
+                    'spend_rsd' => $spend_rsd,
+                    'cpc' => $cpc,
+                    'clicks' => $clicks,
+                    'conversions' => $conversions,
+                    'date' => $campaign['date_start']
+                ]);
+            }
+        }
     }
 
     exit;
