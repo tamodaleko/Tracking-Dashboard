@@ -23,9 +23,11 @@ use FacebookAds\Object\Fields\CampaignFields;
 
 Route::get('/test', function () {
     $host = request()->getHost();
-    $info = parse_url(request()->getHost());
+    $parts = explode('.', $host);
 
-    dd($info['host']);
+    array_shift($parts);
+
+    dd($parts);
     exit;
     $companies = \App\Models\Company::all();
 
