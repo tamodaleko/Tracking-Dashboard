@@ -47,14 +47,10 @@
                         <img class="theme-light-show mx-auto mw-100 w-150px w-lg-200px mb-5" src="{{ asset('/media/logos/logo-' . $domain . '.png') }}" alt="{{ config('app.name') }}" />
                         <!--end::Image-->
                         <!--begin::Title-->
-                        <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-3">Fast, Efficient and Productive</h1>
+                        <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-3">Ecommerce platforma</h1>
                         <!--end::Title-->
                         <!--begin::Text-->
-                        <div class="text-gray-600 fs-base text-center fw-semibold">In this kind of post, 
-                        <a href="#" class="opacity-75-hover text-primary me-1">the blogger</a>introduces a person they’ve interviewed 
-                        <br />and provides some background information about 
-                        <a href="#" class="opacity-75-hover text-primary me-1">the interviewee</a>and their 
-                        <br />work following this is a transcript of the interview.</div>
+                        <div class="text-gray-600 fs-base text-center fw-semibold">Popularni proizvodi iz celog sveta kakve niste videli do sada!</div>
                         <!--end::Text-->
                     </div>
                     <!--end::Content-->
