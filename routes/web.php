@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaptopsController;
@@ -22,195 +21,13 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    $host = request()->getHost();
-    $parts = explode('.', $host);
+    $campaigns = \App\Models\Campaign\Campaign::all();
 
-    array_shift($parts);
-
-    $domain = implode('.', $parts);
-
-    dd($domain);
-    exit;
-    $companies = \App\Models\Company::all();
-
-    $fields = [
-        'campaign_id',
-        'reach',
-        'impressions',
-        'spend',
-        'cpc',
-        'clicks',
-        'campaign_name',
-        'account_currency',
-        'conversions',
-        'actions'
-    ];
-    
-    $params = [
-        'date_preset' => 'today',
-        'level' => 'campaign'
-    ];
-
-    foreach ($companies as $company) {
-        if (!$company->isSetUp('facebook')) {
-            continue;
-        }
-
-        $api = \FacebookAds\Api::init($company->fb_app_id, $company->fb_app_secret, $company->fb_access_token);
-
-        $api->setLogger(new \FacebookAds\Logger\CurlLogger);
-
-        $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
-        $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
-
-        foreach ($campaigns['data'] as $campaign) {
-            $cc = \App\Models\Campaign\Campaign::where('company_id', $company->id)
-                ->where('facebook_id', $campaign['campaign_id'])
-                ->first();
-
-            if (!$cc) {
-                $cc = \App\Models\Campaign\Campaign::create([
-                    'company_id' => $company->id,
-                    'facebook_id' => $campaign['campaign_id'],
-                    'name' => $campaign['campaign_name'],
-                    'currency' => $campaign['account_currency']
-                ]);
-            }
-
-            foreach ($campaign['actions'] as $action) {
-                if ($action['action_type'] === 'purchase') {
-                    $conversions = $action['value'];
-                }
-            }
-
-            $stats = \App\Models\Campaign\CampaignStat::where('campaign_id', $cc->id)
-                ->where('date', $campaign['date_start'])
-                ->first();
-
-            $reach = $campaign['reach'] ?? 0;
-            $impressions = $campaign['impressions'] ?? 0;
-            $spend = $campaign['spend'] ?? 0;
-            $spend_rsd = (new \App\Services\ExchangeRateService)->convertToRSD($campaign['account_currency'], $campaign['spend'] ?? 0);
-            $cpc = $campaign['cpc'] ?? 0;
-            $clicks = $campaign['clicks'] ?? 0;
-            $conversions = $conversions ?? 0;
-
-            if ($stats) {
-                $stats->update([
-                    'reach' => $reach,
-                    'impressions' => $impressions,
-                    'spend' => $spend,
-                    'spend_rsd' => $spend_rsd,
-                    'cpc' => $cpc,
-                    'clicks' => $clicks,
-                    'conversions' => $conversions
-                ]);
-            } else {
-                \App\Models\Campaign\CampaignStat::create([
-                    'campaign_id' => $cc->id,
-                    'reach' => $reach,
-                    'impressions' => $impressions,
-                    'spend' => $spend,
-                    'spend_rsd' => $spend_rsd,
-                    'cpc' => $cpc,
-                    'clicks' => $clicks,
-                    'conversions' => $conversions,
-                    'date' => $campaign['date_start']
-                ]);
-            }
-        }
+    foreach ($campaigns as $campaign) {
+        if ($campaign->product) {
+            $campaign->product->update(['campaign_id' => $campaign->id]);
+        } 
     }
-
-    exit;
-    // $product = \App\Models\Product::find(5);
-
-    // $orders = \App\Models\Order\Order::where('created_at', '>=', '2024-01-27 00:00:00')->get();
-
-    // foreach ($orders as $order) {
-    //     $cost = 0;
-    //     $total = 0;
-        
-    //     foreach ($order->items as $item) {
-    //         $product = $item->product;
-
-    //         $item->update(['total' => $item->quantity * $product->selling_price]);
-
-    //         $cost += $product->buying_price * $item->quantity;
-    //         $total += $product->selling_price * $item->quantity;
-    //     }
-
-    //     $freeShipping = ($total > 2000) ? true : false;
-
-    //     if ($freeShipping) {
-    //         $cost += 280;
-    //     }
-
-    //     $order->update(['cost' => $cost + 102]);
-    // }
-
-    // dd($orders);
-    $campaign = \App\Models\Campaign\Campaign::where('facebook_id', 120204968510920697)->first();
-    \App\Models\Campaign\CampaignStat::where('campaign_id', $campaign->id)->delete();
-
-    $campaign->delete();
-
-    exit;
-    // $order = \App\Models\Order\Order::create([
-    //   'company_id' => 1,
-    //   'shopify_id' => 5697825734933,
-    //   'first_name' => 'Dragana',
-    //   'last_name' => 'Punos',
-    //   'address' => 'Andjelka Čobanovica 33',
-    //   'city' => 'Dobanovci',
-    //   'zip' => '11272',
-    //   'phone' => '+38169702484',
-    //   'total' => 990,
-    //   'cost' => 366,
-    //   'quantity' => 1,
-    //   'free_shipping' => false,
-    //   'status' => 'created'
-    // ]);
-
-    // \App\Models\Order\OrderItem::create([
-    //   'order_id' => $order->id,
-    //   'product_id' => 1,
-    //   'shopify_id' => 6817582792981,
-    //   'total' => 990,
-    //   'quantity' => 1
-    // ]);
-
-    // $companies = \App\Models\Company::all();
-
-    // $fields = [
-    //   'campaign_id',
-    //   'reach',
-    //   'impressions',
-    //   'spend',
-    //   'cpc',
-    //   'clicks',
-    //   'campaign_name',
-    //   'account_currency',
-    //   'conversions',
-    //   'actions'
-    // ];
-    
-    // $params = [
-    //   'date_preset' => 'yesterday',
-    //   'level' => 'campaign'
-    // ];
-
-    // foreach ($companies as $company) {
-    //   $api = \FacebookAds\Api::init($company->fb_app_id, $company->fb_app_secret, $company->fb_access_token);
-
-    //   $api->setLogger(new \FacebookAds\Logger\CurlLogger);
-
-    //   $acc = new \FacebookAds\Object\AdAccount('act_' . $company->fb_ad_account_id);
-    //   $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
-
-    //   dd($campaigns);
-    // }
-    
-    dd(\App\Models\Company::first());
 });
 
 Route::get('/', function () {
@@ -231,9 +48,7 @@ Route::middleware('auth')->group(function () {
     // Products
     Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
     Route::patch('/products/{product}/price', [ProductsController::class, 'updatePrice'])->name('products.update.price');
-
-    // Campaigns
-    Route::patch('/campaigns/{campaign}/product', [CampaignsController::class, 'updateProduct'])->name('campaigns.update.product');
+    Route::patch('/products/{product}/campaign', [ProductsController::class, 'updateCampaign'])->name('products.update.campaign');
 
     // Users
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');

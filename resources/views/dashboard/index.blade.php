@@ -84,7 +84,7 @@
             </div>
             <!--end::Wrapper-->
         </div>
-    @elseif ($company->campaigns()->whereNull('product_id')->count())
+    @elseif ($company->products()->whereNull('campaign_id')->count())
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
             <!--begin::Icon-->
             <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
@@ -94,7 +94,7 @@
                 <!--begin::Content-->
                 <div class="fw-semibold">
                     <h4 class="text-gray-900 fw-bold">Proizvodi nisu povezani sa kampanjama!</h4>
-                    <div class="fs-6 text-gray-700">Neki proizvodi nisu povezani sa kampanjama. Dodaj proizvod za svaku kampanja, kako bi praćenje bilo tačno.</div>
+                    <div class="fs-6 text-gray-700">Neki proizvodi nisu povezani sa kampanjama. Dodaj kampanju za svaki proizvod, kako bi praćenje bilo tačno.</div>
                 </div>
                 <!--end::Content-->
             </div>
@@ -281,17 +281,6 @@
                                                                 Facebook ID: {{ $campaign->facebook_id }}
                                                             </span>
                                                         </div>
-                                                        <div class="mb-2">
-                                                            <span class="text-gray-500 fw-semibold fs-5 d-block text-start ps-0">
-                                                                @if ($campaign->product)
-                                                                    Proizvod: {{ $campaign->product->name }}
-                                                                @else
-                                                                    <span class="text-danger fw-bold">Proizvod nije povezan!</span> <button class="btn btn-sm btn-dark fw-bold py-0 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#updateCampaignProductModal" data-action="{{ route('campaigns.update.product', $campaign->id) }}" data-name="{{ $campaign->name }}">
-                                                                        <span>Dodaj proizvod</span>
-                                                                    </button>
-                                                                @endif
-                                                            </span>
-                                                        </div>
                                                         <!--end::Desc-->
 
                                                         <span class="badge badge-light-dark text-dark px-4 fw-bold fs-7 text-center mt-3">
@@ -362,19 +351,10 @@
         @include('modals.connectSlanjePaketa')
         @include('modals.connectFacebook')
         @include('modals.connectShopify')
-        @include('modals.updateCampaignProduct')
     @endpush
 
     @push('scripts')
         <script type="text/javascript">
-            $('#updateCampaignProductModal').on('shown.bs.modal', function (event) {
-                var action = $(event.relatedTarget).attr('data-action');
-                var name = $(event.relatedTarget).attr('data-name');
-                
-                $(this).find('form').attr('action', action);
-                $(this).find('#campaign-name').text(name);
-            });
-
             var getUrlParameter = function getUrlParameter(sParam) {
                 var sPageURL = window.location.search.substring(1),
                     sURLVariables = sPageURL.split('&'),

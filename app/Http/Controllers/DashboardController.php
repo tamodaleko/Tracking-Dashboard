@@ -68,24 +68,36 @@ class DashboardController extends Controller
 
             $cost += $adSpend;
 
+            $productIds = $campaign->products()->pluck('id')->toArray();
+
             $orderQuery = Order::where('company_id', $company->id)
                 ->join('order_items', 'order_items.order_id', '=', 'orders.id')
-                ->where('product_id', $campaign->product_id)
+                ->whereIn('product_id', $productIds)
                 ->whereDate('orders.created_at', '>=', $startDate)
                 ->whereDate('orders.created_at', '<=', $endDate)
                 ->where('status', 'created');
 
             $orderItemQuery = OrderItem::where('company_id', $company->id)
                 ->join('orders', 'order_items.order_id', '=', 'orders.id')
-                ->where('product_id', $campaign->product_id)
+                ->whereIn('product_id', $productIds)
                 ->whereDate('orders.created_at', '>=', $startDate)
                 ->whereDate('orders.created_at', '<=', $endDate)
                 ->where('status', 'created');
 
-            $data[$campaign->id]['products'] = $orderItemQuery->clone()->sum('order_items.quantity');
+            $productQuantity = $orderItemQuery->clone()
+                ->groupBy('product_id')
+                ->selectRaw('sum(order_items.quantity) as quantity, product_id')
+                ->pluck('quantity','product_id')
+                ->toArray();
+
+            $data[$campaign->id]['products'] = array_sum($productQuantity);
             $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
-            $data[$campaign->id]['productCost'] = $data[$campaign->id]['products'] * ($campaign->product ? $campaign->product->buying_price : 0);
             $data[$campaign->id]['adCost'] = $adSpend;
+            $data[$campaign->id]['productCost'] = 0;
+
+            foreach ($campaign->products as $product) {
+                $data[$campaign->id]['productCost'] += (isset($productQuantity[$product->id])) ? ($productQuantity[$product->id] * $product->buying_price) : 0;
+            }
 
             $data[$campaign->id]['totalCost'] = $data[$campaign->id]['productCost'] + $data[$campaign->id]['adCost'];
         }
