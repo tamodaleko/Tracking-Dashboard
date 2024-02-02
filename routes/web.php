@@ -28,6 +28,8 @@ Route::get('/test', function () {
             $campaign->product->update(['campaign_id' => $campaign->id]);
         } 
     }
+
+    echo 'done';
 });
 
 Route::get('/', function () {
