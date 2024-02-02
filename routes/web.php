@@ -21,6 +21,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+    exit;
     $campaigns = \App\Models\Campaign\Campaign::all();
 
     foreach ($campaigns as $campaign) {
