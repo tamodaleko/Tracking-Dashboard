@@ -12,9 +12,9 @@
                 <!--begin::Heading-->
                 <div class="text-center mb-7">
                     <!--begin::Title-->
-                    <h1 class="text-gray-900 fw-bolder">Forgot Password?</h1>
+                    <h1 class="text-gray-900 fw-bolder">Zaboravio si šifru?</h1>
                     <!--end::Title-->
-                    <div class="text-gray-500 fw-semibold fs-6">Enter your email below to reset your password.</div>
+                    <div class="text-gray-500 fw-semibold fs-6">Ukucaj tvoj email dole da resetuješ šifru.</div>
                 </div>
                 <!--begin::Heading-->
 
@@ -39,10 +39,10 @@
                 <div class="d-flex flex-wrap justify-content-center pb-lg-0">
                     <button type="submit" class="btn btn-primary me-4">
                         <!--begin::Indicator label-->
-                        <span class="indicator-label">Send Password Reset Link</span>
+                        <span class="indicator-label">Pošalji kod na email</span>
                         <!--end::Indicator label-->
                     </button>
-                    <a href="{{ route('login') }}" class="btn btn-light">Cancel</a>
+                    <a href="{{ route('login') }}" class="btn btn-light">Otkaži</a>
                 </div>
                 <!--end::Actions-->
             </form>
