@@ -27,7 +27,7 @@
                 <!--begin::Input group=-->
                 <div class="fv-row mb-8">
                     <!--begin::Email-->
-                    <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent @error('email') is-invalid @enderror" value="{{ old('email') }}" />
+                    <input type="text" placeholder="Unesi email" name="email" autocomplete="off" class="form-control bg-transparent @error('email') is-invalid @enderror" value="{{ old('email') }}" />
                     <!--end::Email-->
 
                     @error('email')
