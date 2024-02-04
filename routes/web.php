@@ -22,7 +22,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    dd(\App\Models\Sms\SmsTemplate::get());
+    dd(\App\Models\Sms\SmsTemplate::find(2)->delete());
     exit;
     \App\Models\Sms\SmsTemplate::create([
         'company_id' => 1,
