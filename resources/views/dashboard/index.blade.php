@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title') {{ __('Dashboard') }} @endsection
+    @section('title') {{ __('Početna') }} @endsection
 
     @if (!$company->isSetUp())
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-12 p-6">
