@@ -7,6 +7,7 @@ use App\Http\Controllers\LicensesController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SmsTemplatesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WebhooksController;
 use Illuminate\Http\Request;
@@ -21,6 +22,12 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+    \App\Models\Sms\SmsTemplate::create([
+        'company_id' => 1,
+        'type' => 'order_received',
+        'text' => '[[ImeFirme]]: Vaša porudžbina je primljena! Očekujte poziv od kurira u naredna 2-3 dana.',
+        'description' => 'Poruka se šalje kupcu čim pošalje porudžbinu.'
+    ]);
     exit;
     $campaigns = \App\Models\Campaign\Campaign::all();
 
@@ -74,6 +81,10 @@ Route::middleware('auth')->group(function () {
 
     // Orders
     Route::get('/orders', [OrdersController::class, 'index'])->name('orders.index');
+
+    // SMS Templates
+    Route::get('/sms-templates', [SmsTemplatesController::class, 'index'])->name('smsTemplates.index');
+    Route::patch('/sms-templates/{template}/text', [SmsTemplatesController::class, 'updateText'])->name('templates.update.text');
 });
 
 require __DIR__.'/auth.php';
