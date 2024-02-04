@@ -1585,11 +1585,12 @@
                 var button = $(this);
                 
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: 'You won\'t be able to revert this!',
+                    title: 'Da li siguran?',
+                    text: 'Ovu akciju nije moguće poništiti!',
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonText: 'Confirm',
+                    confirmButtonText: 'Potvrdi',
+                    cancelButtonText: 'Otkaži',
                     customClass: {
                         confirmButton: 'bg-dark',
                         cancelButton: 'bg-secondary text-dark'
