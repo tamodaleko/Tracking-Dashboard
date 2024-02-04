@@ -38,26 +38,26 @@ class UsersController extends Controller
 
         if (User::create($validated)) {
             return redirect()->route('users.index')
-                ->withSuccess('The user has been added successfully.');
+                ->withSuccess('Korisnik je uspešno sačuvan.');
         }
 
         return redirect()->route('users.index')
-                ->withError('There was an error. The user hasn\'t been added. Please try again.');
+                ->withError('Korisnik nije sačuvan. Molimo pokušaj ponovo.');
     }
 
     public function destroy(Request $request, User $user): RedirectResponse
     {
         if (!$request->user()->admin || $user->company_id !== $request->user()->company_id) {
             return redirect()->route('users.index')
-                ->withError('Sorry, you are not allowed to do that.');
+                ->withError('Izvini, ova akcija nije dozvoljena.');
         }
 
         if ($user->delete()) {
             return redirect()->route('users.index')
-                ->withSuccess('The user has been deleted successfully.');
+                ->withSuccess('Korisnik je uspešno obrisan.');
         }
 
         return redirect()->route('users.index')
-                ->withError('There was an error. The user hasn\'t been deleted. Please try again.');
+                ->withError('Korisnik nije obrisan. Molimo pokušaj ponovo.');
     }
 }
