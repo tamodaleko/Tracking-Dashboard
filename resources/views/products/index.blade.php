@@ -12,7 +12,7 @@
             <i class="ki-outline ki-magnifier fs-3 position-absolute ms-4"></i>
             <input id="search-text" type="text" class="form-control w-250px ps-12" placeholder="Traži proizvod" value="{{ request()->get('search') }}">
 
-            <button id="search" class="btn btn-sm btn-success ms-3 px-4 py-3">Traži</button>
+            <button id="search" class="btn btn-sm btn-primary ms-3 px-4 py-3">Traži</button>
         </div>
         @if (count($products))
             @foreach ($products as $product)
