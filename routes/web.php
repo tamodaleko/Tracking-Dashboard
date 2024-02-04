@@ -22,6 +22,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
+    exit;
     \App\Models\Sms\SmsTemplate::create([
         'company_id' => 1,
         'type' => 'order_received',
