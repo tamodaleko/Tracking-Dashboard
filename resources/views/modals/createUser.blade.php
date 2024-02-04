@@ -27,7 +27,7 @@
                                 <!--begin::Col-->
                                 <div class="col-xl-6">
                                     <label class="form-label fw-bolder text-dark fs-6 required">Ime</label>
-                                    <input type="text" placeholder="Unes ime" name="first_name" autocomplete="off" class="form-control bg-transparent @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" />
+                                    <input type="text" placeholder="Unesi ime" name="first_name" autocomplete="off" class="form-control bg-transparent @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" />
 
                                     @error('first_name')
                                         <div class="error invalid-feedback">{{ $message }}</div>

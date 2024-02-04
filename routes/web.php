@@ -7,6 +7,7 @@ use App\Http\Controllers\LicensesController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SmsMessagesController;
 use App\Http\Controllers\SmsTemplatesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WebhooksController;
@@ -86,6 +87,9 @@ Route::middleware('auth')->group(function () {
     // SMS Templates
     Route::get('/sms-templates', [SmsTemplatesController::class, 'index'])->name('smsTemplates.index');
     Route::patch('/sms-templates/{template}/text', [SmsTemplatesController::class, 'updateText'])->name('templates.update.text');
+
+    // SMS Messages
+    Route::get('/sms-messages', [SmsMessagesController::class, 'index'])->name('smsMessages.index');
 });
 
 require __DIR__.'/auth.php';

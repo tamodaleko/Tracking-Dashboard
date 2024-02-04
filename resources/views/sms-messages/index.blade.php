@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title') {{ __('Users') }} @endsection
+    @section('title') {{ __('SMS Poruke') }} @endsection
 
     <!--begin::Row-->
     <div class="row mb-6 mb-xl-9">
@@ -10,21 +10,15 @@
                 <div class="card-header pt-7">
                     <!--begin::Title-->
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-800">Korisnici</span>
-                        <span class="text-gray-500 mt-1 fw-semibold fs-6">Tvoji korisnici koji imaju pristup nalogu firme.</span>
+                        <span class="card-label fw-bold text-gray-800">SMS Poruke</span>
+                        <span class="text-gray-500 mt-1 fw-semibold fs-6">Lista poslatih SMS poruka.</span>
                     </h3>
                     <!--end::Title-->
-                    <div class="card-toolbar">
-                        <button class="btn btn-sm btn-dark d-flex flex-center ms-3 px-4 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#createUserModal">
-                            <i class="ki-outline ki-plus-square fs-2"></i>
-                            <span>Novi Korisnik</span>
-                        </button>
-                    </div>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-5">
-                    @if (count($users))
+                    @if (count($messages))
                         <div class="separator separator-dashed"></div>
                         <!--begin::Items-->
                         <div class="">
@@ -78,7 +72,7 @@
                             <div class="d-flex flex-stack flex-grow-1">
                                 <!--begin::Content-->
                                 <div class="fw-semibold">
-                                    <h4 class="text-gray-900 m-0">Trenutno nemaš aktivnih korisnika.</h4>
+                                    <h4 class="text-gray-900 m-0">Trenutno nemaš nijednu poslatu SMS poruku.</h4>
                                 </div>
                                 <!--end::Content-->
                             </div>
@@ -92,8 +86,4 @@
         <!--end::Col-->
     </div>
     <!--end:Row-->
-
-    @push('modals')
-        @include('modals.createUser')
-    @endpush
 </x-app-layout>

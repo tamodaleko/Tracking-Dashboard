@@ -15,7 +15,7 @@
                     </h3>
                     <!--end::Title-->
                     <div class="card-toolbar">
-                        <a href="javascript:void()" class="btn btn-sm btn-primary d-flex flex-center ms-3 px-4 py-3 fw-bold">
+                        <a href="{{ route('smsMessages.index') }}" class="btn btn-sm btn-primary d-flex flex-center ms-3 px-4 py-3 fw-bold">
                             <i class="ki-outline ki-arrow-right fs-2"></i>
                             <span>Pogledaj poslate poruke</span>
                         </a>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Campaign\Campaign;
 use App\Models\Order\Order;
+use App\Models\Sms\SmsMessage;
 use App\Models\Sms\SmsTemplate;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -44,6 +45,11 @@ class Company extends Model
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function smsMessages(): HasMany
+    {
+        return $this->hasMany(SmsMessage::class);
     }
 
     public function smsTemplates(): HasMany
