@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title') {{ __('Users') }} @endsection
+    @section('title') {{ __('Korisnici') }} @endsection
 
     <!--begin::Row-->
     <div class="row mb-6 mb-xl-9">
