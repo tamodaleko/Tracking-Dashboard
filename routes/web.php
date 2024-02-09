@@ -23,14 +23,6 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    $items = \App\Models\Order\OrderItem::where('created_at', '>=', \Carbon\Carbon::today())->get();
-
-    foreach ($items as $item) {
-        if (!$item->product) {
-            $item->update(['product_id' => 6]);
-            $item->order->update(['cost' => $item->order->cost + 360]);
-        }
-    }
     exit;
     \App\Models\Sms\SmsTemplate::create([
         'company_id' => 1,
