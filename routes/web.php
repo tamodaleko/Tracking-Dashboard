@@ -27,7 +27,8 @@ Route::get('/test', function () {
 
     foreach ($items as $item) {
         if (!$item->product) {
-            dd($item->order);
+            $item->update(['product_id' => 6]);
+            $item->order->update(['cost' => $item->order->cost + 360]);
         }
     }
     exit;
