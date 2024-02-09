@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('app:update-campaign-stats')->hourlyAt(58)->withoutOverlapping();
-        $schedule->command('app:update-products')->everyMinute()->withoutOverlapping();
+        $schedule->command('app:update-products')->everyThreeHours()->withoutOverlapping();
     }
 
     /**
