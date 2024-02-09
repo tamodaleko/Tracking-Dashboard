@@ -23,7 +23,13 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function () {
-    dd(\App\Models\Order\OrderItem::where('created_at', '>=', \Carbon\Carbon::today())->get());
+    $items = \App\Models\Order\OrderItem::where('created_at', '>=', \Carbon\Carbon::today())->get();
+
+    foreach ($items as $item) {
+        if (!$item->product) {
+            dd($item->order);
+        }
+    }
     exit;
     \App\Models\Sms\SmsTemplate::create([
         'company_id' => 1,
