@@ -26,7 +26,7 @@ Route::get('/test', function () {
     $products = \App\Models\Product::all();
 
     foreach ($products as $product) {
-        echo $product->name ': ' . \App\Models\Order\OrderItem::where('product_id', $product->id)->count();
+        echo $product->name . ': ' . \App\Models\Order\OrderItem::where('product_id', $product->id)->count();
         echo '<br/>';
     }
 
