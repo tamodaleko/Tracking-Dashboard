@@ -75,9 +75,9 @@ Route::get('/test', function (Request $request) {
         echo '<br/>';
         echo 'Products: ' . $row['products'];
         echo '<br/>';
-        echo 'Total: ' . $row['total'];
+        echo 'Total: ' . number_format($row['total'], 2, '.', ',');
         echo '<br/>';
-        echo 'Profit: ' . $row['profit'];
+        echo 'Profit: ' . number_format($row['profit'], 2, '.', ',');
         echo '<br/>';
         echo '<br/>';
     }
