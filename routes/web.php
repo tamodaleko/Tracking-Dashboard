@@ -28,6 +28,17 @@ Route::get('/test', function (Request $request) {
 
     $company = \App\Models\Company::first();
 
+    $period = \Carbon\CarbonPeriod::create($startDate, $endDate);
+
+    foreach ($period as $date) {
+        echo $date->format('Y-m-d');
+        echo '<br/>';
+    }
+
+    exit;
+
+    $dates = [];
+
     $products = $company->orders()
         ->whereDate('created_at', '>=', $startDate)
         ->whereDate('created_at', '<=', $endDate)
