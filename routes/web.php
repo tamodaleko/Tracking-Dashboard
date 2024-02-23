@@ -46,27 +46,6 @@ Route::get('/test', function (Request $request) {
         ->where('status', 'created')
         ->sum('cost');
 
-    $orders = $company->orders()
-        ->whereDate('created_at', '>=', $startDate)
-        ->whereDate('created_at', '<=', $endDate)
-        ->where('status', 'created')
-        ->count();
-    
-    $sendCost = $company->orders()
-        ->whereDate('created_at', '>=', $startDate)
-        ->whereDate('created_at', '<=', $endDate)
-        ->where('status', 'created')
-        ->count() * 102;
-    
-    $shippingCost = $company->orders()
-        ->whereDate('created_at', '>=', $startDate)
-        ->whereDate('created_at', '<=', $endDate)
-        ->where('free_shipping', true)
-        ->where('status', 'created')
-        ->count() * 280;
-
-    $data = [];
-
     foreach ($company->campaigns as $campaign) {
         $stats = $campaign->getStats($startDate, $endDate);
 
