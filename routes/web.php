@@ -22,31 +22,97 @@ use FacebookAds\Object\Fields\CampaignFields;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/test', function () {
-    $products = \App\Models\Product::all();
+Route::get('/test', function (Request $request) {
+    $startDate = $request->start_date ?: \Carbon\Carbon::now()->format('Y-m-d');
+    $endDate = $request->end_date ?: \Carbon\Carbon::now()->format('Y-m-d');
 
-    foreach ($products as $product) {
-        echo $product->name . ': ' . \App\Models\Order\OrderItem::where('product_id', $product->id)->count();
-        echo '<br/>';
+    $company = \App\Models\Company::first();
+
+    $products = $company->orders()
+        ->whereDate('created_at', '>=', $startDate)
+        ->whereDate('created_at', '<=', $endDate)
+        ->where('status', 'created')
+        ->sum('quantity');
+    
+    $total = $company->orders()
+        ->whereDate('created_at', '>=', $startDate)
+        ->whereDate('created_at', '<=', $endDate)
+        ->where('status', 'created')
+        ->sum('total');
+    
+    $cost = $company->orders()
+        ->whereDate('created_at', '>=', $startDate)
+        ->whereDate('created_at', '<=', $endDate)
+        ->where('status', 'created')
+        ->sum('cost');
+
+    $orders = $company->orders()
+        ->whereDate('created_at', '>=', $startDate)
+        ->whereDate('created_at', '<=', $endDate)
+        ->where('status', 'created')
+        ->count();
+    
+    $sendCost = $company->orders()
+        ->whereDate('created_at', '>=', $startDate)
+        ->whereDate('created_at', '<=', $endDate)
+        ->where('status', 'created')
+        ->count() * 102;
+    
+    $shippingCost = $company->orders()
+        ->whereDate('created_at', '>=', $startDate)
+        ->whereDate('created_at', '<=', $endDate)
+        ->where('free_shipping', true)
+        ->where('status', 'created')
+        ->count() * 280;
+
+    $data = [];
+
+    foreach ($company->campaigns as $campaign) {
+        $stats = $campaign->getStats($startDate, $endDate);
+
+        $adSpend = 0;
+
+        foreach ($stats as $stat) {
+            $adSpend += $stat->spend_rsd;
+        }
+
+        $cost += $adSpend;
+
+        $productIds = $campaign->products()->pluck('id')->toArray();
+
+        $orderQuery = \App\Models\Order\Order::where('company_id', $company->id)
+            ->join('order_items', 'order_items.order_id', '=', 'orders.id')
+            ->whereIn('product_id', $productIds)
+            ->whereDate('orders.created_at', '>=', $startDate)
+            ->whereDate('orders.created_at', '<=', $endDate)
+            ->where('status', 'created');
+
+        $orderItemQuery = \App\Models\Order\OrderItem::where('company_id', $company->id)
+            ->join('orders', 'order_items.order_id', '=', 'orders.id')
+            ->whereIn('product_id', $productIds)
+            ->whereDate('orders.created_at', '>=', $startDate)
+            ->whereDate('orders.created_at', '<=', $endDate)
+            ->where('status', 'created');
+
+        $productQuantity = $orderItemQuery->clone()
+            ->groupBy('product_id')
+            ->selectRaw('sum(order_items.quantity) as quantity, product_id')
+            ->pluck('quantity','product_id')
+            ->toArray();
+
+        $data[$campaign->id]['products'] = array_sum($productQuantity);
+        $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
+        $data[$campaign->id]['adCost'] = $adSpend;
+        $data[$campaign->id]['productCost'] = 0;
+
+        foreach ($campaign->products as $product) {
+            $data[$campaign->id]['productCost'] += (isset($productQuantity[$product->id])) ? ($productQuantity[$product->id] * $product->buying_price) : 0;
+        }
+
+        $data[$campaign->id]['totalCost'] = $data[$campaign->id]['productCost'] + $data[$campaign->id]['adCost'];
     }
 
-    exit;
-    \App\Models\Sms\SmsTemplate::create([
-        'company_id' => 1,
-        'type' => 'order_received',
-        'text' => '[[ImeFirme]]: Vaša porudžbina je primljena! Očekujte poziv od kurira u naredna 2-3 dana.',
-        'description' => 'Poruka se šalje kupcu čim pošalje porudžbinu.'
-    ]);
-    exit;
-    $campaigns = \App\Models\Campaign\Campaign::all();
-
-    foreach ($campaigns as $campaign) {
-        if ($campaign->product) {
-            $campaign->product->update(['campaign_id' => $campaign->id]);
-        } 
-    }
-
-    echo 'done';
+    dd($data);
 });
 
 Route::get('/', function () {
