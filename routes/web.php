@@ -30,43 +30,40 @@ Route::get('/test', function (Request $request) {
 
     $period = \Carbon\CarbonPeriod::create($startDate, $endDate);
 
-    foreach ($period as $date) {
-        echo $date->format('Y-m-d');
-        echo '<br/>';
-    }
-
-    exit;
-
     $dates = [];
 
-    $products = $company->orders()
-        ->whereDate('created_at', '>=', $startDate)
-        ->whereDate('created_at', '<=', $endDate)
-        ->where('status', 'created')
-        ->sum('quantity');
+    foreach ($period as $date) {
+        $products = $company->orders()
+            ->whereDate('created_at', '>=', $date)
+            ->whereDate('created_at', '<=', $date)
+            ->where('status', 'created')
+            ->sum('quantity');
+
+        dd($products);
     
-    $total = $company->orders()
-        ->whereDate('created_at', '>=', $startDate)
-        ->whereDate('created_at', '<=', $endDate)
-        ->where('status', 'created')
-        ->sum('total');
-    
-    $cost = $company->orders()
-        ->whereDate('created_at', '>=', $startDate)
-        ->whereDate('created_at', '<=', $endDate)
-        ->where('status', 'created')
-        ->sum('cost');
+        $total = $company->orders()
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
+            ->sum('total');
+        
+        $cost = $company->orders()
+            ->whereDate('created_at', '>=', $startDate)
+            ->whereDate('created_at', '<=', $endDate)
+            ->where('status', 'created')
+            ->sum('cost');
 
-    foreach ($company->campaigns as $campaign) {
-        $stats = $campaign->getStats($startDate, $endDate);
+        foreach ($company->campaigns as $campaign) {
+            $stats = $campaign->getStats($startDate, $endDate);
 
-        $adSpend = 0;
+            $adSpend = 0;
 
-        foreach ($stats as $stat) {
-            $adSpend += $stat->spend_rsd;
+            foreach ($stats as $stat) {
+                $adSpend += $stat->spend_rsd;
+            }
+
+            $cost += $adSpend;
         }
-
-        $cost += $adSpend;
     }
 
     echo 'Products: ' . $products;
