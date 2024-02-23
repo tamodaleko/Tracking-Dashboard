@@ -77,42 +77,13 @@ Route::get('/test', function (Request $request) {
         }
 
         $cost += $adSpend;
-
-        $productIds = $campaign->products()->pluck('id')->toArray();
-
-        $orderQuery = \App\Models\Order\Order::where('company_id', $company->id)
-            ->join('order_items', 'order_items.order_id', '=', 'orders.id')
-            ->whereIn('product_id', $productIds)
-            ->whereDate('orders.created_at', '>=', $startDate)
-            ->whereDate('orders.created_at', '<=', $endDate)
-            ->where('status', 'created');
-
-        $orderItemQuery = \App\Models\Order\OrderItem::where('company_id', $company->id)
-            ->join('orders', 'order_items.order_id', '=', 'orders.id')
-            ->whereIn('product_id', $productIds)
-            ->whereDate('orders.created_at', '>=', $startDate)
-            ->whereDate('orders.created_at', '<=', $endDate)
-            ->where('status', 'created');
-
-        $productQuantity = $orderItemQuery->clone()
-            ->groupBy('product_id')
-            ->selectRaw('sum(order_items.quantity) as quantity, product_id')
-            ->pluck('quantity','product_id')
-            ->toArray();
-
-        $data[$campaign->id]['products'] = array_sum($productQuantity);
-        $data[$campaign->id]['total'] = $orderQuery->clone()->sum('order_items.total');
-        $data[$campaign->id]['adCost'] = $adSpend;
-        $data[$campaign->id]['productCost'] = 0;
-
-        foreach ($campaign->products as $product) {
-            $data[$campaign->id]['productCost'] += (isset($productQuantity[$product->id])) ? ($productQuantity[$product->id] * $product->buying_price) : 0;
-        }
-
-        $data[$campaign->id]['totalCost'] = $data[$campaign->id]['productCost'] + $data[$campaign->id]['adCost'];
     }
 
-    dd($data);
+    echo 'Products: ' . $products;
+    echo '<br/>';
+    echo 'Total: ' . $total;
+    echo '<br/>';
+    echo 'Profit: ' . ($total - $cost);
 });
 
 Route::get('/', function () {
