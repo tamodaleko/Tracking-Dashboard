@@ -38,23 +38,21 @@ Route::get('/test', function (Request $request) {
             ->whereDate('created_at', '<=', $date)
             ->where('status', 'created')
             ->sum('quantity');
-
-        dd($products);
     
         $total = $company->orders()
-            ->whereDate('created_at', '>=', $startDate)
-            ->whereDate('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $date)
+            ->whereDate('created_at', '<=', $date)
             ->where('status', 'created')
             ->sum('total');
         
         $cost = $company->orders()
-            ->whereDate('created_at', '>=', $startDate)
-            ->whereDate('created_at', '<=', $endDate)
+            ->whereDate('created_at', '>=', $date)
+            ->whereDate('created_at', '<=', $date)
             ->where('status', 'created')
             ->sum('cost');
 
         foreach ($company->campaigns as $campaign) {
-            $stats = $campaign->getStats($startDate, $endDate);
+            $stats = $campaign->getStats($date, $date);
 
             $adSpend = 0;
 
@@ -64,13 +62,25 @@ Route::get('/test', function (Request $request) {
 
             $cost += $adSpend;
         }
+
+        $dates[$date->format('Y-m-d')] = [
+            'products' => $products,
+            'total' => $total,
+            'profit' => $total - $cost
+        ];
     }
 
-    echo 'Products: ' . $products;
-    echo '<br/>';
-    echo 'Total: ' . $total;
-    echo '<br/>';
-    echo 'Profit: ' . ($total - $cost);
+    foreach ($dates as $d => $row) {
+        echo 'Date:' . $d;
+        echo '<br/>';
+        echo 'Products: ' . $row['products'];
+        echo '<br/>';
+        echo 'Total: ' . $row['total'];
+        echo '<br/>';
+        echo 'Profit: ' . $row['profit'];
+        echo '<br/>';
+        echo '<br/>';
+    }
 });
 
 Route::get('/', function () {
