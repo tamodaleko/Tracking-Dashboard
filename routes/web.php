@@ -137,7 +137,28 @@ Route::get('/google-test', function (Request $request) {
         ->withLinkedCustomerId(config('services.googleAds.customer_id'))
         ->build();
 
-    dd($googleAdsClient);
+    $googleAdsServiceClient = $googleAdsClient->getGoogleAdsServiceClient();
+    
+    // Creates a query that retrieves all campaigns.
+    $query = 'SELECT campaign.id, campaign.name FROM campaign ORDER BY campaign.id';
+    // Issues a search stream request.
+    
+    /** @var GoogleAdsServerStreamDecorator $stream */
+    $stream = $googleAdsServiceClient->searchStream(
+        \Google\Ads\GoogleAds\V16\Services\SearchGoogleAdsStreamRequest::build(config('services.googleAds.customer_id'), $query)
+    );
+
+    foreach ($stream->iterateAllElements() as $googleAdsRow) {
+        /** @var GoogleAdsRow $googleAdsRow */
+        printf(
+            "Campaign with ID %d and name '%s' was found.%s",
+            $googleAdsRow->getCampaign()->getId(),
+            $googleAdsRow->getCampaign()->getName(),
+            PHP_EOL
+        );
+    }
+
+    // dd($googleAdsClient);
 });
 
 // Webhooks
