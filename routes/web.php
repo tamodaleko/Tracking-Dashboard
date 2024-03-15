@@ -100,7 +100,7 @@ Route::get('/google-test', function (Request $request) {
         ]
     );
 
-    echo $oauth2->buildFullAuthorizationUri();
+    echo '<a href="' . $oauth2->buildFullAuthorizationUri() . '">Connect Google Ads</a>';
 });
 
 Route::get('/google-oauth', function (Request $request) {
