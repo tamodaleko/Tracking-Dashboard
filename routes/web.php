@@ -133,7 +133,7 @@ Route::get('/google-test', function (Request $request) {
     $googleAdsClient = (new \Google\Ads\GoogleAds\Lib\V16\GoogleAdsClientBuilder())
         ->withOAuth2Credential($oAuth2Credential)
         ->withDeveloperToken(config('services.googleAds.developer_token'))
-        ->withLoginCustomerId(config('services.googleAds.customer_id'))
+        ->withLoginCustomerId('7737781256')
         ->withLinkedCustomerId(config('services.googleAds.customer_id'))
         ->build();
 
