@@ -87,6 +87,26 @@ Route::get('/', function () {
     return redirect()->route('dashboard.index');
 });
 
+Route::get('/google-test', function (Request $request) {
+    $oauth2 = new \Google\Auth\OAuth2(
+        [
+            'clientId' => config('services.googleAds.client_id'),
+            'clientSecret' => config('services.googleAds.client_secret'),
+            'authorizationUri' => 'https://accounts.google.com/o/oauth2/v2/auth',
+            'redirectUri' => 'https://dashboard.shoppex.rs/google-oauth',
+            'tokenCredentialUri' => \Google\Auth\CredentialsLoader::TOKEN_CREDENTIAL_URI,
+            'scope' => 'https://www.googleapis.com/auth/adwords',
+            'state' => sha1(openssl_random_pseudo_bytes(1024))
+        ]
+    );
+
+    dd($oauth2);
+});
+
+Route::get('/google-oauth', function (Request $request) {
+    dd($request->all());
+});
+
 // Webhooks
 Route::post('/webhooks/{company}/shopify', [WebhooksController::class, 'shopify'])->name('webhooks.shopify');
 Route::put('/webhooks/{company}/slanje-paketa', [WebhooksController::class, 'slanjePaketa'])->name('webhooks.slanjePaketa');

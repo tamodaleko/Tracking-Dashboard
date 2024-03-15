@@ -29,5 +29,12 @@ return [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+    ],
+
+    'googleAds' => [
+        'customer_id' => env('GOOGLE_ADS_CUSTOMER_ID'),
+        'developer_token' => env('GOOGLE_ADS_DEVELOPER_TOKEN'),
+        'client_id' => env('GOOGLE_ADS_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_ADS_CLIENT_SECRET'),
     ]
 ];
