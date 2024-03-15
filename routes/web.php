@@ -100,7 +100,7 @@ Route::get('/google-test', function (Request $request) {
         ]
     );
 
-    dd($oauth2);
+    dd($oauth2->getRedirectUri());
 });
 
 Route::get('/google-oauth', function (Request $request) {
