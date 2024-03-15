@@ -87,7 +87,7 @@ Route::get('/', function () {
     return redirect()->route('dashboard.index');
 });
 
-Route::get('/google-test', function (Request $request) {
+Route::get('/google-connect', function () {
     $oauth2 = new \Google\Auth\OAuth2(
         [
             'clientId' => config('services.googleAds.client_id'),
@@ -104,7 +104,23 @@ Route::get('/google-test', function (Request $request) {
 });
 
 Route::get('/google-oauth', function (Request $request) {
-    dd($request->all());
+    $oauth2 = new \Google\Auth\OAuth2(
+        [
+            'clientId' => config('services.googleAds.client_id'),
+            'clientSecret' => config('services.googleAds.client_secret'),
+            'authorizationUri' => 'https://accounts.google.com/o/oauth2/v2/auth',
+            'redirectUri' => 'https://dashboard.shoppex.rs/google-oauth',
+            'tokenCredentialUri' => \Google\Auth\CredentialsLoader::TOKEN_CREDENTIAL_URI,
+            'scope' => 'https://www.googleapis.com/auth/adwords',
+            'state' => sha1(openssl_random_pseudo_bytes(1024))
+        ]
+    );
+
+    $oauth2->setCode($request->code);
+    $authToken = $oauth2->fetchAuthToken();
+    $refreshToken = $authToken['refresh_token'];
+
+    dd($authToken, $refreshToken);
 });
 
 // Webhooks
