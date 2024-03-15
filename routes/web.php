@@ -118,9 +118,9 @@ Route::get('/google-oauth', function (Request $request) {
 
     $oauth2->setCode($request->code);
     $authToken = $oauth2->fetchAuthToken();
-    $refreshToken = $authToken['refresh_token'];
+    // $refreshToken = $authToken['refresh_token'];
 
-    dd($authToken, $refreshToken);
+    dd($authToken);
 });
 
 Route::get('/google-test', function (Request $request) {
