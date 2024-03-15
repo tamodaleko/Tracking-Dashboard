@@ -124,13 +124,13 @@ Route::get('/google-oauth', function (Request $request) {
 });
 
 Route::get('/google-test', function (Request $request) {
-    $oAuth2Credential = (new OAuth2TokenBuilder())
+    $oAuth2Credential = (new \Google\Ads\GoogleAds\Lib\OAuth2TokenBuilder())
         ->withClientId(config('services.googleAds.client_id'))
         ->withClientSecret(config('services.googleAds.client_secret'))
         ->withRefreshToken('1//09lral1sJyt75CgYIARAAGAkSNwF-L9Iru6P2XA5fZeBdp75CBEi13u4NFlKb4bYk0HDGHzg6YwjhAwf-yKS4qrwC4GxWoM--ORQ')
         ->build();
 
-    $googleAdsClient = (new GoogleAdsClientBuilder())
+    $googleAdsClient = (new \Google\Ads\GoogleAds\Lib\V16\GoogleAdsClientBuilder())
         ->withOAuth2Credential($oAuth2Credential)
         ->withDeveloperToken(config('services.googleAds.developer_token'))
         ->withLoginCustomerId(config('services.googleAds.customer_id'))
