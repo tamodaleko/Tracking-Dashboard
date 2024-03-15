@@ -123,6 +123,22 @@ Route::get('/google-oauth', function (Request $request) {
     dd($authToken, $refreshToken);
 });
 
+Route::get('/google-test', function (Request $request) {
+    $oAuth2Credential = (new OAuth2TokenBuilder())
+        ->withClientId(config('services.googleAds.client_id'))
+        ->withClientSecret(config('services.googleAds.client_secret'))
+        ->withRefreshToken('1//09lral1sJyt75CgYIARAAGAkSNwF-L9Iru6P2XA5fZeBdp75CBEi13u4NFlKb4bYk0HDGHzg6YwjhAwf-yKS4qrwC4GxWoM--ORQ')
+        ->build();
+
+    $googleAdsClient = (new GoogleAdsClientBuilder())
+        ->withOAuth2Credential($oAuth2Credential)
+        ->withDeveloperToken(config('services.googleAds.developer_token'))
+        ->withLoginCustomerId(config('services.googleAds.customer_id'))
+        ->build();
+
+    dd($googleAdsClient);
+});
+
 // Webhooks
 Route::post('/webhooks/{company}/shopify', [WebhooksController::class, 'shopify'])->name('webhooks.shopify');
 Route::put('/webhooks/{company}/slanje-paketa', [WebhooksController::class, 'slanjePaketa'])->name('webhooks.slanjePaketa');
