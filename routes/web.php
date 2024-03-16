@@ -23,6 +23,14 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
+    $products = \App\Models\Product::all();
+
+    foreach ($products as $product) {
+        echo $product->name ': ' . \App\Models\Order\OrderItem::where('product_id', $product->id)->count();
+        echo '<br/>';
+    }
+
+    exit;
     $startDate = $request->start_date ?: \Carbon\Carbon::now()->format('Y-m-d');
     $endDate = $request->end_date ?: \Carbon\Carbon::now()->format('Y-m-d');
 
