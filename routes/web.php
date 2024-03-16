@@ -26,7 +26,7 @@ Route::get('/test', function (Request $request) {
     $products = \App\Models\Product::all();
 
     foreach ($products as $product) {
-        echo $product->name . ': ' . \App\Models\Order\OrderItem::where('product_id', $product->id)->count();
+        echo $product->name . ': ' . \App\Models\Order\OrderItem::where('created_at', '>=', '2024-03-01 00:00:00')->where('product_id', $product->id)->count();
         echo '<br/>';
     }
 
