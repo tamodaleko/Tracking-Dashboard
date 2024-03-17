@@ -23,14 +23,14 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    $products = \App\Models\Product::all();
+    // $products = \App\Models\Product::all();
 
-    foreach ($products as $product) {
-        echo $product->name . ': ' . \App\Models\Order\OrderItem::where('created_at', '>=', '2024-03-01 00:00:00')->where('product_id', $product->id)->count();
-        echo '<br/>';
-    }
+    // foreach ($products as $product) {
+    //     echo $product->name . ': ' . \App\Models\Order\OrderItem::where('created_at', '>=', '2024-03-01 00:00:00')->where('product_id', $product->id)->count();
+    //     echo '<br/>';
+    // }
 
-    exit;
+    // exit;
     $startDate = $request->start_date ?: \Carbon\Carbon::now()->format('Y-m-d');
     $endDate = $request->end_date ?: \Carbon\Carbon::now()->format('Y-m-d');
 
