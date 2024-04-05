@@ -158,7 +158,7 @@ Route::get('/google-test', function (Request $request) {
 
     foreach ($stream->iterateAllElements() as $googleAdsRow) {
 
-        dd($googleAdsRow->getCampaign());
+        dd($googleAdsRow);
         /** @var GoogleAdsRow $googleAdsRow */
         printf(
             "Campaign with ID %d and name '%s' was found.%s",
