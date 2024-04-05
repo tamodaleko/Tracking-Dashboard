@@ -135,7 +135,7 @@ Route::get('/google-test', function (Request $request) {
     $oAuth2Credential = (new \Google\Ads\GoogleAds\Lib\OAuth2TokenBuilder())
         ->withClientId(config('services.googleAds.client_id'))
         ->withClientSecret(config('services.googleAds.client_secret'))
-        ->withRefreshToken('1//09lral1sJyt75CgYIARAAGAkSNwF-L9Iru6P2XA5fZeBdp75CBEi13u4NFlKb4bYk0HDGHzg6YwjhAwf-yKS4qrwC4GxWoM--ORQ')
+        ->withRefreshToken('1//094mC9V3q07JfCgYIARAAGAkSNwF-L9Irka1Qndv_SWiDZP9-Ib7YKwfztdPuVaNV5sGb1PaY3ObH4TziJ_uvMmcRj0QvObPKhdU')
         ->build();
 
     $googleAdsClient = (new \Google\Ads\GoogleAds\Lib\V16\GoogleAdsClientBuilder())
