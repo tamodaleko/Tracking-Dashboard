@@ -148,7 +148,7 @@ Route::get('/google-test', function (Request $request) {
     $googleAdsServiceClient = $googleAdsClient->getGoogleAdsServiceClient();
     
     // Creates a query that retrieves all campaigns.
-    $query = 'SELECT campaign.id, campaign.name, campaign.cost FROM campaign ORDER BY campaign.id';
+    $query = 'SELECT campaign.id, campaign.name, campaign.optimization_score FROM campaign ORDER BY campaign.id';
     // Issues a search stream request.
     
     /** @var GoogleAdsServerStreamDecorator $stream */
