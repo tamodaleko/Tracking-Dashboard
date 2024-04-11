@@ -23,10 +23,10 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(50)->limit(30)->distinct('phone')->get();
+    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(80)->limit(30)->distinct('phone')->get();
 
     header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="customers-50-80.csv";');
+    header('Content-Disposition: attachment; filename="customers-80-110.csv";');
 
     $f = fopen('php://output', 'w');
 
@@ -43,20 +43,6 @@ Route::get('/test', function (Request $request) {
 
         fputcsv($f, $write);
     }
-
-    fputcsv($f, [
-        'Dejan',
-        '381644544952',
-        '02/02/2024',
-        'Cao Dejan! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
-    ]);
-
-    fputcsv($f, [
-        'Nikola',
-        '381677244710',
-        '02/02/2024',
-        'Cao Dejan! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
-    ]);
 
     fclose($f);
     exit;
