@@ -36,7 +36,7 @@ Route::get('/test', function (Request $request) {
         $write = [
             ucwords(strtolower($order->first_name)),
             $order->phone,
-            $order->date->format('m/d/Y'),
+            $order->created_at->format('m/d/Y'),
         ];
 
         fputcsv($f, $write);
