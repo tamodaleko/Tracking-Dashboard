@@ -25,6 +25,26 @@ use FacebookAds\Object\Fields\CampaignFields;
 Route::get('/test', function (Request $request) {
     $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->limit(50)->distinct('phone')->get();
 
+    header('Content-Type: application/csv');
+    header('Content-Disposition: attachment; filename="customers-0-50.csv";');
+
+    $f = fopen('php://output', 'w');
+
+    fputcsv($f, ['First Name', 'Phone', 'Date']);
+
+    foreach ($orders as $order) {
+        $write = [
+            ucwords(strtolower($order->first_name)),
+            $order->phone,
+            $order->date->format('m/d/Y'),
+        ];
+
+        fputcsv($f, $write);
+    }
+
+    fclose($f);
+    exit;
+
     dd($orders);
     // $products = \App\Models\Product::all();
 
