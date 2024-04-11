@@ -37,6 +37,7 @@ Route::get('/test', function (Request $request) {
             ucwords(strtolower($order->first_name)),
             $order->phone,
             $order->created_at->format('m/d/Y'),
+            'Cao ' . $order->first_name . '! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
         ];
 
         fputcsv($f, $write);
