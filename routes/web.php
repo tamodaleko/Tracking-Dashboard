@@ -44,6 +44,20 @@ Route::get('/test', function (Request $request) {
         fputcsv($f, $write);
     }
 
+    fputcsv($f, [
+        'Dejan',
+        '381644544952',
+        '02/02/2024',
+        'Cao Dejan! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
+    ]);
+
+    fputcsv($f, [
+        'Nikola',
+        '381677244710',
+        '02/02/2024',
+        'Cao Dejan! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
+    ]);
+
     fclose($f);
     exit;
 
