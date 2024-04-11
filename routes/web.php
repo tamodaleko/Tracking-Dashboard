@@ -23,6 +23,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
+    dd(\App\Models\Order\Order::where('phone', '+381603536404')->get());
     $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(80)->limit(20)->distinct('phone')->get();
 
     header('Content-Type: application/csv');
