@@ -23,7 +23,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    $orders = \App\Models\Order\Order::oldest()->limit(50)->distinct('phone')->get();
+    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->limit(50)->distinct('phone')->get();
 
     dd($orders);
     // $products = \App\Models\Product::all();
