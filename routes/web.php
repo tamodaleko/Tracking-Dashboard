@@ -23,7 +23,7 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    dd(\App\Models\Order\Order::count());
+    dd(\App\Models\Order\Order::distinct('phone')->count());
     // $products = \App\Models\Product::all();
 
     // foreach ($products as $product) {
