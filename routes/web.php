@@ -35,7 +35,7 @@ Route::get('/test', function (Request $request) {
     foreach ($orders as $order) {
         $write = [
             ucwords(strtolower($order->first_name)),
-            $order->phone,
+            str_replace('+3810', '+381', $order->phone),
             $order->created_at->format('m/d/Y'),
             'Cao ' . $order->first_name . '! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
         ];
