@@ -26,7 +26,7 @@ Route::get('/test', function (Request $request) {
     $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(50)->limit(30)->distinct('phone')->get();
 
     header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="customers-50-20.csv";');
+    header('Content-Disposition: attachment; filename="customers-50-80.csv";');
 
     $f = fopen('php://output', 'w');
 
