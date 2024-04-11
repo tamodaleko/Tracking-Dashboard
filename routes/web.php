@@ -23,10 +23,10 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(80)->limit(30)->distinct('phone')->get();
+    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(80)->limit(20)->distinct('phone')->get();
 
     header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="customers-80-110.csv";');
+    header('Content-Disposition: attachment; filename="customers-80-100.csv";');
 
     $f = fopen('php://output', 'w');
 
