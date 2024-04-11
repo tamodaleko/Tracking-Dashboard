@@ -23,19 +23,20 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->limit(50)->distinct('phone')->get();
+    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(50)->limit(30)->distinct('phone')->get();
 
     header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="customers-0-50.csv";');
+    header('Content-Disposition: attachment; filename="customers-50-20.csv";');
 
     $f = fopen('php://output', 'w');
 
     fputcsv($f, ['First Name', 'Phone', 'Date']);
 
     foreach ($orders as $order) {
+        $phone = str_replace('+3810', '+381', $order->phone);
         $write = [
             ucwords(strtolower($order->first_name)),
-            str_replace('+3810', '+381', $order->phone),
+            $phone,
             $order->created_at->format('m/d/Y'),
             'Cao ' . $order->first_name . '! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
         ];
