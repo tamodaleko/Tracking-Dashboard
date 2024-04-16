@@ -23,32 +23,32 @@ use FacebookAds\Object\Fields\CampaignFields;
 */
 
 Route::get('/test', function (Request $request) {
-    dd(\App\Models\Order\Order::where('phone', '+381603536404')->get());
-    $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(80)->limit(20)->distinct('phone')->get();
+    // dd(\App\Models\Order\Order::where('phone', '+381603536404')->get());
+    // $orders = \App\Models\Order\Order::oldest()->whereNotNull('shopify_id')->skip(80)->limit(20)->distinct('phone')->get();
 
-    header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="customers-80-100.csv";');
+    // header('Content-Type: application/csv');
+    // header('Content-Disposition: attachment; filename="customers-80-100.csv";');
 
-    $f = fopen('php://output', 'w');
+    // $f = fopen('php://output', 'w');
 
-    fputcsv($f, ['First Name', 'Phone', 'Date']);
+    // fputcsv($f, ['First Name', 'Phone', 'Date']);
 
-    foreach ($orders as $order) {
-        $phone = str_replace('+3810', '+381', $order->phone);
-        $write = [
-            ucwords(strtolower($order->first_name)),
-            $phone,
-            $order->created_at->format('m/d/Y'),
-            'Cao ' . $order->first_name . '! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
-        ];
+    // foreach ($orders as $order) {
+    //     $phone = str_replace('+3810', '+381', $order->phone);
+    //     $write = [
+    //         ucwords(strtolower($order->first_name)),
+    //         $phone,
+    //         $order->created_at->format('m/d/Y'),
+    //         'Cao ' . $order->first_name . '! Iskoristi 20% popusta na tvoju sledecu kupovinu na sajtu - shoppex.rs/discount/OFF20 Akcija traje jos 24 sata!'
+    //     ];
 
-        fputcsv($f, $write);
-    }
+    //     fputcsv($f, $write);
+    // }
 
-    fclose($f);
-    exit;
+    // fclose($f);
+    // exit;
 
-    dd($orders);
+    // dd($orders);
     // $products = \App\Models\Product::all();
 
     // foreach ($products as $product) {
