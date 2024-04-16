@@ -57,6 +57,7 @@ Route::get('/test', function (Request $request) {
     // }
 
     // exit;
+    
     $startDate = $request->start_date ?: \Carbon\Carbon::now()->format('Y-m-d');
     $endDate = $request->end_date ?: \Carbon\Carbon::now()->format('Y-m-d');
 
