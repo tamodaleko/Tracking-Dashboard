@@ -206,22 +206,6 @@
                                             <!--begin::Col-->
                                             <div class="col-6">
                                                 <!--begin::Link-->
-                                                <a href="javascript:void()" class="@if (Route::currentRouteName() === 'orders.index') btn-light-primary @endif btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
-                                                    <!--begin::Icon-->
-                                                    <span class="mb-2">
-                                                        <i class="ki-outline ki-purchase fs-1"></i>
-                                                    </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Label-->
-                                                    <span class="fs-7 fw-bold">Porudžbine</span>
-                                                    <!--end::Label-->
-                                                </a>
-                                                <!--end::Link-->
-                                            </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
-                                            <div class="col-6">
-                                                <!--begin::Link-->
                                                 <a href="{{ route('smsTemplates.index') }}" class="@if (Route::currentRouteName() === 'smsTemplates.index') btn-light-primary @endif btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
                                                     <!--begin::Icon-->
                                                     <span class="mb-2">
