@@ -112,9 +112,7 @@ class CompaniesController extends Controller
                 ->withError('Facebook nije moguće povezati. Proveri da li su informacije tačne.');
         }
 
-        dd($campaigns);
-
-        if (!isset($campaigns['data']) || !$campaigns['data']) {
+        if (!isset($campaigns['data'])) {
             return redirect()->route('dashboard.index')
                 ->withError('Facebook nije moguće povezati. Kampanje nisu pronadjene.');
         }
@@ -126,31 +124,33 @@ class CompaniesController extends Controller
             'fb_ad_account_id' => trim($fb_ad_account_id)
         ]);
 
-        foreach ($campaigns['data'] as $campaign) {
-            $cc = Campaign::create([
-                'company_id' => auth()->user()->company->id,
-                'facebook_id' => $campaign['campaign_id'],
-                'name' => $campaign['campaign_name'],
-                'currency' => $campaign['account_currency']
-            ]);
+        if ($campaigns['data']) {
+            foreach ($campaigns['data'] as $campaign) {
+                $cc = Campaign::create([
+                    'company_id' => auth()->user()->company->id,
+                    'facebook_id' => $campaign['campaign_id'],
+                    'name' => $campaign['campaign_name'],
+                    'currency' => $campaign['account_currency']
+                ]);
 
-            foreach ($campaign['actions'] as $action) {
-                if ($action['action_type'] === 'purchase') {
-                    $conversions = $action['value'];
+                foreach ($campaign['actions'] as $action) {
+                    if ($action['action_type'] === 'purchase') {
+                        $conversions = $action['value'];
+                    }
                 }
-            }
 
-            CampaignStat::create([
-                'campaign_id' => $cc->id,
-                'reach' => $campaign['reach'] ?? 0,
-                'impressions' => $campaign['impressions'] ?? 0,
-                'spend' => $campaign['spend'] ?? 0,
-                'spend_rsd' => (new ExchangeRateService)->convertToRSD($campaign['account_currency'], $campaign['spend'] ?? 0),
-                'cpc' => $campaign['cpc'] ?? 0,
-                'clicks' => $campaign['clicks'] ?? 0,
-                'conversions' => $conversions ?? 0,
-                'date' => $campaign['date_start']
-            ]);
+                CampaignStat::create([
+                    'campaign_id' => $cc->id,
+                    'reach' => $campaign['reach'] ?? 0,
+                    'impressions' => $campaign['impressions'] ?? 0,
+                    'spend' => $campaign['spend'] ?? 0,
+                    'spend_rsd' => (new ExchangeRateService)->convertToRSD($campaign['account_currency'], $campaign['spend'] ?? 0),
+                    'cpc' => $campaign['cpc'] ?? 0,
+                    'clicks' => $campaign['clicks'] ?? 0,
+                    'conversions' => $conversions ?? 0,
+                    'date' => $campaign['date_start']
+                ]);
+            }
         }
 
         return redirect()->route('dashboard.index')
