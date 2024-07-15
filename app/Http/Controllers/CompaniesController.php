@@ -108,6 +108,8 @@ class CompaniesController extends Controller
             $acc = new AdAccount('act_' . $fb_ad_account_id);
             $campaigns = $acc->getInsights($fields, $params)->getResponse()->getContent();
         } catch (Exception $e) {
+            var_dump($e->getMessage());
+            exit;
             return redirect()->route('dashboard.index')
                 ->withError('Facebook nije moguće povezati. Proveri da li su informacije tačne.');
         }
