@@ -42,6 +42,10 @@ class UpdateProducts extends Command
             }
 
             foreach ($products['data'] as $product) {
+                if ($product['code'] === 'SP_PAKET') {
+                    continue;
+                }
+                
                 $existingProduct = Product::where('company_id', $company->id)
                     ->where('sp_id', $product['_id'])
                     ->first();
